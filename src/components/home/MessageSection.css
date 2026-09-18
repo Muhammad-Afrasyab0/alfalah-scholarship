@@ -1,0 +1,1163 @@
+/* =========================================================
+   MESSAGE SECTION
+========================================================= */
+
+.message-section {
+  position: relative;
+  isolation: isolate;
+
+  padding-block: clamp(95px, 10vw, 160px);
+
+  overflow: hidden;
+
+  background: var(--bg-primary, #080d12);
+
+  color: var(--text-primary, #f5f8fc);
+
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+
+/* =========================================================
+   PREMIUM BACKGROUND
+========================================================= */
+
+.message-section__background {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -2;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   TECH GRID
+========================================================= */
+
+.message-section__grid {
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.026) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.026) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 12%,
+      black 88%,
+      transparent 100%
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 12%,
+      black 88%,
+      transparent 100%
+    );
+}
+
+
+/* =========================================================
+   ORBITAL SYSTEM
+========================================================= */
+
+.message-section__orb {
+  position: absolute;
+
+  width: 520px;
+  height: 520px;
+
+  border: 1px solid
+    rgba(22, 119, 255, 0.18);
+
+  border-radius: 50%;
+}
+
+.message-section__orb::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 48px;
+
+  border: 1px solid
+    rgba(22, 119, 255, 0.10);
+
+  border-radius: 50%;
+}
+
+.message-section__orb::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 105px;
+
+  border: 1px dashed
+    rgba(22, 119, 255, 0.11);
+
+  border-radius: 50%;
+}
+
+
+/* LEFT ORBIT */
+
+.message-section__orb--left {
+  left: -365px;
+  top: 7%;
+}
+
+
+/* RIGHT ORBIT */
+
+.message-section__orb--right {
+  right: -365px;
+  bottom: -12%;
+}
+
+
+/* =========================================================
+   ORBIT DOT
+========================================================= */
+
+.message-section__orb-dot {
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  top: 50%;
+  right: -4px;
+
+  border-radius: 50%;
+
+  background: #1677ff;
+
+  box-shadow:
+    0 0 0 5px rgba(22, 119, 255, 0.08),
+    0 0 22px rgba(22, 119, 255, 0.75);
+}
+
+
+/* =========================================================
+   AMBIENT BLUE LIGHT
+========================================================= */
+
+.message-section__ambient-light {
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  border-radius: 50%;
+
+  background: #1677ff;
+
+  filter: blur(125px);
+
+  pointer-events: none;
+}
+
+.message-section__ambient-light--left {
+  left: -180px;
+  top: 28%;
+
+  opacity: 0.07;
+}
+
+.message-section__ambient-light--right {
+  right: -180px;
+  bottom: 10%;
+
+  opacity: 0.055;
+}
+
+
+/* =========================================================
+   PREMIUM SCANNER
+========================================================= */
+
+.message-section__scanner {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(22, 119, 255, 0.0),
+      rgba(22, 119, 255, 0.20),
+      rgba(22, 119, 255, 0.0),
+      transparent
+    );
+
+  opacity: 0.45;
+
+  filter: blur(0.3px);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.message-section__container {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.05fr)
+    minmax(380px, 0.85fr);
+
+  gap: clamp(60px, 9vw, 150px);
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.message-section__content {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.message-section__eyebrow {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 25px;
+
+  color: #4d9cff;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  line-height: 1.4;
+
+  text-transform: uppercase;
+}
+
+.message-section__eyebrow span {
+  width: 30px;
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #1677ff,
+      rgba(22, 119, 255, 0.25)
+    );
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.message-section__content h2 {
+  max-width: 760px;
+
+  margin: 0;
+
+  color: var(--text-primary, #f5f8fc);
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size:
+    clamp(2.8rem, 5vw, 5.5rem);
+
+  font-weight: 700;
+
+  letter-spacing: -0.055em;
+
+  line-height: 0.99;
+}
+
+.message-section__content h2 span {
+  display: block;
+
+  color: #328cff;
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.message-section__quote {
+  position: relative;
+
+  margin-top: 43px;
+
+  padding-left: 28px;
+
+  border-left:
+    1px solid
+    rgba(22, 119, 255, 0.55);
+}
+
+.message-section__quote-mark {
+  position: absolute;
+
+  top: -25px;
+
+  left: -4px;
+
+  color:
+    rgba(22, 119, 255, 0.25);
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 70px;
+
+  line-height: 1;
+}
+
+.message-section__quote p {
+  position: relative;
+
+  max-width: 690px;
+
+  margin: 0;
+
+  color:
+    var(--text-secondary, #aab5c2);
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size:
+    clamp(1.02rem, 1.45vw, 1.2rem);
+
+  font-weight: 500;
+
+  line-height: 1.72;
+}
+
+
+/* =========================================================
+   BODY TEXT
+========================================================= */
+
+.message-section__text {
+  max-width: 690px;
+
+  margin:
+    25px 0 0;
+
+  color:
+    var(--text-secondary, #aab5c2);
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 450;
+
+  line-height: 1.85;
+}
+
+
+/* =========================================================
+   SIGNATURE
+========================================================= */
+
+.message-section__signature {
+  display: flex;
+
+  align-items: center;
+
+  gap: 17px;
+
+  margin-top: 42px;
+}
+
+.message-section__signature-line {
+  width: 42px;
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background:
+    #1677ff;
+}
+
+.message-section__signature strong {
+  display: block;
+
+  color:
+    var(--text-primary, #f5f8fc);
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+.message-section__signature span {
+  display: block;
+
+  margin-top: 4px;
+
+  color:
+    var(--text-muted, #718091);
+
+  font-size: 11px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   RIGHT VISUAL
+========================================================= */
+
+.message-section__visual {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   IMAGE WRAP
+========================================================= */
+
+.message-section__image-wrap {
+  position: relative;
+
+  min-height: 650px;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12);
+
+  border-radius: 28px;
+
+  background:
+    var(--surface, #101820);
+
+  box-shadow:
+    0 35px 100px
+    rgba(0, 0, 0, 0.30);
+
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.message-section__image-wrap img {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transform: scale(1.02);
+
+  transition:
+    transform 1.2s
+    cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.message-section__image-wrap:hover img {
+  transform: scale(1.055);
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
+
+.message-section__image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.02) 0%,
+      rgba(4, 12, 20, 0.04) 35%,
+      rgba(4, 12, 20, 0.58) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   IMAGE ORBIT
+========================================================= */
+
+.message-section__image-orbit {
+  position: absolute;
+
+  top: 28px;
+  right: 28px;
+
+  width: 86px;
+  height: 86px;
+
+  border:
+    1px solid
+    rgba(22, 119, 255, 0.42);
+
+  border-radius: 50%;
+}
+
+.message-section__image-orbit::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 9px;
+
+  border:
+    1px dashed
+    rgba(255, 255, 255, 0.20);
+
+  border-radius: 50%;
+}
+
+.message-section__image-orbit::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 20px;
+
+  border:
+    1px solid
+    rgba(22, 119, 255, 0.20);
+
+  border-radius: 50%;
+}
+
+.message-section__image-orbit span {
+  position: absolute;
+
+  top: -5px;
+  right: 15px;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #328cff;
+
+  box-shadow:
+    0 0 0 5px
+    rgba(22, 119, 255, 0.10),
+
+    0 0 22px
+    rgba(22, 119, 255, 0.80);
+}
+
+
+/* =========================================================
+   FLOATING CARD
+========================================================= */
+
+.message-section__floating-card {
+  position: absolute;
+
+  left: 24px;
+  bottom: 24px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  padding:
+    14px 17px;
+
+  min-width: 205px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.17);
+
+  border-radius: 16px;
+
+  background:
+    rgba(8, 16, 24, 0.72);
+
+  backdrop-filter:
+    blur(22px);
+
+  -webkit-backdrop-filter:
+    blur(22px);
+
+  box-shadow:
+    0 20px 50px
+    rgba(0, 0, 0, 0.28);
+}
+
+.message-section__floating-icon {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border:
+    1px solid
+    rgba(22, 119, 255, 0.25);
+
+  border-radius: 12px;
+
+  background:
+    rgba(22, 119, 255, 0.13);
+
+  color:
+    #55a4ff;
+}
+
+.message-section__floating-card strong {
+  display: block;
+
+  color:
+    #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.message-section__floating-card span {
+  display: block;
+
+  margin-top: 3px;
+
+  color:
+    rgba(255, 255, 255, 0.62);
+
+  font-size: 10px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   PREMIUM SPARK
+========================================================= */
+
+.message-section__spark {
+  position: absolute;
+
+  top: 61px;
+  right: 61px;
+
+  width: 32px;
+  height: 32px;
+
+  display: grid;
+
+  place-items: center;
+
+  color: #ffffff;
+
+  filter:
+    drop-shadow(
+      0 0 12px
+      rgba(22, 119, 255, 0.85)
+    );
+
+  z-index: 3;
+}
+
+
+/* =========================================================
+   CAPTION
+========================================================= */
+
+.message-section__caption {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-top: 18px;
+
+  color:
+    var(--text-muted, #718091);
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+.message-section__caption svg {
+  flex-shrink: 0;
+
+  color:
+    #328cff;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.message-section__visual:hover
+.message-section__caption svg {
+  transform:
+    translate(3px, -3px);
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+html.light-theme .message-section {
+  background:
+    #f7f3eb;
+
+  color:
+    #101820;
+}
+
+
+/* LIGHT GRID */
+
+html.light-theme
+.message-section__grid {
+  background-image:
+    linear-gradient(
+      rgba(20, 42, 62, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(20, 42, 62, 0.055) 1px,
+      transparent 1px
+    );
+}
+
+
+/* LIGHT ORBITS */
+
+html.light-theme
+.message-section__orb {
+  border-color:
+    rgba(22, 119, 255, 0.16);
+}
+
+html.light-theme
+.message-section__orb::before {
+  border-color:
+    rgba(22, 119, 255, 0.09);
+}
+
+html.light-theme
+.message-section__orb::after {
+  border-color:
+    rgba(22, 119, 255, 0.10);
+}
+
+
+/* LIGHT AMBIENT */
+
+html.light-theme
+.message-section__ambient-light {
+  opacity: 0.035;
+}
+
+
+/* LIGHT HEADING */
+
+html.light-theme
+.message-section__content h2 {
+  color:
+    #142333;
+}
+
+html.light-theme
+.message-section__content h2 span {
+  color:
+    #176fd8;
+}
+
+
+/* LIGHT EYEBROW */
+
+html.light-theme
+.message-section__eyebrow {
+  color:
+    #176fd8;
+}
+
+
+/* LIGHT QUOTE */
+
+html.light-theme
+.message-section__quote p {
+  color:
+    #536273;
+}
+
+html.light-theme
+.message-section__quote {
+  border-left-color:
+    rgba(22, 119, 255, 0.48);
+}
+
+html.light-theme
+.message-section__quote-mark {
+  color:
+    rgba(22, 119, 255, 0.20);
+}
+
+
+/* LIGHT BODY */
+
+html.light-theme
+.message-section__text {
+  color:
+    #5d6976;
+}
+
+
+/* LIGHT SIGNATURE */
+
+html.light-theme
+.message-section__signature strong {
+  color:
+    #172536;
+}
+
+html.light-theme
+.message-section__signature span {
+  color:
+    #7a8490;
+}
+
+
+/* LIGHT IMAGE */
+
+html.light-theme
+.message-section__image-wrap {
+  border-color:
+    rgba(24, 44, 64, 0.12);
+
+  box-shadow:
+    0 30px 80px
+    rgba(24, 42, 60, 0.16);
+}
+
+
+/* LIGHT IMAGE OVERLAY */
+
+html.light-theme
+.message-section__image-overlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(8, 20, 32, 0.08) 45%,
+      rgba(8, 20, 32, 0.56)
+    );
+}
+
+
+/* LIGHT FLOATING CARD */
+
+html.light-theme
+.message-section__floating-card {
+  background:
+    rgba(250, 248, 244, 0.78);
+
+  border-color:
+    rgba(22, 42, 62, 0.13);
+
+  box-shadow:
+    0 18px 45px
+    rgba(30, 50, 70, 0.16);
+}
+
+html.light-theme
+.message-section__floating-card strong {
+  color:
+    #142333;
+}
+
+html.light-theme
+.message-section__floating-card span {
+  color:
+    #687583;
+}
+
+html.light-theme
+.message-section__floating-icon {
+  background:
+    rgba(22, 119, 255, 0.10);
+
+  border-color:
+    rgba(22, 119, 255, 0.17);
+
+  color:
+    #176fd8;
+}
+
+
+/* LIGHT CAPTION */
+
+html.light-theme
+.message-section__caption {
+  color:
+    #71808d;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .message-section__container {
+    grid-template-columns: 1fr;
+
+    gap: 70px;
+  }
+
+  .message-section__content {
+    max-width: 800px;
+  }
+
+  .message-section__image-wrap {
+    min-height: 600px;
+  }
+
+  .message-section__orb--left {
+    left: -430px;
+  }
+
+  .message-section__orb--right {
+    right: -430px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .message-section {
+    padding-block: 85px;
+  }
+
+  .message-section__container {
+    gap: 55px;
+  }
+
+  .message-section__content h2 {
+    font-size: 2.65rem;
+
+    letter-spacing: -0.045em;
+
+    line-height: 1;
+  }
+
+  .message-section__eyebrow {
+    font-size: 9px;
+
+    letter-spacing: 0.13em;
+  }
+
+  .message-section__quote {
+    margin-top: 32px;
+
+    padding-left: 20px;
+  }
+
+  .message-section__quote p {
+    font-size: 0.98rem;
+
+    line-height: 1.7;
+  }
+
+  .message-section__text {
+    font-size: 13.5px;
+
+    line-height: 1.8;
+  }
+
+  .message-section__image-wrap {
+    min-height: 480px;
+
+    border-radius: 22px;
+  }
+
+  .message-section__floating-card {
+    left: 16px;
+    bottom: 16px;
+
+    min-width: auto;
+
+    padding: 12px 14px;
+  }
+
+  .message-section__floating-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .message-section__image-orbit {
+    top: 20px;
+    right: 20px;
+
+    width: 62px;
+    height: 62px;
+  }
+
+  .message-section__image-orbit::before {
+    inset: 7px;
+  }
+
+  .message-section__image-orbit::after {
+    inset: 15px;
+  }
+
+  .message-section__image-orbit span {
+    width: 7px;
+    height: 7px;
+
+    top: -3px;
+    right: 10px;
+  }
+
+  .message-section__spark {
+    top: 39px;
+    right: 39px;
+
+    width: 25px;
+    height: 25px;
+  }
+
+  .message-section__orb {
+    width: 360px;
+    height: 360px;
+  }
+
+  .message-section__orb--left {
+    left: -285px;
+    top: 12%;
+  }
+
+  .message-section__orb--right {
+    right: -285px;
+    bottom: 0;
+  }
+
+  .message-section__ambient-light {
+    width: 260px;
+    height: 260px;
+
+    filter: blur(100px);
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .message-section__orb,
+  .message-section__ambient-light,
+  .message-section__scanner,
+  .message-section__image-orbit,
+  .message-section__floating-card,
+  .message-section__spark {
+    animation: none !important;
+
+    transition: none !important;
+  }
+
+  .message-section__image-wrap img {
+    transform: scale(1.02);
+  }
+}

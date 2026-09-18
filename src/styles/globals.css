@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+@import "./variables.css";
+@import "./animations.css";
+
+
+/* =========================
+   RESET
+========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+
+  background: var(--bg-primary);
+
+  scroll-behavior: smooth;
+
+  transition:
+    background-color 0.35s ease;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  min-width: 320px;
+
+  background: var(--bg-primary);
+
+  color: var(--text-primary);
+
+  font-family: var(--font-body);
+
+  font-size: 16px;
+  line-height: 1.7;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+#root {
+  min-height: 100vh;
+
+  background: var(--bg-primary);
+
+  transition:
+    background-color 0.35s ease;
+}
+
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+
+  font-family: var(--font-heading);
+
+  color: var(--text-primary);
+
+  font-weight: 700;
+
+  line-height: 1.12;
+
+  letter-spacing: -0.035em;
+}
+
+p {
+  font-family: var(--font-body);
+
+  color: var(--text-secondary);
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+  width: 100%;
+
+  background: var(--bg-primary);
+
+  color: var(--text-primary);
+
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+
+/* =========================
+   SECTION DEFAULT
+========================= */
+
+section {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  width: min(
+    calc(100% - 40px),
+    1500px
+  );
+
+  margin-inline: auto;
+}
+
+
+/* =========================
+   GLASS
+========================= */
+
+.glass {
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.glass:hover {
+  background: var(--surface-hover);
+}
+
+
+/* =========================
+   SELECTION
+========================= */
+
+::selection {
+  background: var(--accent);
+
+  color: #ffffff;
+}
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(22, 119, 255, 0.30);
+
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(22, 119, 255, 0.50);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .container {
+    width: min(
+      calc(100% - 30px),
+      1500px
+    );
+  }
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body,
+  main,
+  section {
+    transition: none;
+  }
+}
+/* =========================================================
+   ALFALAH — GLOBAL CORPORATE TYPOGRAPHY
+   ========================================================= */
+html,
+body,
+#root {
+  font-family: "Inter", Arial, sans-serif !important;
+}
+
+#root,
+#root * {
+  font-family: "Inter", Arial, sans-serif !important;
+}
+
+/* Headings */
+#root h1,
+#root h2,
+#root h3,
+#root h4,
+#root h5,
+#root h6 {
+  font-family: "Inter", Arial, sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* Body text */
+#root p {
+  font-family: "Inter", Arial, sans-serif !important;
+  font-weight: 400 !important;
+}
+
+/* Navigation */
+#root a {
+  font-family: "Inter", Arial, sans-serif !important;
+}
+
+/* Buttons */
+#root button {
+  font-family: "Inter", Arial, sans-serif !important;
+  font-weight: 600 !important;
+}
+
+/* Form fields */
+#root input,
+#root textarea,
+#root select,
+#root option {
+  font-family: "Inter", Arial, sans-serif !important;
+}
+
+/* Labels */
+#root label {
+  font-family: "Inter", Arial, sans-serif !important;
+}
+
+/* Strong / emphasized text */
+#root strong,
+#root b {
+  font-family: "Inter", Arial, sans-serif !important;
+  font-weight: 700 !important;
+}

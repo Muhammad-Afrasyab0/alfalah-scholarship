@@ -1,0 +1,603 @@
+.chairman-message {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 145px 0 130px;
+  background: #080d12;
+  color: #f5f7fa;
+}
+
+.chairman-message__grid {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+
+  background-size: 70px 70px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 12%,
+      black 88%,
+      transparent 100%
+    );
+}
+
+.chairman-message__glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -2;
+  filter: blur(130px);
+}
+
+.chairman-message__glow--one {
+  width: 520px;
+  height: 520px;
+  top: 20%;
+  left: -300px;
+  background: #1677ff;
+  opacity: 0.055;
+}
+
+.chairman-message__glow--two {
+  width: 420px;
+  height: 420px;
+  right: -250px;
+  bottom: 5%;
+  background: #1677ff;
+  opacity: 0.045;
+}
+
+.chairman-message__container {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* --------------------------------
+   HEADER
+-------------------------------- */
+
+.chairman-message__header {
+  max-width: 760px;
+  margin-bottom: 80px;
+}
+
+.chairman-message__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #8fa0b2;
+}
+
+.chairman-message__eyebrow-line {
+  width: 34px;
+  height: 1px;
+  background: #1677ff;
+}
+
+.chairman-message__header h2 {
+  margin: 0;
+  max-width: 760px;
+
+  font-size: clamp(42px, 5vw, 70px);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  font-weight: 700;
+}
+
+.chairman-message__header h2 span {
+  display: block;
+  color: #1677ff;
+}
+
+.chairman-message__header p {
+  max-width: 640px;
+  margin: 28px 0 0;
+
+  font-size: 17px;
+  line-height: 1.75;
+  color: #aeb9c6;
+  font-weight: 450;
+}
+
+/* --------------------------------
+   CONTENT
+-------------------------------- */
+
+.chairman-message__content {
+  display: grid;
+  grid-template-columns: minmax(390px, 0.88fr) minmax(0, 1.12fr);
+  gap: clamp(55px, 7vw, 105px);
+  align-items: center;
+}
+
+/* --------------------------------
+   IMAGE
+-------------------------------- */
+
+.chairman-message__visual {
+  position: relative;
+}
+
+.chairman-message__image-frame {
+  position: relative;
+  overflow: hidden;
+
+  aspect-ratio: 0.82 / 1;
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 24px;
+
+  background: #101820;
+
+  box-shadow:
+    0 35px 80px rgba(0, 0, 0, 0.38),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+}
+
+.chairman-message__image-frame img {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  object-fit: cover;
+
+  filter: saturate(0.86) contrast(1.04);
+
+  transition:
+    transform 700ms cubic-bezier(0.2, 0.75, 0.2, 1),
+    filter 500ms ease;
+}
+
+.chairman-message__image-frame:hover img {
+  transform: scale(1.035);
+  filter: saturate(0.98) contrast(1.04);
+}
+
+.chairman-message__image-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(5, 9, 13, 0.88) 0%,
+      rgba(5, 9, 13, 0.22) 34%,
+      transparent 65%
+    );
+}
+
+.chairman-message__image-number {
+  position: absolute;
+  top: 22px;
+  left: 23px;
+  z-index: 2;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.chairman-message__image-caption {
+  position: absolute;
+  left: 27px;
+  right: 27px;
+  bottom: 26px;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.chairman-message__image-caption span {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #86a9d8;
+}
+
+.chairman-message__image-caption strong {
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Floating card */
+
+.chairman-message__floating {
+  position: absolute;
+  right: -27px;
+  bottom: 38px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 13px 17px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 13px;
+
+  background: rgba(15, 22, 29, 0.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+
+  animation: chairmanFloat 4.5s ease-in-out infinite;
+}
+
+.chairman-message__floating svg {
+  color: #1677ff;
+}
+
+.chairman-message__floating div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.chairman-message__floating span {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #7e8d9c;
+}
+
+.chairman-message__floating strong {
+  font-size: 15px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+@keyframes chairmanFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+/* --------------------------------
+   MESSAGE
+-------------------------------- */
+
+.chairman-message__copy {
+  position: relative;
+  padding-top: 8px;
+}
+
+.chairman-message__quote-mark {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 27px;
+
+  border: 1px solid rgba(22, 119, 255, 0.25);
+  border-radius: 13px;
+
+  color: #1677ff;
+  background: rgba(22, 119, 255, 0.055);
+}
+
+.chairman-message__message {
+  max-width: 650px;
+}
+
+.chairman-message__message p {
+  margin: 0 0 22px;
+
+  font-size: 17px;
+  line-height: 1.82;
+  color: #b8c2ce;
+  font-weight: 430;
+}
+
+.chairman-message__message p:first-child {
+  font-size: 20px;
+  line-height: 1.7;
+  color: #eef2f6;
+  font-weight: 520;
+}
+
+/* --------------------------------
+   SIGNATURE
+-------------------------------- */
+
+.chairman-message__signature {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  margin-top: 42px;
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chairman-message__signature-line {
+  width: 34px;
+  height: 1px;
+  background: #1677ff;
+}
+
+.chairman-message__signature-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.chairman-message__signature-info strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.chairman-message__signature-info span {
+  font-size: 11px;
+  color: #778594;
+}
+
+.chairman-message__signature-arrow {
+  margin-left: auto;
+  color: #5d6b78;
+}
+
+/* --------------------------------
+   BOTTOM STATEMENT
+-------------------------------- */
+
+.chairman-message__bottom {
+  display: grid;
+  grid-template-columns: auto minmax(50px, 1fr) auto;
+  align-items: center;
+  gap: 25px;
+
+  margin-top: 110px;
+  padding-top: 28px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.chairman-message__bottom > span {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  color: #687685;
+}
+
+.chairman-message__bottom-line {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.chairman-message__bottom strong {
+  font-size: 15px;
+  font-weight: 600;
+  color: #dce3ea;
+}
+
+.chairman-message__bottom strong span {
+  color: #1677ff;
+}
+
+/* --------------------------------
+   LIGHT THEME
+-------------------------------- */
+
+.light-theme .chairman-message {
+  background: #f7f3eb;
+  color: #101820;
+}
+
+.light-theme .chairman-message__grid {
+  background-image:
+    linear-gradient(rgba(20, 32, 45, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 32, 45, 0.045) 1px, transparent 1px);
+}
+
+.light-theme .chairman-message__glow--one,
+.light-theme .chairman-message__glow--two {
+  opacity: 0.035;
+}
+
+.light-theme .chairman-message__eyebrow {
+  color: #687482;
+}
+
+.light-theme .chairman-message__header h2 {
+  color: #101820;
+}
+
+.light-theme .chairman-message__header p {
+  color: #596673;
+}
+
+.light-theme .chairman-message__image-frame {
+  border-color: rgba(16, 24, 32, 0.12);
+
+  box-shadow:
+    0 30px 70px rgba(30, 38, 45, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.light-theme .chairman-message__floating {
+  border-color: rgba(16, 24, 32, 0.1);
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 18px 40px rgba(30, 38, 45, 0.12);
+}
+
+.light-theme .chairman-message__floating strong {
+  color: #15202a;
+}
+
+.light-theme .chairman-message__message p {
+  color: #596673;
+}
+
+.light-theme .chairman-message__message p:first-child {
+  color: #1b2731;
+}
+
+.light-theme .chairman-message__signature {
+  border-top-color: rgba(16, 24, 32, 0.1);
+}
+
+.light-theme .chairman-message__signature-info strong {
+  color: #18242e;
+}
+
+.light-theme .chairman-message__signature-info span {
+  color: #74808c;
+}
+
+.light-theme .chairman-message__bottom {
+  border-top-color: rgba(16, 24, 32, 0.1);
+}
+
+.light-theme .chairman-message__bottom-line {
+  background: rgba(16, 24, 32, 0.1);
+}
+
+.light-theme .chairman-message__bottom strong {
+  color: #26333e;
+}
+
+/* --------------------------------
+   RESPONSIVE
+-------------------------------- */
+
+@media (max-width: 1050px) {
+  .chairman-message {
+    padding: 120px 0 110px;
+  }
+
+  .chairman-message__content {
+    gap: 55px;
+  }
+
+  .chairman-message__floating {
+    right: -15px;
+  }
+}
+
+@media (max-width: 850px) {
+  .chairman-message {
+    padding: 100px 0 90px;
+  }
+
+  .chairman-message__container {
+    width: min(100% - 36px, 680px);
+  }
+
+  .chairman-message__header {
+    margin-bottom: 55px;
+  }
+
+  .chairman-message__content {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .chairman-message__visual {
+    max-width: 560px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .chairman-message__copy {
+    max-width: 680px;
+  }
+
+  .chairman-message__bottom {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  .chairman-message {
+    padding: 85px 0 75px;
+  }
+
+  .chairman-message__container {
+    width: calc(100% - 32px);
+  }
+
+  .chairman-message__header h2 {
+    font-size: clamp(38px, 11vw, 52px);
+  }
+
+  .chairman-message__header p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .chairman-message__image-frame {
+    border-radius: 19px;
+  }
+
+  .chairman-message__floating {
+    right: 12px;
+    bottom: 18px;
+  }
+
+  .chairman-message__message p {
+    font-size: 15.5px;
+    line-height: 1.75;
+  }
+
+  .chairman-message__message p:first-child {
+    font-size: 18px;
+  }
+
+  .chairman-message__bottom {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .chairman-message__bottom-line {
+    display: none;
+  }
+
+  .chairman-message__bottom strong {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 420px) {
+  .chairman-message__floating {
+    padding: 11px 13px;
+  }
+
+  .chairman-message__floating span {
+    font-size: 7px;
+  }
+
+  .chairman-message__floating strong {
+    font-size: 13px;
+  }
+}

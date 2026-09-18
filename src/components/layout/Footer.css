@@ -1,0 +1,1078 @@
+/* =========================================================
+   ALFALAH SCHOLARSHIP SCHEME
+   FOOTER
+   Same layout — Theme Matched
+========================================================= */
+
+.alfalah-footer {
+  --footer-bg: #080d12;
+  --footer-text: #f4f7fb;
+  --footer-secondary: #9da9b5;
+  --footer-muted: #687580;
+  --footer-blue: #1677ff;
+  --footer-border: rgba(255, 255, 255, 0.075);
+  --footer-grid: rgba(255, 255, 255, 0.022);
+
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+
+  padding: 70px 0 0;
+
+  background: var(--footer-bg);
+  color: var(--footer-text);
+
+  font-family:
+    "Plus Jakarta Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.alfalah-footer__grid {
+  position: absolute;
+  inset: 0;
+
+  z-index: -3;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      var(--footer-grid) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      var(--footer-grid) 1px,
+      transparent 1px
+    );
+
+  background-size: 72px 72px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 14%,
+      black 88%,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   AMBIENT GLOW
+========================================================= */
+
+.alfalah-footer__glow {
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(22, 119, 255, 0.055);
+
+  filter: blur(130px);
+
+  pointer-events: none;
+
+  z-index: -2;
+
+  left: -280px;
+  top: 20px;
+}
+
+.alfalah-footer__glow::after {
+  content: "";
+
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  right: -1080px;
+  top: 400px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(22, 119, 255, 0.045);
+
+  filter: blur(120px);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.alfalah-footer__container {
+  width: min(1380px, calc(100% - 100px));
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(330px, 1.8fr)
+    minmax(145px, 0.75fr)
+    minmax(165px, 0.85fr)
+    minmax(280px, 1.15fr);
+
+  column-gap: 65px;
+
+  row-gap: 40px;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.alfalah-footer__brand {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.alfalah-footer__logo {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 58px;
+  height: 58px;
+
+  margin-bottom: 19px;
+
+  text-decoration: none;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(91, 166, 241, 0.22);
+
+  background:
+    rgba(22, 119, 255, 0.035);
+
+  box-shadow:
+    0 0 0 4px rgba(22, 119, 255, 0.018),
+    0 12px 30px rgba(0, 0, 0, 0.15);
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.alfalah-footer__logo:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(22, 119, 255, 0.38);
+
+  background:
+    rgba(22, 119, 255, 0.07);
+}
+
+.alfalah-footer__logo img {
+  display: block;
+
+  width: 43px;
+  height: 43px;
+
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.alfalah-footer__eyebrow {
+  display: block;
+
+  margin: 0 0 11px;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  line-height: 1.3;
+
+  letter-spacing: 0.18em;
+
+  color:
+    rgba(255, 255, 255, 0.38);
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.alfalah-footer__brand h2 {
+  margin: 0;
+
+  font-size:
+    clamp(36px, 3.2vw, 50px);
+
+  font-weight: 750;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.055em;
+
+  color: var(--footer-text);
+}
+
+.alfalah-footer__brand h2 span {
+  color:
+    rgba(255, 255, 255, 0.38);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.alfalah-footer__description {
+  width: min(440px, 100%);
+
+  margin: 18px 0 22px;
+
+  font-size: 12px;
+
+  font-weight: 450;
+
+  line-height: 1.75;
+
+  color: var(--footer-secondary);
+}
+
+
+/* =========================================================
+   SPONSOR BUTTON
+========================================================= */
+
+.alfalah-footer__button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  min-height: 42px;
+
+  padding: 0 15px;
+
+  border:
+    1px solid
+    rgba(22, 119, 255, 0.25);
+
+  border-radius: 9px;
+
+  background:
+    rgba(22, 119, 255, 0.055);
+
+  color: var(--footer-text);
+
+  font-size: 10px;
+
+  font-weight: 750;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.alfalah-footer__button span {
+  color: #69adf7;
+
+  transition:
+    transform 0.2s ease;
+}
+
+.alfalah-footer__button:hover {
+  transform: translateY(-2px);
+
+  background:
+    rgba(22, 119, 255, 0.1);
+
+  border-color:
+    rgba(22, 119, 255, 0.42);
+}
+
+.alfalah-footer__button:hover span {
+  transform: translate(2px, -2px);
+}
+
+
+/* =========================================================
+   COLUMNS
+========================================================= */
+
+.alfalah-footer__column {
+  min-width: 0;
+
+  padding-top: 4px;
+}
+
+.alfalah-footer__column h3 {
+  margin: 0 0 17px;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  line-height: 1.3;
+
+  letter-spacing: -0.02em;
+
+  color: var(--footer-text);
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.alfalah-footer__column nav {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.alfalah-footer__column nav a {
+  width: fit-content;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  line-height: 1.5;
+
+  color: var(--footer-secondary);
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.alfalah-footer__column nav a:hover {
+  color: var(--footer-text);
+
+  transform: translateX(3px);
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.alfalah-footer__contact-item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  margin-bottom: 11px;
+
+  font-size: 10px;
+
+  font-weight: 450;
+
+  line-height: 1.6;
+
+  color: var(--footer-secondary);
+
+  text-decoration: none;
+}
+
+a.alfalah-footer__contact-item:hover {
+  color: var(--footer-text);
+}
+
+
+/* =========================================================
+   CONTACT ICON
+========================================================= */
+
+.alfalah-footer__contact-icon {
+  width: 30px;
+  height: 30px;
+
+  flex: 0 0 30px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(91, 166, 241, 0.2);
+
+  border-radius: 50%;
+
+  background:
+    rgba(22, 119, 255, 0.065);
+
+  color:
+    #67acf0;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.035);
+}
+
+
+/* =========================================================
+   SOCIALS
+========================================================= */
+
+.alfalah-footer__socials {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 17px;
+}
+
+.alfalah-footer__socials a {
+  width: 37px;
+  height: 37px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.085);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  color:
+    rgba(255, 255, 255, 0.62);
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.01em;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.alfalah-footer__socials a:hover {
+  transform: translateY(-2px);
+
+  color: #ffffff;
+
+  background:
+    rgba(22, 119, 255, 0.11);
+
+  border-color:
+    rgba(22, 119, 255, 0.34);
+
+  box-shadow:
+    0 7px 20px
+    rgba(22, 119, 255, 0.1);
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.alfalah-footer__bottom {
+  grid-column: 1 / -1;
+
+  min-height: 64px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-top: 16px;
+
+  border-top:
+    1px solid
+    var(--footer-border);
+}
+
+.alfalah-footer__bottom::before {
+  display: none;
+}
+
+.alfalah-footer__bottom p {
+  margin: 0;
+}
+
+.alfalah-footer__bottom-content {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    auto
+    1fr;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.alfalah-footer__bottom-content > p:first-child {
+  font-size: 9px;
+
+  line-height: 1.5;
+
+  color:
+    rgba(255, 255, 255, 0.3);
+}
+
+.alfalah-footer__motto {
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(255, 255, 255, 0.25);
+}
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+.alfalah-footer__top {
+  justify-self: end;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.09);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  color:
+    rgba(255, 255, 255, 0.6);
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.alfalah-footer__top:hover {
+  transform: translateY(-2px);
+
+  color: #ffffff;
+
+  background:
+    rgba(22, 119, 255, 0.1);
+
+  border-color:
+    rgba(22, 119, 255, 0.32);
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+html.light-theme .alfalah-footer {
+  --footer-bg: #f7f3eb;
+  --footer-text: #101820;
+  --footer-secondary: #5f6973;
+  --footer-muted: #7a858e;
+
+  --footer-blue: #1677ff;
+
+  --footer-border:
+    rgba(16, 24, 32, 0.09);
+
+  --footer-grid:
+    rgba(16, 24, 32, 0.032);
+}
+
+
+/* Grid */
+
+html.light-theme .alfalah-footer__grid {
+  opacity: 1;
+}
+
+
+/* Glow */
+
+html.light-theme .alfalah-footer__glow {
+  background:
+    rgba(22, 119, 255, 0.035);
+}
+
+
+/* Logo */
+
+html.light-theme .alfalah-footer__logo {
+  border-color:
+    rgba(22, 105, 184, 0.24);
+
+  background:
+    rgba(255, 255, 255, 0.42);
+
+  box-shadow:
+    0 0 0 4px rgba(22, 119, 255, 0.018),
+    0 10px 25px rgba(16, 24, 32, 0.07);
+}
+
+html.light-theme .alfalah-footer__logo:hover {
+  border-color:
+    rgba(22, 119, 255, 0.38);
+
+  background:
+    rgba(22, 119, 255, 0.05);
+}
+
+
+/* Eyebrow */
+
+html.light-theme .alfalah-footer__eyebrow {
+  color:
+    rgba(16, 24, 32, 0.42);
+}
+
+
+/* Title */
+
+html.light-theme .alfalah-footer__brand h2 span {
+  color:
+    rgba(16, 24, 32, 0.4);
+}
+
+
+/* Sponsor */
+
+html.light-theme .alfalah-footer__button {
+  border-color:
+    rgba(22, 119, 255, 0.2);
+
+  background:
+    rgba(22, 119, 255, 0.045);
+
+  color: #101820;
+}
+
+html.light-theme .alfalah-footer__button:hover {
+  background:
+    rgba(22, 119, 255, 0.075);
+
+  border-color:
+    rgba(22, 119, 255, 0.34);
+}
+
+
+/* Navigation */
+
+html.light-theme .alfalah-footer__column nav a {
+  color: #606b75;
+}
+
+html.light-theme .alfalah-footer__column nav a:hover {
+  color: #101820;
+}
+
+
+/* Contact */
+
+html.light-theme .alfalah-footer__contact-item {
+  color: #606b75;
+}
+
+html.light-theme a.alfalah-footer__contact-item:hover {
+  color: #101820;
+}
+
+
+/* Contact icons */
+
+html.light-theme .alfalah-footer__contact-icon {
+  border-color:
+    rgba(22, 105, 184, 0.16);
+
+  background:
+    rgba(22, 119, 255, 0.045);
+
+  color:
+    #2476c4;
+}
+
+
+/* Social */
+
+html.light-theme .alfalah-footer__socials a {
+  border-color:
+    rgba(16, 24, 32, 0.1);
+
+  background:
+    rgba(255, 255, 255, 0.48);
+
+  color:
+    #64717b;
+}
+
+html.light-theme .alfalah-footer__socials a:hover {
+  color:
+    #1677ff;
+
+  background:
+    rgba(22, 119, 255, 0.07);
+
+  border-color:
+    rgba(22, 119, 255, 0.25);
+}
+
+
+/* Bottom */
+
+html.light-theme .alfalah-footer__bottom-content > p:first-child {
+  color:
+    rgba(16, 24, 32, 0.42);
+}
+
+html.light-theme .alfalah-footer__motto {
+  color:
+    rgba(16, 24, 32, 0.32);
+}
+
+
+/* Back to top */
+
+html.light-theme .alfalah-footer__top {
+  border-color:
+    rgba(16, 24, 32, 0.1);
+
+  background:
+    rgba(255, 255, 255, 0.48);
+
+  color:
+    #66737d;
+}
+
+html.light-theme .alfalah-footer__top:hover {
+  color:
+    #1677ff;
+
+  background:
+    rgba(22, 119, 255, 0.07);
+
+  border-color:
+    rgba(22, 119, 255, 0.25);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .alfalah-footer__container {
+    width:
+      min(100% - 70px, 1100px);
+
+    grid-template-columns:
+      1.5fr
+      0.8fr
+      0.9fr;
+
+    column-gap: 45px;
+  }
+
+  .alfalah-footer__brand {
+    grid-column: 1 / -1;
+  }
+
+  .alfalah-footer__contact {
+    grid-column: 3;
+  }
+
+  .alfalah-footer__bottom {
+    grid-column: 1 / -1;
+  }
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 780px) {
+
+  .alfalah-footer {
+    padding-top: 60px;
+  }
+
+  .alfalah-footer__container {
+    width:
+      min(100% - 50px, 680px);
+
+    grid-template-columns:
+      1fr 1fr;
+
+    column-gap: 35px;
+
+    row-gap: 36px;
+  }
+
+  .alfalah-footer__brand {
+    grid-column: 1 / -1;
+  }
+
+  .alfalah-footer__contact {
+    grid-column: 1 / -1;
+  }
+
+  .alfalah-footer__bottom {
+    grid-column: 1 / -1;
+  }
+
+  .alfalah-footer__brand h2 {
+    font-size: 42px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 560px) {
+
+  .alfalah-footer {
+    padding-top: 50px;
+  }
+
+  .alfalah-footer__container {
+    width:
+      calc(100% - 36px);
+
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+  .alfalah-footer__brand,
+  .alfalah-footer__contact,
+  .alfalah-footer__bottom {
+    grid-column: auto;
+  }
+
+
+  .alfalah-footer__logo {
+    width: 54px;
+    height: 54px;
+
+    margin-bottom: 17px;
+  }
+
+  .alfalah-footer__logo img {
+    width: 40px;
+    height: 40px;
+  }
+
+
+  .alfalah-footer__eyebrow {
+    font-size: 8px;
+  }
+
+  .alfalah-footer__brand h2 {
+    font-size: 35px;
+  }
+
+  .alfalah-footer__description {
+    width: 100%;
+
+    margin-top: 16px;
+
+    font-size: 11px;
+  }
+
+
+  .alfalah-footer__column {
+    padding-top: 0;
+  }
+
+  .alfalah-footer__column h3 {
+    margin-bottom: 14px;
+
+    font-size: 15px;
+  }
+
+
+  .alfalah-footer__column nav {
+    gap: 8px;
+  }
+
+  .alfalah-footer__column nav a {
+    font-size: 11px;
+  }
+
+
+  .alfalah-footer__contact-item {
+    font-size: 10px;
+  }
+
+
+  .alfalah-footer__socials {
+    margin-top: 15px;
+  }
+
+
+  .alfalah-footer__bottom {
+    min-height: auto;
+
+    padding:
+      17px 0 20px;
+
+    margin-top: 1px;
+  }
+
+  .alfalah-footer__bottom-content {
+    grid-template-columns:
+      1fr auto;
+
+    gap: 14px;
+  }
+
+  .alfalah-footer__bottom-content > p:first-child {
+    font-size: 8px;
+
+    line-height: 1.6;
+  }
+
+  .alfalah-footer__motto {
+    grid-column: 1 / -1;
+
+    grid-row: 2;
+
+    justify-self: start;
+
+    font-size: 7px;
+
+    letter-spacing: 0.13em;
+  }
+
+  .alfalah-footer__top {
+    grid-column: 2;
+
+    grid-row: 1;
+
+    width: 35px;
+    height: 35px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .alfalah-footer__container {
+    width:
+      calc(100% - 30px);
+  }
+
+  .alfalah-footer__brand h2 {
+    font-size: 32px;
+  }
+
+  .alfalah-footer__description {
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .alfalah-footer__logo,
+  .alfalah-footer__button,
+  .alfalah-footer__button span,
+  .alfalah-footer__column nav a,
+  .alfalah-footer__socials a,
+  .alfalah-footer__top {
+    transition: none;
+  }
+}

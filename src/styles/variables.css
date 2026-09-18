@@ -1,0 +1,59 @@
+:root {
+  /* =========================
+     DARK
+  ========================= */
+
+  --bg-primary: #080d12;
+  --bg-secondary: #0b1118;
+  --bg-tertiary: #0f1720;
+
+  --surface: rgba(255, 255, 255, 0.035);
+  --surface-hover: rgba(255, 255, 255, 0.055);
+
+  --border: rgba(255, 255, 255, 0.075);
+  --border-strong: rgba(255, 255, 255, 0.12);
+
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.68);
+  --text-muted: rgba(255, 255, 255, 0.42);
+
+  --accent: #1677ff;
+  --accent-soft: rgba(22, 119, 255, 0.10);
+  --accent-border: rgba(22, 119, 255, 0.28);
+
+  --grid-line: rgba(255, 255, 255, 0.025);
+
+  --shadow-color: rgba(0, 0, 0, 0.35);
+
+  --font-heading: "Manrope", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+}
+
+
+/* =========================
+   LIGHT
+========================= */
+
+html.light-theme {
+  --bg-primary: #f4f7fa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #eaf0f5;
+
+  --surface: rgba(15, 23, 42, 0.035);
+  --surface-hover: rgba(15, 23, 42, 0.055);
+
+  --border: rgba(15, 23, 42, 0.075);
+  --border-strong: rgba(15, 23, 42, 0.12);
+
+  --text-primary: #0b1220;
+  --text-secondary: rgba(11, 18, 32, 0.68);
+  --text-muted: rgba(11, 18, 32, 0.45);
+
+  --accent: #1268e8;
+  --accent-soft: rgba(18, 104, 232, 0.08);
+  --accent-border: rgba(18, 104, 232, 0.22);
+
+  --grid-line: rgba(15, 23, 42, 0.045);
+
+  --shadow-color: rgba(15, 23, 42, 0.10);
+}

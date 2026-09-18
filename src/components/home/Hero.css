@@ -1,0 +1,993 @@
+/* =========================================================
+   ALFALAH SCHOLARSHIP SCHEME
+   HERO
+   Premium Corporate / Theme Aware
+========================================================= */
+
+.hero {
+  position: relative;
+
+  min-height: 100svh;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  display: flex;
+  align-items: center;
+
+  background: #080d12;
+
+  transition:
+    background 0.45s ease;
+}
+
+
+/* =========================================================
+   BACKGROUND IMAGE
+   SAME IMAGE IN BOTH THEMES
+========================================================= */
+
+.hero__background {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -4;
+}
+
+.hero__background img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transform: scale(1.04);
+
+  animation:
+    heroZoom 1.6s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+
+/* =========================================================
+   CINEMATIC OVERLAY
+========================================================= */
+
+.hero__overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -3;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 12, 10, 0.96) 0%,
+      rgba(4, 12, 10, 0.86) 32%,
+      rgba(4, 12, 10, 0.50) 62%,
+      rgba(4, 12, 10, 0.68) 100%
+    );
+
+  transition:
+    background 0.5s ease;
+}
+
+.hero__overlay::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.30) 0%,
+      transparent 40%,
+      rgba(0, 0, 0, 0.65) 100%
+    );
+
+  transition:
+    background 0.5s ease;
+}
+
+
+/* =========================================================
+   AMBIENT LIGHT
+========================================================= */
+
+.hero__glow {
+  position: absolute;
+
+  z-index: -2;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  pointer-events: none;
+
+  transition:
+    background 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.hero__glow--one {
+  top: -280px;
+  left: -180px;
+
+  background:
+    rgba(22, 119, 255, 0.13);
+}
+
+.hero__glow--two {
+  right: -280px;
+  bottom: -300px;
+
+  background:
+    rgba(255, 255, 255, 0.045);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.hero__container {
+  position: relative;
+
+  min-height: 100svh;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  padding-top: 130px;
+  padding-bottom: 100px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.hero__content {
+  position: relative;
+
+  z-index: 3;
+
+  width: min(720px, 62%);
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.hero__eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 28px;
+
+  color: #9ec7ff;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+}
+
+.hero__eyebrow-line {
+  width: 28px;
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background: #1677ff;
+}
+
+
+/* =========================================================
+   MAIN HEADING
+========================================================= */
+
+.hero h1 {
+  margin: 0;
+
+  max-width: 850px;
+
+  color: #ffffff;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size:
+    clamp(3.6rem, 6.4vw, 7.2rem);
+
+  font-weight: 700;
+
+  letter-spacing: -0.065em;
+
+  line-height: 0.94;
+
+  text-wrap: balance;
+
+  transition:
+    color 0.45s ease;
+}
+
+.hero h1 span {
+  display: block;
+}
+
+.hero h1 span:last-child {
+  color: #66a9ff;
+
+  transition:
+    color 0.45s ease;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.hero__description {
+  max-width: 590px;
+
+  margin: 34px 0 0;
+
+  color: rgba(245, 247, 246, 0.76);
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 16px;
+
+  font-weight: 400;
+
+  line-height: 1.75;
+
+  letter-spacing: -0.012em;
+
+  transition:
+    color 0.45s ease;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 38px;
+}
+
+
+/* Common button */
+
+.hero__button {
+  min-height: 54px;
+
+  padding: 0 23px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border-radius: 12px;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    transform 300ms ease,
+    background 300ms ease,
+    border-color 300ms ease,
+    color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+
+/* Primary */
+
+.hero__button--primary {
+  background: #1677ff;
+
+  border: 1px solid #1677ff;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 12px 35px rgba(22, 119, 255, 0.18);
+}
+
+.hero__button--primary:hover {
+  transform: translateY(-3px);
+
+  background: #2d86ff;
+
+  border-color: #2d86ff;
+
+  box-shadow:
+    0 16px 42px rgba(22, 119, 255, 0.27);
+}
+
+
+/* Secondary */
+
+.hero__button--secondary {
+  background: rgba(255, 255, 255, 0.055);
+
+  border: 1px solid rgba(255, 255, 255, 0.17);
+
+  color: #ffffff;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.hero__button--secondary:hover {
+  transform: translateY(-3px);
+
+  background: rgba(255, 255, 255, 0.10);
+
+  border-color:
+    rgba(255, 255, 255, 0.30);
+}
+
+
+/* =========================================================
+   FLOATING STATISTICS
+========================================================= */
+
+.hero__stats {
+  position: absolute;
+
+  right: 0;
+  bottom: 145px;
+
+  width: 260px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  z-index: 4;
+}
+
+
+/* =========================================================
+   STAT CARD
+========================================================= */
+
+.hero-stat {
+  padding: 24px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.11),
+      rgba(255, 255, 255, 0.045)
+    );
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.15);
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  box-shadow:
+    0 25px 80px
+    rgba(0, 0, 0, 0.28);
+
+  transition:
+    transform 350ms ease,
+    border-color 350ms ease,
+    background 350ms ease;
+}
+
+.hero-stat:hover {
+  transform: translateY(-5px);
+
+  border-color:
+    rgba(22, 119, 255, 0.42);
+}
+
+
+/* Number */
+
+.hero-stat__number {
+  color: #ffffff;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 34px;
+
+  font-weight: 700;
+
+  letter-spacing: -0.055em;
+
+  line-height: 1;
+
+  transition:
+    color 0.4s ease;
+}
+
+
+/* Label */
+
+.hero-stat__label {
+  margin-top: 9px;
+
+  color:
+    rgba(255, 255, 255, 0.56);
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  line-height: 1.4;
+
+  transition:
+    color 0.4s ease;
+}
+
+
+/* =========================================================
+   SMALL STAT
+========================================================= */
+
+.hero-stat--small {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 17px 19px;
+}
+
+.hero-stat__icon {
+  width: 32px;
+  height: 32px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #1677ff;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 8px 25px rgba(22, 119, 255, 0.20);
+}
+
+.hero-stat--small strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  line-height: 1.3;
+}
+
+.hero-stat--small span {
+  display: block;
+
+  margin-top: 3px;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 400;
+
+  line-height: 1.3;
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
+
+.hero__scroll {
+  position: absolute;
+
+  left: 0;
+  bottom: 34px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+
+  transition:
+    color 0.4s ease;
+}
+
+.hero__scroll-line {
+  width: 70px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #1677ff,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   DARK THEME
+========================================================= */
+
+html:not(.light-theme) .hero {
+  background: #080d12;
+}
+
+html:not(.light-theme) .hero__overlay {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 12, 10, 0.96) 0%,
+      rgba(4, 12, 10, 0.86) 32%,
+      rgba(4, 12, 10, 0.50) 62%,
+      rgba(4, 12, 10, 0.68) 100%
+    );
+}
+
+html:not(.light-theme) .hero__overlay::after {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.30) 0%,
+      transparent 40%,
+      rgba(0, 0, 0, 0.65) 100%
+    );
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+html.light-theme .hero {
+  background: #f7f3eb;
+}
+
+
+/*
+   Image stays EXACTLY the same.
+   Only overlay changes.
+*/
+
+html.light-theme .hero__overlay {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(247, 243, 235, 0.91) 0%,
+      rgba(247, 243, 235, 0.76) 31%,
+      rgba(247, 243, 235, 0.34) 60%,
+      rgba(247, 243, 235, 0.58) 100%
+    );
+}
+
+html.light-theme .hero__overlay::after {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(247, 243, 235, 0.20) 0%,
+      transparent 42%,
+      rgba(247, 243, 235, 0.58) 100%
+    );
+}
+
+
+/* Light ambient */
+
+html.light-theme .hero__glow--one {
+  background:
+    rgba(22, 119, 255, 0.09);
+
+  opacity: 0.8;
+}
+
+html.light-theme .hero__glow--two {
+  background:
+    rgba(255, 255, 255, 0.32);
+
+  opacity: 0.8;
+}
+
+
+/* Light heading */
+
+html.light-theme .hero h1 {
+  color: #101820;
+}
+
+html.light-theme .hero h1 span:last-child {
+  color: #1677ff;
+}
+
+
+/* Light eyebrow */
+
+html.light-theme .hero__eyebrow {
+  color: #2364a8;
+}
+
+
+/* Light description */
+
+html.light-theme .hero__description {
+  color:
+    rgba(16, 24, 32, 0.70);
+}
+
+
+/* Light secondary button */
+
+html.light-theme .hero__button--secondary {
+  background:
+    rgba(255, 255, 255, 0.48);
+
+  border-color:
+    rgba(16, 24, 32, 0.14);
+
+  color: #101820;
+
+  box-shadow:
+    0 10px 30px rgba(16, 24, 32, 0.06);
+}
+
+html.light-theme .hero__button--secondary:hover {
+  background:
+    rgba(255, 255, 255, 0.70);
+
+  border-color:
+    rgba(22, 119, 255, 0.28);
+}
+
+
+/* Light stat cards */
+
+html.light-theme .hero-stat {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.70),
+      rgba(255, 255, 255, 0.38)
+    );
+
+  border-color:
+    rgba(16, 24, 32, 0.12);
+
+  box-shadow:
+    0 25px 70px
+    rgba(16, 24, 32, 0.13);
+}
+
+html.light-theme .hero-stat:hover {
+  border-color:
+    rgba(22, 119, 255, 0.30);
+}
+
+html.light-theme .hero-stat__number {
+  color: #101820;
+}
+
+html.light-theme .hero-stat__label {
+  color:
+    rgba(16, 24, 32, 0.54);
+}
+
+html.light-theme .hero-stat--small strong {
+  color: #101820;
+}
+
+html.light-theme .hero-stat--small span {
+  color:
+    rgba(16, 24, 32, 0.48);
+}
+
+
+/* Light scroll */
+
+html.light-theme .hero__scroll {
+  color:
+    rgba(16, 24, 32, 0.48);
+}
+
+
+/* =========================================================
+   IMAGE ANIMATION
+========================================================= */
+
+@keyframes heroZoom {
+  from {
+    opacity: 0;
+
+    transform:
+      scale(1.10);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1.04);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .hero__content {
+    width: 68%;
+  }
+
+  .hero__stats {
+    right: 24px;
+
+    width: 220px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero__container {
+    min-height: auto;
+
+    padding-top: 140px;
+    padding-bottom: 100px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .hero__content {
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size:
+      clamp(3rem, 11vw, 5rem);
+
+    line-height: 0.96;
+  }
+
+  .hero__description {
+    max-width: 620px;
+
+    font-size: 15px;
+  }
+
+  .hero__stats {
+    position: relative;
+
+    right: auto;
+    bottom: auto;
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    margin-top: 65px;
+  }
+
+  .hero-stat--small {
+    grid-column:
+      1 / -1;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+
+
+  /* Mobile Dark */
+
+  html:not(.light-theme) .hero__overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(4, 12, 10, 0.80),
+        rgba(4, 12, 10, 0.55) 45%,
+        rgba(4, 12, 10, 0.95)
+      );
+  }
+
+
+  /* Mobile Light */
+
+  html.light-theme .hero__overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(247, 243, 235, 0.70),
+        rgba(247, 243, 235, 0.42) 45%,
+        rgba(247, 243, 235, 0.90)
+      );
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+  .hero__container {
+    padding-top: 120px;
+  }
+
+  .hero__eyebrow {
+    font-size: 9px;
+
+    letter-spacing: 0.12em;
+  }
+
+  .hero h1 {
+    font-size: 3.05rem;
+
+    line-height: 0.96;
+  }
+
+  .hero__description {
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
+  .hero__actions {
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .hero__button {
+    width: 100%;
+
+    min-height: 53px;
+  }
+
+  .hero__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stat--small {
+    grid-column: auto;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero__background img {
+    animation: none;
+
+    transform: scale(1.04);
+  }
+
+  .hero__button,
+  .hero-stat {
+    transition: none;
+  }
+
+}

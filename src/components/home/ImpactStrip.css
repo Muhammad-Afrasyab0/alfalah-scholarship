@@ -1,0 +1,909 @@
+/* =========================================================
+   ALFALAH SCHOLARSHIP SCHEME
+   IMPACT STRIP
+   Premium / Smooth Hover / Theme Aware
+========================================================= */
+
+.impact-strip {
+  position: relative;
+  width: 100%;
+  height: 88px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      #061521 0%,
+      #0a2237 50%,
+      #061521 100%
+    );
+
+  border-top:
+    1px solid
+    rgba(91, 166, 241, 0.16);
+
+  border-bottom:
+    1px solid
+    rgba(91, 166, 241, 0.16);
+
+  box-shadow:
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.035),
+    inset 0 -1px 0
+      rgba(0, 0, 0, 0.25),
+    0 14px 42px
+      rgba(0, 0, 0, 0.18);
+
+  transition:
+    background 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+
+/* =========================================================
+   CENTER LIGHT
+========================================================= */
+
+.impact-strip::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 600px;
+  height: 150px;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    rgba(22, 119, 255, 0.045);
+
+  filter: blur(65px);
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+/* =========================================================
+   TOP HAIRLINE
+========================================================= */
+
+.impact-strip::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 12%;
+  right: 12%;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(105, 177, 246, 0.25),
+      transparent
+    );
+
+  pointer-events: none;
+
+  z-index: 4;
+}
+
+
+/* =========================================================
+   VIEWPORT
+========================================================= */
+
+.impact-strip__viewport {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   TRACK
+========================================================= */
+
+.impact-strip__track {
+  display: flex;
+
+  width: max-content;
+
+  animation:
+    impactMarquee
+    42s
+    linear
+    infinite;
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   GROUP
+========================================================= */
+
+.impact-strip__group {
+  display: flex;
+
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   ITEM
+========================================================= */
+
+.impact-strip__item {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  flex-shrink: 0;
+
+  gap: 13px;
+
+  padding: 18px 31px;
+
+  white-space: nowrap;
+
+  cursor: default;
+
+  transform:
+    translateY(0)
+    scale(1);
+
+  transition:
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.38s ease;
+}
+
+
+/* =========================================================
+   HOVER BACKGROUND
+   Completely contained inside the strip
+========================================================= */
+
+.impact-strip__item::before {
+  content: "";
+
+  position: absolute;
+
+  left: 10px;
+  right: 10px;
+
+  top: 7px;
+  bottom: 7px;
+
+  border-radius: 11px;
+
+  background:
+    rgba(22, 119, 255, 0);
+
+  border:
+    1px solid
+    rgba(105, 177, 246, 0);
+
+  box-shadow:
+    0 0 0
+    rgba(22, 119, 255, 0);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+/* =========================================================
+   HOVER ITEM
+========================================================= */
+
+.impact-strip__item:hover {
+  z-index: 10;
+
+  transform:
+    translateY(-2px)
+    scale(1.015);
+
+  filter:
+    drop-shadow(
+      0 5px 12px
+      rgba(22, 119, 255, 0.13)
+    );
+}
+
+
+/* =========================================================
+   SHOW HOVER BOX
+========================================================= */
+
+.impact-strip__item:hover::before {
+  opacity: 1;
+
+  background:
+    rgba(22, 119, 255, 0.065);
+
+  border-color:
+    rgba(105, 177, 246, 0.18);
+
+  box-shadow:
+    0 5px 18px
+      rgba(22, 119, 255, 0.08),
+
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.04);
+}
+
+
+/* =========================================================
+   CONTENT ABOVE HOVER LAYER
+========================================================= */
+
+.impact-strip__item > * {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.impact-strip__icon {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(91, 166, 241, 0.17);
+
+  border-radius: 9px;
+
+  background:
+    rgba(22, 119, 255, 0.075);
+
+  color:
+    #69adf5;
+
+  box-shadow:
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.035);
+
+  transform:
+    translateY(0)
+    rotate(0deg)
+    scale(1);
+
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.32s ease,
+    background 0.32s ease,
+    border-color 0.32s ease,
+    box-shadow 0.32s ease;
+}
+
+
+/* =========================================================
+   ICON HOVER
+========================================================= */
+
+.impact-strip__item:hover
+.impact-strip__icon {
+  transform:
+    translateY(-1px)
+    rotate(-3deg)
+    scale(1.07);
+
+  color:
+    #8bc7ff;
+
+  background:
+    rgba(22, 119, 255, 0.14);
+
+  border-color:
+    rgba(105, 177, 246, 0.38);
+
+  box-shadow:
+    0 6px 18px
+      rgba(22, 119, 255, 0.13),
+
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.07);
+}
+
+
+/* =========================================================
+   SVG
+========================================================= */
+
+.impact-strip__icon svg {
+  display: block;
+
+  transition:
+    transform 0.38s
+    cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.impact-strip__item:hover
+.impact-strip__icon svg {
+  transform:
+    scale(1.05);
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.impact-strip__text {
+  color:
+    rgba(240, 248, 255, 0.95);
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.035em;
+
+  white-space: nowrap;
+
+  text-transform: uppercase;
+
+  transition:
+    color 0.35s ease,
+    letter-spacing 0.35s
+    cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   TEXT HOVER
+========================================================= */
+
+.impact-strip__item:hover
+.impact-strip__text {
+  color:
+    #ffffff;
+
+  letter-spacing:
+    0.045em;
+}
+
+
+/* =========================================================
+   DIAMOND SEPARATOR
+========================================================= */
+
+.impact-strip__separator {
+  margin-left: 9px;
+
+  color:
+    rgba(93, 166, 237, 0.58);
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  font-size: 7px;
+
+  line-height: 1;
+
+  opacity: 0.85;
+
+  transform:
+    scale(1)
+    rotate(0deg);
+
+  transition:
+    color 0.3s ease,
+    transform 0.38s
+    cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease;
+}
+
+
+/* =========================================================
+   SEPARATOR HOVER
+========================================================= */
+
+.impact-strip__item:hover
+.impact-strip__separator {
+  color:
+    #69adf5;
+
+  opacity: 1;
+
+  transform:
+    scale(1.3)
+    rotate(45deg);
+}
+
+
+/* =========================================================
+   SIDE FADE
+========================================================= */
+
+.impact-strip__fade {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  width: 125px;
+
+  z-index: 5;
+
+  pointer-events: none;
+
+  transition:
+    background 0.45s ease;
+}
+
+
+.impact-strip__fade--left {
+  left: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #061521 0%,
+      rgba(6, 21, 33, 0.9) 28%,
+      rgba(6, 21, 33, 0.4) 62%,
+      transparent 100%
+    );
+}
+
+
+.impact-strip__fade--right {
+  right: 0;
+
+  background:
+    linear-gradient(
+      270deg,
+      #061521 0%,
+      rgba(6, 21, 33, 0.9) 28%,
+      rgba(6, 21, 33, 0.4) 62%,
+      transparent 100%
+    );
+}
+
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+@keyframes impactMarquee {
+  from {
+    transform:
+      translateX(0);
+  }
+
+  to {
+    transform:
+      translateX(-50%);
+  }
+}
+
+
+/* =========================================================
+   PAUSE ON HOVER
+========================================================= */
+
+.impact-strip:hover
+.impact-strip__track {
+  animation-play-state:
+    paused;
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+html.light-theme .impact-strip {
+  background:
+    linear-gradient(
+      90deg,
+      #dce7ef 0%,
+      #eef3f6 50%,
+      #dce7ef 100%
+    );
+
+  border-top-color:
+    rgba(22, 102, 184, 0.16);
+
+  border-bottom-color:
+    rgba(22, 102, 184, 0.16);
+
+  box-shadow:
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.8),
+
+    inset 0 -1px 0
+      rgba(16, 24, 32, 0.035),
+
+    0 12px 34px
+      rgba(15, 23, 42, 0.07);
+}
+
+
+/* =========================================================
+   LIGHT CENTER
+========================================================= */
+
+html.light-theme
+.impact-strip::before {
+  background:
+    rgba(22, 119, 255, 0.035);
+}
+
+
+/* =========================================================
+   LIGHT HAIRLINE
+========================================================= */
+
+html.light-theme
+.impact-strip::after {
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(22, 119, 255, 0.2),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   LIGHT HOVER ITEM
+========================================================= */
+
+html.light-theme
+.impact-strip__item:hover {
+  filter:
+    drop-shadow(
+      0 5px 12px
+      rgba(22, 119, 255, 0.09)
+    );
+}
+
+
+/* =========================================================
+   LIGHT HOVER BOX
+========================================================= */
+
+html.light-theme
+.impact-strip__item:hover::before {
+  background:
+    rgba(255, 255, 255, 0.48);
+
+  border-color:
+    rgba(22, 119, 255, 0.18);
+
+  box-shadow:
+    0 5px 18px
+      rgba(15, 23, 42, 0.07),
+
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.85);
+}
+
+
+/* =========================================================
+   LIGHT ICON
+========================================================= */
+
+html.light-theme
+.impact-strip__icon {
+  border-color:
+    rgba(22, 105, 184, 0.18);
+
+  background:
+    rgba(22, 119, 255, 0.06);
+
+  color:
+    #2476c4;
+
+  box-shadow:
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.7);
+}
+
+
+html.light-theme
+.impact-strip__item:hover
+.impact-strip__icon {
+  color:
+    #1677ff;
+
+  background:
+    rgba(22, 119, 255, 0.1);
+
+  border-color:
+    rgba(22, 119, 255, 0.3);
+
+  box-shadow:
+    0 6px 18px
+      rgba(22, 119, 255, 0.09),
+
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.9);
+}
+
+
+/* =========================================================
+   LIGHT TEXT
+========================================================= */
+
+html.light-theme
+.impact-strip__text {
+  color:
+    rgba(11, 18, 32, 0.86);
+}
+
+
+html.light-theme
+.impact-strip__item:hover
+.impact-strip__text {
+  color:
+    #101820;
+}
+
+
+/* =========================================================
+   LIGHT SEPARATOR
+========================================================= */
+
+html.light-theme
+.impact-strip__separator {
+  color:
+    #2775c8;
+}
+
+
+html.light-theme
+.impact-strip__item:hover
+.impact-strip__separator {
+  color:
+    #1677ff;
+}
+
+
+/* =========================================================
+   LIGHT FADE
+========================================================= */
+
+html.light-theme
+.impact-strip__fade--left {
+  background:
+    linear-gradient(
+      90deg,
+      #dce7ef 0%,
+      rgba(220, 231, 239, 0.9) 28%,
+      rgba(220, 231, 239, 0.4) 62%,
+      transparent 100%
+    );
+}
+
+
+html.light-theme
+.impact-strip__fade--right {
+  background:
+    linear-gradient(
+      270deg,
+      #dce7ef 0%,
+      rgba(220, 231, 239, 0.9) 28%,
+      rgba(220, 231, 239, 0.4) 62%,
+      transparent 100%
+    );
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .impact-strip {
+    height: 78px;
+  }
+
+  .impact-strip__track {
+    animation-duration:
+      38s;
+  }
+
+  .impact-strip__item {
+    gap: 11px;
+
+    padding-inline:
+      25px;
+  }
+
+  .impact-strip__icon {
+    width: 31px;
+    height: 31px;
+  }
+
+  .impact-strip__icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .impact-strip__text {
+    font-size: 13px;
+  }
+
+  .impact-strip__separator {
+    font-size: 6px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .impact-strip {
+    height: 68px;
+  }
+
+  .impact-strip__track {
+    animation-duration:
+      33s;
+  }
+
+  .impact-strip__item {
+    gap: 10px;
+
+    padding-inline:
+      20px;
+  }
+
+  .impact-strip__icon {
+    width: 29px;
+    height: 29px;
+
+    border-radius: 8px;
+  }
+
+  .impact-strip__icon svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .impact-strip__text {
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing:
+      0.03em;
+  }
+
+  .impact-strip__separator {
+    margin-left: 6px;
+
+    font-size: 6px;
+  }
+
+  .impact-strip__fade {
+    width: 75px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .impact-strip {
+    height: 63px;
+  }
+
+  .impact-strip__track {
+    animation-duration:
+      29s;
+  }
+
+  .impact-strip__item {
+    gap: 9px;
+
+    padding-inline:
+      17px;
+  }
+
+  .impact-strip__icon {
+    width: 27px;
+    height: 27px;
+  }
+
+  .impact-strip__icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .impact-strip__text {
+    font-size: 11px;
+  }
+
+  .impact-strip__separator {
+    font-size: 5px;
+  }
+
+  .impact-strip__fade {
+    width: 55px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .impact-strip__track {
+    animation: none;
+
+    transform:
+      translateX(0);
+  }
+
+  .impact-strip__item,
+  .impact-strip__icon,
+  .impact-strip__icon svg,
+  .impact-strip__text,
+  .impact-strip__separator {
+    transition: none;
+  }
+}
