@@ -151,7 +151,7 @@ function Navbar() {
                 : ""
             }`}
           >
-            Become a Donor
+            Become a Sponsor
           </a>
 
 
@@ -348,7 +348,7 @@ function Navbar() {
             onClick={closeMenu}
           >
             <span>03</span>
-            Become a Donor
+            Become a Sponsor
           </a>
 
 

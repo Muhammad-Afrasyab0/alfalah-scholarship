@@ -13,6 +13,7 @@
   color: #f5f7fa;
 }
 
+
 /* =========================================
    GRID BACKGROUND
 ========================================= */
@@ -46,6 +47,7 @@
       transparent 100%
     );
 }
+
 
 /* =========================================
    AMBIENT LIGHT
@@ -87,6 +89,7 @@
   opacity: 0.03;
 }
 
+
 /* =========================================
    CONTAINER
 ========================================= */
@@ -96,6 +99,7 @@
 
   margin: 0 auto;
 }
+
 
 /* =========================================
    HEADER
@@ -172,6 +176,7 @@
   color: #9ba8b5;
 }
 
+
 /* =========================================
    5 + 5 GRID
 ========================================= */
@@ -183,6 +188,7 @@
 
   gap: 22px;
 }
+
 
 /* =========================================
    CARD
@@ -220,8 +226,9 @@
     0 0 30px rgba(22, 119, 255, 0.045);
 }
 
+
 /* =========================================
-   IMAGE
+   IMAGE AREA
 ========================================= */
 
 .board-card__visual {
@@ -229,6 +236,10 @@
 
   width: 100%;
 
+  /*
+    Keeps all member portraits at the
+    same visual height.
+  */
   aspect-ratio: 0.9 / 1;
 
   overflow: hidden;
@@ -241,47 +252,127 @@
     );
 }
 
+
 /* =========================================
-   IMAGE PLACEHOLDER
+   MEMBER IMAGE
 ========================================= */
+
+/*
+   Placeholder has been completely removed.
+
+   The image now fills the visual area
+   without the old dashed box.
+*/
 
 .board-card__placeholder {
   position: absolute;
 
-  inset: 12px;
+  inset: 0;
 
-  display: flex;
+  width: 100%;
+  height: 100%;
 
-  align-items: center;
+  margin: 0;
+  padding: 0;
 
-  justify-content: center;
+  display: block;
 
-  border: 1px dashed rgba(255, 255, 255, 0.13);
+  border: 0;
 
-  border-radius: 12px;
+  border-radius: 0;
 
-  color: #4f5c68;
+  background: transparent;
+
+  overflow: hidden;
+
+  color: transparent;
+}
+
+
+/*
+   Actual image
+*/
+
+.board-card__placeholder img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  /*
+     IMPORTANT:
+     contain keeps the complete portrait visible.
+     No head/body cropping.
+  */
+  object-fit: contain;
+
+  object-position: center center;
+
+  background: transparent;
+
+  border: 0;
+
+  border-radius: 0;
 
   transition:
-    border-color 350ms ease,
-    background 350ms ease;
+    transform 600ms cubic-bezier(0.2, 0.75, 0.2, 1),
+    filter 400ms ease;
 }
 
-.board-card:hover .board-card__placeholder {
-  border-color: rgba(22, 119, 255, 0.25);
 
-  background: rgba(22, 119, 255, 0.025);
+/*
+   Subtle image movement on hover.
+   It does NOT crop the image because
+   scale remains very small.
+*/
+
+.board-card:hover .board-card__placeholder img {
+  transform: scale(1.015);
+
+  filter: brightness(1.04);
 }
+
+
+/*
+   In case old JSX still contains:
+   <span>IMAGE</span>
+*/
 
 .board-card__placeholder span {
-  font-size: 9px;
-
-  font-weight: 700;
-
-  letter-spacing: 0.18em;
-
-  opacity: 0.7;
+  display: none;
 }
+
+
+/* =========================================
+   IMAGE BOTTOM FADE
+========================================= */
+
+.board-card__visual::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 34%;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(7, 12, 17, 0.52),
+      transparent
+    );
+
+  z-index: 1;
+}
+
 
 /* =========================================
    NUMBER
@@ -293,6 +384,8 @@
   top: 17px;
 
   right: 18px;
+
+  z-index: 3;
 
   font-size: 9px;
 
@@ -313,6 +406,7 @@
   transform: translateY(-2px);
 }
 
+
 /* =========================================
    HOVER DETAIL
 ========================================= */
@@ -325,6 +419,8 @@
   right: 12px;
 
   bottom: 12px;
+
+  z-index: 4;
 
   display: flex;
 
@@ -397,6 +493,7 @@
   line-height: 1;
 }
 
+
 /* =========================================
    MEMBER INFO
 ========================================= */
@@ -433,6 +530,7 @@
   color: #788694;
 }
 
+
 /* =========================================
    BOTTOM
 ========================================= */
@@ -466,6 +564,7 @@
 
   background: rgba(255, 255, 255, 0.07);
 }
+
 
 /* =========================================
    LIGHT THEME
@@ -529,15 +628,7 @@
 }
 
 .light-theme .board-card__placeholder {
-  border-color: rgba(20, 32, 45, 0.14);
-
-  color: #8b948f;
-}
-
-.light-theme .board-card:hover .board-card__placeholder {
-  border-color: rgba(22, 119, 255, 0.25);
-
-  background: rgba(22, 119, 255, 0.025);
+  background: transparent;
 }
 
 .light-theme .board-card__number {
@@ -574,6 +665,7 @@
   color: #7b858e;
 }
 
+
 /* =========================================
    TABLET
 ========================================= */
@@ -592,6 +684,7 @@
     gap: 40px;
   }
 }
+
 
 /* =========================================
    MOBILE
@@ -638,11 +731,43 @@
   .board-card__info {
     padding: 14px;
   }
+
+  /*
+     Slightly taller portrait area on mobile
+     so faces/body don't feel compressed.
+  */
+  .board-card__visual {
+    aspect-ratio: 0.82 / 1;
+  }
 }
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
 
 @media (max-width: 450px) {
 
   .board-members__cards {
     grid-template-columns: 1fr;
   }
+
+  .board-card__visual {
+    aspect-ratio: 0.9 / 1;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .board-members *,
+  .board-members *::before,
+  .board-members *::after {
+    transition: none !important;
+  }
+
 }

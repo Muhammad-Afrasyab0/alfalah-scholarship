@@ -4,59 +4,52 @@ function Leadership() {
   const leaders = [
     {
       id: "01",
-      name: "Member Name",
-      designation: "Designation",
-      role: "Executive Member",
-      facebook: "#",
-      whatsapp: "#",
+      name: "Majeed Ahmed Chaudhary",
+      designation: "Chairman",
+      role: "Chairman",
+      image: "/images/leadership/majeed-ahmed-chaudhary.jpg",
     },
     {
       id: "02",
-      name: "Member Name",
-      designation: "Designation",
-      role: "Executive Member",
-      facebook: "#",
-      whatsapp: "#",
+      name: "Dr. Khalid Mahmood Saqib",
+      designation: "Vice Chairman",
+      role: "Vice Chairman",
+      image: "/images/leadership/dr-khalid-mehmood-saqib.jpg",
     },
     {
       id: "03",
-      name: "Member Name",
-      designation: "Designation",
-      role: "Executive Member",
-      facebook: "#",
-      whatsapp: "#",
+      name: "Muhammad Abuzar",
+      designation: "Secretary General",
+      role: "Secretary General",
+      image: "/images/leadership/muhammad-abuzar.jpg",
     },
     {
       id: "04",
-      name: "Member Name",
-      designation: "Designation",
-      role: "Executive Member",
-      facebook: "#",
-      whatsapp: "#",
+      name: "Chaudhary Kashif Ameer",
+      designation: "Finance Secretary",
+      role: "Finance Secretary",
+      image: "/images/leadership/kashif-ameer.jpg",
     },
     {
       id: "05",
-      name: "Member Name",
-      designation: "Designation",
-      role: "Executive Member",
-      facebook: "#",
-      whatsapp: "#",
+      name: "Mian Ehsan Ullah",
+      designation: "Joint Secretary",
+      role: "Joint Secretary",
+      image: "/images/leadership/ihsan-ullah.jpg",
     },
     {
       id: "06",
-      name: "Member Name",
-      designation: "Designation",
+      name: "Mian Abdul Rauf",
+      designation: "Executive Member",
       role: "Executive Member",
-      facebook: "#",
-      whatsapp: "#",
+      image: "/images/leadership/mian-abdu-raouf.jpg",
     },
     {
       id: "07",
-      name: "Member Name",
-      designation: "Designation",
-      role: "Executive Member",
-      facebook: "#",
-      whatsapp: "#",
+      name: "Dr. Zaka Ullah Siddique",
+      designation: "Information Secretary",
+      role: "Information Secretary",
+      image: "/images/leadership/dr-zaka-ullah-siddique.jpg",
     },
   ];
 
@@ -92,18 +85,21 @@ function Leadership() {
 
         {/* LEADERSHIP CARDS */}
         <div className="leadership__cards">
-
           {leaders.map((leader) => (
             <article
               className="leadership-card"
               key={leader.id}
             >
 
-              {/* IMAGE PLACEHOLDER */}
+              {/* IMAGE */}
               <div className="leadership-card__visual">
 
                 <div className="leadership-card__placeholder">
-                  <span>IMAGE</span>
+                  <img
+                    src={leader.image}
+                    alt={leader.name}
+                    loading="lazy"
+                  />
                 </div>
 
                 <div className="leadership-card__number">
@@ -134,34 +130,10 @@ function Leadership() {
                   <p>{leader.designation}</p>
                 </div>
 
-                {/* SOCIAL LINKS */}
-                <div className="leadership-card__socials">
-
-                  <a
-                    href={leader.facebook}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${leader.name} Facebook`}
-                  >
-                    f
-                  </a>
-
-                  <a
-                    href={leader.whatsapp}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${leader.name} WhatsApp`}
-                  >
-                    W
-                  </a>
-
-                </div>
-
               </div>
 
             </article>
           ))}
-
         </div>
 
         {/* BOTTOM LINE */}

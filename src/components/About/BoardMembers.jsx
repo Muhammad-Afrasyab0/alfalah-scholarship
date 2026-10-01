@@ -4,63 +4,73 @@ function BoardMembers() {
   const boardMembers = [
     {
       id: "01",
-      name: "Member Name",
-      designation: "Designation",
+      name: "Muhammad Amin",
+      designation: "Board Member",
       role: "Board Member",
+      image: "/images/board-members/muhammad-amin.jpg",
     },
     {
       id: "02",
-      name: "Member Name",
-      designation: "Designation",
+      name: "Ijaz Ahmed Malik",
+      designation: "Board Member",
       role: "Board Member",
+      image: "/images/board-members/ijaz-ahmed-malik.jpg",
     },
     {
       id: "03",
-      name: "Member Name",
-      designation: "Designation",
+      name: "Syed Saqlain Haider Rizvi",
+      designation: "Board Member",
       role: "Board Member",
+      image: "/images/board-members/syed-saqlain-haider-rizvi.jpg",
     },
     {
       id: "04",
-      name: "Member Name",
-      designation: "Designation",
+      name: "Tariq Mehmood Saqib",
+      designation: "Board Member",
       role: "Board Member",
+      image: "/images/board-members/tariq-mehmood-saqib.jpg",
     },
     {
       id: "05",
-      name: "Member Name",
-      designation: "Designation",
+      name: "Chaudhary Iftekhar Ahmed Cheema",
+      designation: "Board Member",
       role: "Board Member",
+      image: "/images/board-members/chaudhary-iftikhar-ahmed-cheema.jpg",
     },
     {
       id: "06",
-      name: "Member Name",
-      designation: "Designation",
+      name: "Muhammad Ghaias",
+      designation: "Board Member",
       role: "Board Member",
+      image: "/images/board-members/muhammad-ghaias.jpg",
     },
     {
       id: "07",
-      name: "Member Name",
-      designation: "Designation",
+      name: "Mudassir Sajjad Raja",
+      designation: "Board Member",
       role: "Board Member",
+      image: "/images/board-members/mudassir-sajjad-raja.jpg",
     },
     {
       id: "08",
-      name: "Member Name",
-      designation: "Designation",
+      name: "Hafiz Muhammad Tayyab",
+      designation: "Board Member",
       role: "Board Member",
+      image: "/images/board-members/hafiz-muhammad-tayyab.jpg",
     },
     {
       id: "09",
-      name: "Member Name",
-      designation: "Designation",
+      name: "Adnan Shah Maseeh",
+      designation: "Board Member",
       role: "Board Member",
+      image: "/images/board-members/adnan-shah-maseeh.jpg",
     },
     {
       id: "10",
-      name: "Member Name",
-      designation: "Designation",
+      name: "Asia Bibi",
+      designation: "Board Member",
       role: "Board Member",
+      image: "/images/board-members/asia-bibi.jpg",
     },
   ];
 
@@ -107,11 +117,15 @@ function BoardMembers() {
               key={member.id}
             >
 
-              {/* IMAGE PLACEHOLDER */}
+              {/* IMAGE */}
               <div className="board-card__visual">
 
                 <div className="board-card__placeholder">
-                  <span>IMAGE</span>
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    loading="lazy"
+                  />
                 </div>
 
                 <div className="board-card__number">

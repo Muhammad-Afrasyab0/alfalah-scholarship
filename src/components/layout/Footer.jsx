@@ -15,7 +15,7 @@ function Footer() {
 
       <div className="alfalah-footer__container">
 
-        {/* LEFT / BRAND */}
+        {/* BRAND */}
         <div className="alfalah-footer__brand">
 
           <a href="/" className="alfalah-footer__logo">
@@ -40,7 +40,7 @@ function Footer() {
             opportunity and financial support for a better future.
           </p>
 
-          <a href="#donor" className="alfalah-footer__button">
+          <a href="donor" className="alfalah-footer__button">
             Become a Sponsor
             <span>↗</span>
           </a>
@@ -55,28 +55,10 @@ function Footer() {
 
           <nav>
             <a href="/">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#programs">Scholarship Programs</a>
-            <a href="#donor">Become a Donor</a>
-            <a href="#scholar">Become a Scholar</a>
-            <a href="#contact">Contact Us</a>
-          </nav>
-
-        </div>
-
-
-        {/* SCHOLARSHIPS */}
-        <div className="alfalah-footer__column">
-
-          <h3>Scholarships</h3>
-
-          <nav>
-            <a href="#programs">Intermediate</a>
-            <a href="#programs">DAE</a>
-            <a href="#programs">Graduation</a>
-            <a href="#programs">Master / BS (Hons)</a>
-            <a href="#programs">Engineering</a>
-            <a href="#programs">Medical</a>
+            <a href="about">About Us</a>
+            <a href="donor">Become a </a>
+            <a href="scholar">Become a Scholar</a>
+            <a href="contact">Contact Us</a>
           </nav>
 
         </div>
@@ -131,30 +113,34 @@ function Footer() {
           </div>
 
 
-          {/* SOCIAL */}
+          {/* SOCIAL LINKS */}
           <div className="alfalah-footer__socials">
 
             <a
               href="https://www.instagram.com/alfalahsspk/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="Instagram"
             >
               IG
             </a>
 
             <a
-              href="#"
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Facebook"
             >
               FB
             </a>
 
             <a
-              href="mailto:info@alfalahss.org"
-              aria-label="Email"
+              href="https://www.youtube.com/@alfalahsspakistan"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
             >
-              @
+              YT
             </a>
 
           </div>

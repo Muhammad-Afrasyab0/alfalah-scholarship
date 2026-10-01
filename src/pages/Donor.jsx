@@ -251,7 +251,7 @@ function Donor() {
       consent: true,
     };
 
-    console.log("Donor submission:", payload);
+    console.log("Sponsor submission:", payload);
 
     try {
       setIsSubmitting(true);
@@ -279,7 +279,7 @@ function Donor() {
       );
 
       alert(
-        "Thank you. Your donor request has been received. The Alfalah Scholarship Scheme team will contact you shortly."
+        "Thank you. Your sponsor request has been received. The Alfalah Scholarship Scheme team will contact you shortly."
       );
 
       setIsOpen(false);
@@ -309,7 +309,7 @@ function Donor() {
     <div className="donor-page">
 
       {/* =====================================================
-          DONOR INTRO SECTION
+          SPONSOR INTRO SECTION
       ====================================================== */}
 
       <section className="sponsor-cta donor-hero">
@@ -323,7 +323,7 @@ function Donor() {
           </div>
 
           <h1 className="donor-page__title">
-            Become a Donor.
+            Become a Sponsor.
             <br />
             <span>Change a Student's Future.</span>
           </h1>
@@ -345,7 +345,7 @@ function Donor() {
               <HeartHandshake size={18} />
 
               <span>
-                Become a Donor
+                Become a Sponsor
               </span>
 
               <ArrowRight size={17} />
@@ -365,7 +365,7 @@ function Donor() {
 
 
       {/* =====================================================
-          DONOR PROCESS
+          SPONSOR PROCESS
       ====================================================== */}
 
       <section className="donor-process">
@@ -468,7 +468,7 @@ function Donor() {
 
 
       {/* =====================================================
-          DONOR MODAL
+          SPONSOR MODAL
       ====================================================== */}
 
       {isOpen && (
@@ -490,7 +490,7 @@ function Donor() {
                 </span>
 
                 <h3>
-                  Become a Donor
+                  Become a Sponsor
                 </h3>
 
                 <p>
@@ -504,7 +504,7 @@ function Donor() {
                 type="button"
                 className="donor-modal__close"
                 onClick={closeModal}
-                aria-label="Close donor form"
+                aria-label="Close sponsor form"
               >
                 <X size={20} />
               </button>
@@ -657,7 +657,7 @@ function Donor() {
 
 
               {/* =================================================
-                  02 — DONOR INFORMATION
+                  02 — SPONSOR INFORMATION
               ================================================== */}
 
               <div className="donor-form__section">
@@ -776,7 +776,7 @@ function Donor() {
 
                   <div>
                     <strong>
-                      Donation Summary
+                      Sponsorship Summary
                     </strong>
 
                     <small>
@@ -877,7 +877,7 @@ function Donor() {
                     </strong>
 
                     <small>
-                      Accounts available for direct donation
+                      Accounts available for direct sponsorship
                     </small>
                   </div>
 
@@ -1000,7 +1000,7 @@ function Donor() {
                     I confirm that the information provided
                     is correct and I agree that Alfalah
                     Scholarship Scheme may contact me
-                    regarding this donor request.
+                    regarding this sponsor request.
                   </span>
 
                 </label>
@@ -1027,7 +1027,7 @@ function Donor() {
                 <span>
                   {isSubmitting
                     ? "Submitting..."
-                    : "Submit Donor Request"}
+                    : "Submit Sponsor Request"}
                 </span>
 
                 {!isSubmitting && (
@@ -1040,7 +1040,7 @@ function Donor() {
               <p className="donor-form__footer">
                 Your information will be shared with the
                 Alfalah Scholarship Scheme team for
-                donor coordination.
+                sponsor coordination.
               </p>
 
             </form>

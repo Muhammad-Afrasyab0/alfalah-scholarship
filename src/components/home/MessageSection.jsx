@@ -144,7 +144,7 @@ function MessageSection() {
             </span>
 
             <p>
-              Over the past twenty-seven years,
+              Over the past twenty-eight years,
               Alfalah has supported nearly six thousand
               young people through scholarships while
               also helping them grow through academic
@@ -268,7 +268,7 @@ function MessageSection() {
               </div>
 
               <div>
-                <strong>27 Years</strong>
+                <strong>28 Years</strong>
 
                 <span>
                   Empowering education

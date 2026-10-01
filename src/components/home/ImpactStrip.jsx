@@ -15,11 +15,11 @@ import "./ImpactStrip.css";
 
 const impactItems = [
   {
-    text: "₨650 Million+ Disbursed",
+    text: "Rs 675 Million+ Disbursed",
     icon: Banknote,
   },
   {
-    text: "27 Years of Service",
+    text: "28 Years of Service",
     icon: Clock3,
   },
   {
@@ -31,15 +31,15 @@ const impactItems = [
     icon: BadgeCheck,
   },
   {
-    text: "5,735 Scholars Empowered",
+    text: "6,207 Scholars Empowered",
     icon: UsersRound,
   },
   {
-    text: "896 Doctors",
+    text: "911 Doctors",
     icon: Stethoscope,
   },
   {
-    text: "482 Engineers",
+    text: "492 Engineers",
     icon: HardHat,
   },
   {
@@ -47,15 +47,15 @@ const impactItems = [
     icon: GraduationCap,
   },
   {
-    text: "548 Graduates",
+    text: "563 Graduates",
     icon: GraduationCap,
   },
   {
-    text: "273 Associate Engineers",
+    text: "281 Associate Engineers",
     icon: Wrench,
   },
   {
-    text: "2,159 Intermediate / Matric",
+    text: "2,253 Intermediate / Matric",
     icon: BookOpen,
   },
 ];

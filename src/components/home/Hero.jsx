@@ -45,7 +45,7 @@ function Hero() {
           >
             <span className="hero__eyebrow-line" />
 
-            Established 1998 · 27 Years of Impact
+            Established 1998 · 28 Years of Impact
           </motion.div>
 
 
@@ -92,7 +92,7 @@ function Hero() {
             }}
           >
             Alfalah Scholarship Scheme has empowered
-            5,735 scholars to complete their education
+            6,207 scholars to complete their education
             and transition into successful professional
             careers.
           </motion.p>
@@ -166,7 +166,7 @@ function Hero() {
           <div className="hero-stat">
 
             <div className="hero-stat__number">
-              5,735
+              6,207
             </div>
 
             <div className="hero-stat__label">
@@ -180,7 +180,7 @@ function Hero() {
           <div className="hero-stat">
 
             <div className="hero-stat__number">
-              ₨650M+
+              Rs 675M+
             </div>
 
             <div className="hero-stat__label">
@@ -204,7 +204,7 @@ function Hero() {
             <div className="hero-stat__copy">
 
               <strong>
-                27 Years
+                28 Years
               </strong>
 
               <span>
