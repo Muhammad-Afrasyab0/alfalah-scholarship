@@ -2,9 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   ArrowDown,
-  ArrowRight,
   HandHeart,
-  Sparkles,
   Users,
   Wallet,
 } from "lucide-react";
@@ -340,82 +338,27 @@ export default function ImpactTimeline() {
     timelineData.find((item) => item.year === activeYear) ||
     timelineData[timelineData.length - 1];
 
-  const leftYears = timelineData.slice(0, 14);
-  const rightYears = timelineData.slice(14);
-
-  const renderYear = (item) => {
-    const active = item.year === activeYear;
-
-    return (
-      <button
-        key={item.year}
-        type="button"
-        className={`timeline-year ${active ? "active" : ""}`}
-        onClick={() => setActiveYear(item.year)}
-      >
-        <span className="timeline-year__node">
-          {active && (
-            <motion.span
-              layoutId="timeline-active-pulse"
-              className="timeline-year__pulse"
-            />
-          )}
-          <span className="timeline-year__core" />
-        </span>
-
-        <span className="timeline-year__year">{item.year}</span>
-
-        <span className="timeline-year__title">
-          {item.title}
-        </span>
-
-        <ArrowRight
-          className="timeline-year__arrow"
-          size={14}
-        />
-      </button>
-    );
-  };
-
   return (
     <section className="impact-timeline">
-      {/* Premium technical background */}
-      <div className="timeline-grid" aria-hidden="true" />
-      <div className="timeline-glow timeline-glow-one" aria-hidden="true" />
-      <div className="timeline-glow timeline-glow-two" aria-hidden="true" />
-
-      <motion.div
-        className="timeline-orbit timeline-orbit-left"
-        animate={{ rotate: 360 }}
-        transition={{
-          duration: 42,
-          repeat: Infinity,
-          ease: "linear",
-        }}
+      <div
+        className="impact-timeline__background"
         aria-hidden="true"
-      >
-        <span />
-      </motion.div>
-
-      <motion.div
-        className="timeline-orbit timeline-orbit-right"
-        animate={{ rotate: -360 }}
-        transition={{
-          duration: 48,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-        aria-hidden="true"
-      >
-        <span />
-      </motion.div>
+      />
 
       <div className="container">
         {/* HEADER */}
-        <div className="timeline-heading">
+        <motion.div
+          className="timeline-heading"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{
+            duration: 0.7,
+            ease: "easeOut",
+          }}
+        >
           <div className="timeline-heading-left">
             <span className="timeline-eyebrow">
-              <Sparkles size={14} />
               OUR JOURNEY · 1998 — 2026
             </span>
 
@@ -425,9 +368,10 @@ export default function ImpactTimeline() {
             </h2>
 
             <p>
-              A visual journey through the years of Alfalah Scholarship
-              Scheme — tracing its growth, challenges, support network
-              and commitment to educational opportunity.
+              A visual journey through the years of Alfalah
+              Scholarship Scheme — tracing its growth, challenges,
+              support network and commitment to educational
+              opportunity.
             </p>
           </div>
 
@@ -435,31 +379,49 @@ export default function ImpactTimeline() {
             <span>ESTABLISHED</span>
             <strong>1998</strong>
           </div>
-        </div>
+        </motion.div>
 
         {/* NOTICE */}
         <div className="timeline-demo-notice">
           <span>ILLUSTRATIVE TIMELINE</span>
+
           <p>
-            Annual figures shown below are demonstration data and should be
-            replaced with verified historical records before publication.
+            Annual figures shown below are demonstration data and
+            should be replaced with verified historical records
+            before publication.
           </p>
         </div>
 
-        {/* ACTIVE YEAR / DETAIL PANEL */}
+        {/* ACTIVE YEAR */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeYear}
             className="timeline-feature"
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.35 }}
+            initial={{
+              opacity: 0,
+              y: 12,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: -8,
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+            }}
           >
             <div className="timeline-feature__main">
               <div className="timeline-feature__meta">
-                <span>CHAPTER {activeYear - 1997}</span>
+                <span>
+                  CHAPTER {activeYear - 1997}
+                </span>
+
                 <i />
+
                 <span>{activeData.highlight}</span>
               </div>
 
@@ -476,41 +438,49 @@ export default function ImpactTimeline() {
 
             <div className="timeline-feature__stats">
               <div className="timeline-feature__stat">
-                <div className="timeline-feature__icon">
-                  <Users size={16} />
-                </div>
+                <Users size={18} />
+
                 <div>
-                  <strong>{activeData.students}</strong>
+                  <strong>
+                    {activeData.students}
+                  </strong>
+
                   <span>Total Scholars</span>
                 </div>
               </div>
 
               <div className="timeline-feature__stat">
-                <div className="timeline-feature__icon">
-                  <Sparkles size={16} />
-                </div>
+                <Users size={18} />
+
                 <div>
-                  <strong>+{activeData.newStudents}</strong>
+                  <strong>
+                    +{activeData.newStudents}
+                  </strong>
+
                   <span>New Scholars</span>
                 </div>
               </div>
 
               <div className="timeline-feature__stat">
-                <div className="timeline-feature__icon">
-                  <HandHeart size={16} />
-                </div>
+                <HandHeart size={18} />
+
                 <div>
-                  <strong>{activeData.donors}</strong>
+                  <strong>
+                    {activeData.donors}
+                  </strong>
+
                   <span>Supporters</span>
                 </div>
               </div>
 
               <div className="timeline-feature__stat">
-                <div className="timeline-feature__icon">
-                  <Wallet size={16} />
-                </div>
+                <Wallet size={18} />
+
                 <div>
-                  <strong>{activeData.funds}</strong>
+                  <strong>
+                    {activeData.funds}
+                  </strong>
+
                   <span>Illustrative Support</span>
                 </div>
               </div>
@@ -518,65 +488,55 @@ export default function ImpactTimeline() {
           </motion.div>
         </AnimatePresence>
 
-        {/* TWO-COLUMN TIMELINE */}
-        <div className="timeline-columns">
-          {/* 1998 — 2011 */}
-          <div className="timeline-column">
-            <div className="timeline-column__header">
-              <span>PHASE 01</span>
-              <strong>1998 — 2011</strong>
-            </div>
+        {/* SINGLE ROW TIMELINE */}
+        <div className="timeline-single-row">
+          <div className="timeline-single-row__track">
+            <div className="timeline-single-row__line" />
 
-            <div className="timeline-column__track">
-              <div className="timeline-column__line">
-                <motion.span
-                  className="timeline-column__scanner"
-                  animate={{ y: ["-10%", "110%"] }}
-                  transition={{
-                    duration: 5.5,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                />
-              </div>
+            {timelineData.map((item) => {
+              const active = item.year === activeYear;
 
-              <div className="timeline-column__years">
-                {leftYears.map(renderYear)}
-              </div>
-            </div>
-          </div>
+              return (
+                <button
+                  key={item.year}
+                  type="button"
+                  className={`timeline-single-year ${
+                    active ? "active" : ""
+                  }`}
+                  onClick={() =>
+                    setActiveYear(item.year)
+                  }
+                  aria-label={`View ${item.year}`}
+                  aria-pressed={active}
+                >
+                  <span className="timeline-single-year__node">
+                    <span className="timeline-single-year__core" />
 
-          {/* 2012 — 2026 */}
-          <div className="timeline-column">
-            <div className="timeline-column__header">
-              <span>PHASE 02</span>
-              <strong>2012 — 2026</strong>
-            </div>
+                    {active && (
+                      <motion.span
+                        layoutId="timeline-active-pulse"
+                        className="timeline-single-year__pulse"
+                      />
+                    )}
+                  </span>
 
-            <div className="timeline-column__track">
-              <div className="timeline-column__line">
-                <motion.span
-                  className="timeline-column__scanner"
-                  animate={{ y: ["110%", "-10%"] }}
-                  transition={{
-                    duration: 6.2,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                />
-              </div>
-
-              <div className="timeline-column__years">
-                {rightYears.map(renderYear)}
-              </div>
-            </div>
+                  <span className="timeline-single-year__year">
+                    {item.year}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* FOOTER */}
+        {/* BOTTOM */}
         <div className="timeline-bottom">
           <div className="timeline-bottom-line" />
-          <span>SELECT A YEAR TO EXPLORE THE JOURNEY</span>
+
+          <span>
+            SELECT A YEAR TO EXPLORE THE JOURNEY
+          </span>
+
           <ArrowDown size={15} />
         </div>
       </div>

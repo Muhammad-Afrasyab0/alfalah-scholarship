@@ -10,9 +10,6 @@ function Footer() {
 
   return (
     <footer className="alfalah-footer">
-      <div className="alfalah-footer__grid"></div>
-      <div className="alfalah-footer__glow"></div>
-
       <div className="alfalah-footer__container">
 
         {/* BRAND */}
@@ -40,7 +37,7 @@ function Footer() {
             opportunity and financial support for a better future.
           </p>
 
-          <a href="donor" className="alfalah-footer__button">
+          <a href="/donor" className="alfalah-footer__button">
             Become a Sponsor
             <span>↗</span>
           </a>
@@ -55,10 +52,10 @@ function Footer() {
 
           <nav>
             <a href="/">Home</a>
-            <a href="about">About Us</a>
-            <a href="donor">Become a </a>
-            <a href="scholar">Become a Scholar</a>
-            <a href="contact">Contact Us</a>
+            <a href="/about">About Us</a>
+            <a href="/donor">Become a Sponsor</a>
+            <a href="/scholar">Become a Scholar</a>
+            <a href="/contact">Contact Us</a>
           </nav>
 
         </div>

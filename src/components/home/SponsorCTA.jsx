@@ -261,7 +261,7 @@ function SponsorCTA() {
     /*
       BACKEND CONNECTION
 
-      When your backend/API is ready, use:
+      When your backend/API is ready:
 
       const response = await fetch("/api/sponsorship", {
         method: "POST",
@@ -278,18 +278,6 @@ function SponsorCTA() {
 
     try {
       setIsSubmitting(true);
-
-      /*
-        Temporary frontend behaviour.
-
-        The actual automatic email to
-        info@alfalahss.org should be handled
-        by the backend/API.
-
-        Do NOT put SMTP passwords,
-        email API keys or secret credentials
-        inside this React file.
-      */
 
       await new Promise((resolve) =>
         setTimeout(resolve, 400)
@@ -325,15 +313,17 @@ function SponsorCTA() {
   return (
     <>
       {/* =====================================================
-          SIMPLE SPONSOR CTA
+          SPONSOR CTA
       ====================================================== */}
 
       <section className="sponsor-cta">
-        <div className="sponsor-cta__grid" />
+        <div
+          className="sponsor-cta__background"
+          aria-hidden="true"
+        />
 
         <div className="sponsor-cta__inner">
           <div className="sponsor-cta__content">
-
             <span className="sponsor-cta__eyebrow">
               MAKE AN IMPACT
             </span>
@@ -358,9 +348,7 @@ function SponsorCTA() {
             >
               <HeartHandshake size={18} />
 
-              <span>
-                Sponsor a Scholar
-              </span>
+              <span>Sponsor a Scholar</span>
 
               <ArrowRight size={17} />
             </button>
@@ -368,11 +356,9 @@ function SponsorCTA() {
             <span className="sponsor-cta__note">
               Education Without Prejudice
             </span>
-
           </div>
         </div>
       </section>
-
 
       {/* =====================================================
           SPONSORSHIP MODAL
@@ -380,17 +366,14 @@ function SponsorCTA() {
 
       {isOpen && (
         <div className="donor-modal">
-
           <div
             className="donor-modal__overlay"
             onClick={closeModal}
           />
 
           <div className="donor-modal__panel">
-
-            {/* Header */}
+            {/* STICKY HEADER */}
             <div className="donor-modal__header">
-
               <div>
                 <span className="donor-modal__eyebrow">
                   ALFALAH SCHOLARSHIP SCHEME
@@ -414,540 +397,449 @@ function SponsorCTA() {
               >
                 <X size={20} />
               </button>
-
             </div>
 
+            {/* SCROLLABLE CONTENT */}
+            <div className="donor-modal__scroll">
+              <form
+                className="donor-form"
+                onSubmit={handleSubmit}
+              >
+                {/* =================================================
+                    01 — STUDENT SELECTION
+                ================================================== */}
 
-            <form
-              className="donor-form"
-              onSubmit={handleSubmit}
-            >
-
-              {/* =================================================
-                  01 — STUDENT SELECTION
-              ================================================== */}
-
-              <div className="donor-form__section">
-
-                <div className="donor-form__section-title">
-
-                  <span className="donor-form__number">
-                    01
-                  </span>
-
-                  <div>
-                    <strong>
-                      Select Students
-                    </strong>
-
-                    <small>
-                      Multiple selections are allowed
-                    </small>
-                  </div>
-
-                </div>
-
-
-                <div className="student-grid">
-
-                  {students.map((student) => {
-                    const selected = isSelected(
-                      student.id
-                    );
-
-                    return (
-                      <button
-                        type="button"
-                        key={student.id}
-                        className={`student-card ${
-                          selected
-                            ? "student-card--selected"
-                            : ""
-                        }`}
-                        onClick={() =>
-                          toggleStudent(student)
-                        }
-                      >
-
-                        <div className="student-card__top">
-
-                          <div className="student-card__avatar">
-                            <UserRound size={17} />
-                          </div>
-
-                          <div className="student-card__check">
-
-                            {selected && (
-                              <Check size={13} />
-                            )}
-
-                          </div>
-
-                        </div>
-
-
-                        <div className="student-card__info">
-
-                          <strong>
-                            {student.name}
-                          </strong>
-
-                          <span>
-                            Father: {student.fatherName}
-                          </span>
-
-                          <span>
-                            {student.className}
-                          </span>
-
-                        </div>
-
-
-                        <div className="student-card__details">
-
-                          <div>
-                            <small>
-                              INSTITUTION
-                            </small>
-
-                            <span>
-                              {student.institution}
-                            </span>
-                          </div>
-
-
-                          <div>
-                            <small>
-                              MARKS
-                            </small>
-
-                            <span>
-                              {student.percentage}
-                            </span>
-                          </div>
-
-
-                          <div>
-                            <small>
-                              LOCATION
-                            </small>
-
-                            <span>
-                              {student.location}
-                            </span>
-                          </div>
-
-                        </div>
-
-
-                        <div className="student-card__footer">
-
-                          <span>
-                            {student.programme}
-                          </span>
-
-                          <span>
-                            {student.duration} Years
-                          </span>
-
-                        </div>
-
-                      </button>
-                    );
-                  })}
-
-                </div>
-
-              </div>
-
-
-              {/* =================================================
-                  02 — SPONSOR DETAILS
-              ================================================== */}
-
-              <div className="donor-form__section">
-
-                <div className="donor-form__section-title">
-
-                  <span className="donor-form__number">
-                    02
-                  </span>
-
-                  <div>
-                    <strong>
-                      Your Information
-                    </strong>
-
-                    <small>
-                      Tell us how we can contact you
-                    </small>
-                  </div>
-
-                </div>
-
-
-                <div className="donor-fields">
-
-                  <label>
-
-                    <span>
-                      <UserRound size={14} />
-                      Full Name
+                <div className="donor-form__section">
+                  <div className="donor-form__section-title">
+                    <span className="donor-form__number">
+                      01
                     </span>
-
-                    <input
-                      type="text"
-                      name="name"
-                      value={form.name}
-                      onChange={handleInput}
-                      placeholder="Your full name"
-                      required
-                    />
-
-                  </label>
-
-
-                  <label>
-
-                    <span>
-                      <Building2 size={14} />
-                      Business / Organization
-                    </span>
-
-                    <input
-                      type="text"
-                      name="business"
-                      value={form.business}
-                      onChange={handleInput}
-                      placeholder="Business or organization name"
-                    />
-
-                  </label>
-
-
-                  <label>
-
-                    <span>
-                      <MessageCircle size={14} />
-                      WhatsApp Number
-                    </span>
-
-                    <input
-                      type="tel"
-                      name="whatsapp"
-                      value={form.whatsapp}
-                      onChange={handleInput}
-                      placeholder="+92 300 0000000"
-                      required
-                    />
-
-                  </label>
-
-
-                  <label>
-
-                    <span>
-                      <Mail size={14} />
-                      Email Address
-                    </span>
-
-                    <input
-                      type="email"
-                      name="email"
-                      value={form.email}
-                      onChange={handleInput}
-                      placeholder="you@example.com"
-                      required
-                    />
-
-                  </label>
-
-                </div>
-
-              </div>
-
-
-              {/* =================================================
-                  03 — SPONSORSHIP SUMMARY
-              ================================================== */}
-
-              <div className="donor-form__section">
-
-                <div className="donor-form__section-title">
-
-                  <span className="donor-form__number">
-                    03
-                  </span>
-
-                  <div>
-                    <strong>
-                      Sponsorship Summary
-                    </strong>
-
-                    <small>
-                      Based on selected students and programme duration
-                    </small>
-                  </div>
-
-                </div>
-
-
-                {selectedStudents.length > 0 ? (
-
-                  <div className="sponsor-summary">
-
-                    <div className="sponsor-summary__icon">
-                      <Calculator size={19} />
-                    </div>
-
-
-                    <div className="sponsor-summary__rows">
-
-                      <div>
-                        <span>
-                          Students Selected
-                        </span>
-
-                        <strong>
-                          {selectedStudents.length}
-                        </strong>
-                      </div>
-
-
-                      <div>
-                        <span>
-                          Combined Annual Sponsorship
-                        </span>
-
-                        <strong>
-                          ₨{formatPKR(totalAnnual)}
-                        </strong>
-                      </div>
-
-
-                      <div>
-                        <span>
-                          Total Programme Sponsorship
-                        </span>
-
-                        <strong className="highlight">
-                          ₨{formatPKR(totalSponsorship)}
-                        </strong>
-                      </div>
-
-
-                      <div>
-                        <span>
-                          Monthly Disbursement Equivalent
-                        </span>
-
-                        <strong>
-                          ₨{formatPKR(
-                            totalMonthlyEquivalent
-                          )} / month
-                        </strong>
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                ) : (
-
-                  <div className="sponsor-summary__empty">
-                    Select students above to see the
-                    sponsorship calculation.
-                  </div>
-
-                )}
-
-              </div>
-
-
-              {/* =================================================
-                  04 — BANK DETAILS
-              ================================================== */}
-
-              <div className="donor-form__section">
-
-                <div className="donor-form__section-title">
-
-                  <span className="donor-form__number">
-                    04
-                  </span>
-
-                  <div>
-                    <strong>
-                      Bank Details
-                    </strong>
-
-                    <small>
-                      Verified accounts for direct donation
-                    </small>
-                  </div>
-
-                </div>
-
-
-                <div className="bank-details">
-
-                  <div className="bank-details__notice">
-                    <Landmark size={17} />
 
                     <div>
                       <strong>
-                        Direct Bank Transfer
+                        Select Students
                       </strong>
 
-                      <span>
-                        You may transfer your sponsorship
-                        amount directly to one of the
-                        following Alfalah accounts.
-                      </span>
+                      <small>
+                        Multiple selections are allowed
+                      </small>
                     </div>
                   </div>
 
+                  <div className="student-grid">
+                    {students.map((student) => {
+                      const selected = isSelected(
+                        student.id
+                      );
 
-                  <div className="bank-list">
-
-                    {bankAccounts.map(
-                      (account, index) => (
-                        <div
-                          className="bank-card"
-                          key={index}
+                      return (
+                        <button
+                          type="button"
+                          key={student.id}
+                          className={`student-card ${
+                            selected
+                              ? "student-card--selected"
+                              : ""
+                          }`}
+                          onClick={() =>
+                            toggleStudent(student)
+                          }
                         >
+                          <div className="student-card__top">
+                            <div className="student-card__avatar">
+                              <UserRound size={17} />
+                            </div>
 
-                          <div className="bank-card__country">
-                            {account.country}
+                            <div className="student-card__check">
+                              {selected && (
+                                <Check size={13} />
+                              )}
+                            </div>
                           </div>
 
-                          <strong>
-                            {account.bank}
-                          </strong>
+                          <div className="student-card__info">
+                            <strong>
+                              {student.name}
+                            </strong>
 
-                          {account.title && (
                             <span>
-                              Account Title:{" "}
-                              {account.title}
+                              Father: {student.fatherName}
                             </span>
-                          )}
 
+                            <span>
+                              {student.className}
+                            </span>
+                          </div>
+
+                          <div className="student-card__details">
+                            <div>
+                              <small>
+                                INSTITUTION
+                              </small>
+
+                              <span>
+                                {student.institution}
+                              </span>
+                            </div>
+
+                            <div>
+                              <small>
+                                MARKS
+                              </small>
+
+                              <span>
+                                {student.percentage}
+                              </span>
+                            </div>
+
+                            <div>
+                              <small>
+                                LOCATION
+                              </small>
+
+                              <span>
+                                {student.location}
+                              </span>
+                            </div>
+                          </div>
+
+                          <div className="student-card__footer">
+                            <span>
+                              {student.programme}
+                            </span>
+
+                            <span>
+                              {student.duration} Years
+                            </span>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* =================================================
+                    02 — SPONSOR DETAILS
+                ================================================== */}
+
+                <div className="donor-form__section">
+                  <div className="donor-form__section-title">
+                    <span className="donor-form__number">
+                      02
+                    </span>
+
+                    <div>
+                      <strong>
+                        Your Information
+                      </strong>
+
+                      <small>
+                        Tell us how we can contact you
+                      </small>
+                    </div>
+                  </div>
+
+                  <div className="donor-fields">
+                    <label>
+                      <span>
+                        <UserRound size={14} />
+                        Full Name
+                      </span>
+
+                      <input
+                        type="text"
+                        name="name"
+                        value={form.name}
+                        onChange={handleInput}
+                        placeholder="Your full name"
+                        required
+                      />
+                    </label>
+
+                    <label>
+                      <span>
+                        <Building2 size={14} />
+                        Business / Organization
+                      </span>
+
+                      <input
+                        type="text"
+                        name="business"
+                        value={form.business}
+                        onChange={handleInput}
+                        placeholder="Business or organization name"
+                      />
+                    </label>
+
+                    <label>
+                      <span>
+                        <MessageCircle size={14} />
+                        WhatsApp Number
+                      </span>
+
+                      <input
+                        type="tel"
+                        name="whatsapp"
+                        value={form.whatsapp}
+                        onChange={handleInput}
+                        placeholder="+92 300 0000000"
+                        required
+                      />
+                    </label>
+
+                    <label>
+                      <span>
+                        <Mail size={14} />
+                        Email Address
+                      </span>
+
+                      <input
+                        type="email"
+                        name="email"
+                        value={form.email}
+                        onChange={handleInput}
+                        placeholder="you@example.com"
+                        required
+                      />
+                    </label>
+                  </div>
+                </div>
+
+                {/* =================================================
+                    03 — SPONSORSHIP SUMMARY
+                ================================================== */}
+
+                <div className="donor-form__section">
+                  <div className="donor-form__section-title">
+                    <span className="donor-form__number">
+                      03
+                    </span>
+
+                    <div>
+                      <strong>
+                        Sponsorship Summary
+                      </strong>
+
+                      <small>
+                        Based on selected students and programme duration
+                      </small>
+                    </div>
+                  </div>
+
+                  {selectedStudents.length > 0 ? (
+                    <div className="sponsor-summary">
+                      <div className="sponsor-summary__icon">
+                        <Calculator size={19} />
+                      </div>
+
+                      <div className="sponsor-summary__rows">
+                        <div>
                           <span>
-                            Account No:{" "}
-                            <b>
-                              {account.account}
-                            </b>
+                            Students Selected
                           </span>
 
+                          <strong>
+                            {selectedStudents.length}
+                          </strong>
                         </div>
-                      )
-                    )}
 
-                  </div>
+                        <div>
+                          <span>
+                            Combined Annual Sponsorship
+                          </span>
 
+                          <strong>
+                            ₨{formatPKR(totalAnnual)}
+                          </strong>
+                        </div>
+
+                        <div>
+                          <span>
+                            Total Programme Sponsorship
+                          </span>
+
+                          <strong className="highlight">
+                            ₨{formatPKR(
+                              totalSponsorship
+                            )}
+                          </strong>
+                        </div>
+
+                        <div>
+                          <span>
+                            Monthly Disbursement Equivalent
+                          </span>
+
+                          <strong>
+                            ₨{formatPKR(
+                              totalMonthlyEquivalent
+                            )} / month
+                          </strong>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="sponsor-summary__empty">
+                      Select students above to see the
+                      sponsorship calculation.
+                    </div>
+                  )}
                 </div>
 
-              </div>
+                {/* =================================================
+                    04 — BANK DETAILS
+                ================================================== */}
 
+                <div className="donor-form__section">
+                  <div className="donor-form__section-title">
+                    <span className="donor-form__number">
+                      04
+                    </span>
 
-              {/* =================================================
-                  05 — CONSENT
-              ================================================== */}
+                    <div>
+                      <strong>
+                        Bank Details
+                      </strong>
 
-              <div className="donor-form__section">
-
-                <div className="donor-form__section-title">
-
-                  <span className="donor-form__number">
-                    05
-                  </span>
-
-                  <div>
-                    <strong>
-                      Confirmation
-                    </strong>
-
-                    <small>
-                      Please confirm before submitting
-                    </small>
+                      <small>
+                        Verified accounts for direct donation
+                      </small>
+                    </div>
                   </div>
 
+                  <div className="bank-details">
+                    <div className="bank-details__notice">
+                      <Landmark size={17} />
+
+                      <div>
+                        <strong>
+                          Direct Bank Transfer
+                        </strong>
+
+                        <span>
+                          You may transfer your sponsorship
+                          amount directly to one of the
+                          following Alfalah accounts.
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="bank-list">
+                      {bankAccounts.map(
+                        (account, index) => (
+                          <div
+                            className="bank-card"
+                            key={index}
+                          >
+                            <div className="bank-card__country">
+                              {account.country}
+                            </div>
+
+                            <strong>
+                              {account.bank}
+                            </strong>
+
+                            {account.title && (
+                              <span>
+                                Account Title:{" "}
+                                {account.title}
+                              </span>
+                            )}
+
+                            <span>
+                              Account No:{" "}
+                              <b>
+                                {account.account}
+                              </b>
+                            </span>
+                          </div>
+                        )
+                      )}
+                    </div>
+                  </div>
                 </div>
 
+                {/* =================================================
+                    05 — CONSENT
+                ================================================== */}
 
-                <label className="donor-consent">
+                <div className="donor-form__section">
+                  <div className="donor-form__section-title">
+                    <span className="donor-form__number">
+                      05
+                    </span>
 
-                  <input
-                    type="checkbox"
-                    checked={consent}
-                    onChange={(event) =>
-                      setConsent(
-                        event.target.checked
-                      )
-                    }
-                  />
+                    <div>
+                      <strong>
+                        Confirmation
+                      </strong>
 
-                  <span className="donor-consent__box">
+                      <small>
+                        Please confirm before submitting
+                      </small>
+                    </div>
+                  </div>
 
-                    {consent && (
-                      <Check size={13} />
-                    )}
+                  <label className="donor-consent">
+                    <input
+                      type="checkbox"
+                      checked={consent}
+                      onChange={(event) =>
+                        setConsent(
+                          event.target.checked
+                        )
+                      }
+                    />
 
+                    <span className="donor-consent__box">
+                      {consent && (
+                        <Check size={13} />
+                      )}
+                    </span>
+
+                    <span className="donor-consent__text">
+                      I confirm that the information provided
+                      is correct and I agree that Alfalah
+                      Scholarship Scheme may contact me
+                      regarding this sponsorship request.
+                    </span>
+                  </label>
+                </div>
+
+                {/* =================================================
+                    SUBMIT
+                ================================================== */}
+
+                <button
+                  type="submit"
+                  className="donor-form__submit"
+                  disabled={
+                    !selectedStudents.length ||
+                    !consent ||
+                    isSubmitting
+                  }
+                >
+                  <ShieldCheck size={17} />
+
+                  <span>
+                    {isSubmitting
+                      ? "Submitting..."
+                      : "Submit Sponsorship Request"}
                   </span>
 
-                  <span className="donor-consent__text">
+                  {!isSubmitting && (
+                    <ArrowRight size={17} />
+                  )}
+                </button>
 
-                    I confirm that the information provided
-                    is correct and I agree that Alfalah
-                    Scholarship Scheme may contact me
-                    regarding this sponsorship request.
-
-                  </span>
-
-                </label>
-
-              </div>
-
-
-              {/* =================================================
-                  SUBMIT
-              ================================================== */}
-
-              <button
-                type="submit"
-                className="donor-form__submit"
-                disabled={
-                  !selectedStudents.length ||
-                  !consent ||
-                  isSubmitting
-                }
-              >
-
-                <ShieldCheck size={17} />
-
-                <span>
-                  {isSubmitting
-                    ? "Submitting..."
-                    : "Submit Sponsorship Request"}
-                </span>
-
-                {!isSubmitting && (
-                  <ArrowRight size={17} />
-                )}
-
-              </button>
-
-
-              <p className="donor-form__footer">
-                Your information will be shared with the
-                Alfalah Scholarship Scheme team for
-                sponsorship coordination.
-              </p>
-
-            </form>
-
+                <p className="donor-form__footer">
+                  Your information will be shared with the
+                  Alfalah Scholarship Scheme team for
+                  sponsorship coordination.
+                </p>
+              </form>
+            </div>
           </div>
-
         </div>
       )}
     </>

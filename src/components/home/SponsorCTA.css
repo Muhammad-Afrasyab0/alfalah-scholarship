@@ -1,52 +1,36 @@
+/* =========================================================
+   SPONSOR CTA
+========================================================= */
+
 .sponsor-cta {
   position: relative;
   isolation: isolate;
   overflow: hidden;
 
-  padding: 115px 24px 120px;
+  padding: 42px 24px 46px;
 
   background: #080d12;
   color: #f4f7fb;
 }
 
-
-/* =========================================================
-   GRID BACKGROUND
-========================================================= */
-
-.sponsor-cta__grid {
+.sponsor-cta__background {
   position: absolute;
   inset: 0;
-
   z-index: -1;
+
   pointer-events: none;
 
-  background-image:
-    linear-gradient(
-      rgba(255, 255, 255, 0.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.025) 1px,
-      transparent 1px
-    );
-
-  background-size: 70px 70px;
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      transparent,
-      black 12%,
-      black 88%,
-      transparent
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(22, 119, 255, 0.055),
+      transparent 38%
     );
 }
 
 
 /* =========================================================
-   MAIN CONTENT
+   CONTENT
 ========================================================= */
 
 .sponsor-cta__inner {
@@ -66,14 +50,19 @@
 .sponsor-cta__eyebrow {
   display: inline-block;
 
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
 
-  letter-spacing: 0.2em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 
   color: #5ca8ff;
 }
@@ -86,15 +75,17 @@
 .sponsor-cta__content h2 {
   margin: 0;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-size: clamp(44px, 6vw, 72px);
+  font-size: clamp(42px, 5.5vw, 68px);
+  font-weight: 700;
 
-  line-height: 1.03;
-
-  letter-spacing: -0.055em;
-
-  font-weight: 750;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
 
   color: #f4f7fb;
 }
@@ -111,17 +102,20 @@
 .sponsor-cta__content p {
   width: min(650px, 100%);
 
-  margin: 26px auto 0;
+  margin: 18px auto 0;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 15px;
+  font-weight: 400;
 
-  line-height: 1.8;
+  line-height: 1.7;
 
-  font-weight: 450;
-
-  color: #aab5c2;
+  color: rgba(255, 255, 255, 0.57);
 }
 
 
@@ -130,44 +124,59 @@
 ========================================================= */
 
 .sponsor-cta__button {
-  margin-top: 34px;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  gap: 11px;
+  gap: 10px;
 
-  padding: 14px 21px;
+  margin-top: 25px;
 
-  border: 1px solid rgba(72, 153, 255, 0.65);
+  padding: 13px 20px;
 
-  border-radius: 13px;
+  border: 1px solid rgba(72, 153, 255, 0.6);
+  border-radius: 10px;
 
   background: #1677ff;
 
   color: #ffffff;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-size: 13px;
-
-  font-weight: 750;
+  font-size: 14px;
+  font-weight: 700;
 
   cursor: pointer;
 
   box-shadow:
-    0 10px 28px rgba(22, 119, 255, 0.16);
+    0 8px 24px rgba(22, 119, 255, 0.12);
 
   transition:
-    background 0.2s ease,
-    border-color 0.2s ease;
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .sponsor-cta__button:hover {
+  transform: translateY(-2px);
+
   background: #0d6ee8;
 
-  border-color: rgba(120, 188, 255, 0.85);
+  box-shadow:
+    0 12px 28px rgba(22, 119, 255, 0.2);
+}
+
+.sponsor-cta__button svg:last-child {
+  transition:
+    transform 0.25s ease;
+}
+
+.sponsor-cta__button:hover svg:last-child {
+  transform: translateX(3px);
 }
 
 
@@ -178,117 +187,143 @@
 .sponsor-cta__note {
   display: block;
 
-  margin-top: 14px;
+  margin-top: 11px;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 10px;
-
   font-weight: 600;
 
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 
-  color: rgba(170, 181, 194, 0.58);
+  color: rgba(170, 181, 194, 0.5);
 }
 
 
 /* =========================================================
-   DONOR MODAL
+   MODAL
 ========================================================= */
 
 .donor-modal {
   position: fixed;
-
   inset: 0;
 
   z-index: 9999;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
-  padding: 20px;
+  padding: 18px;
+
+  overflow: hidden;
 }
 
 
-/* Overlay */
+/* =========================================================
+   OVERLAY
+========================================================= */
 
 .donor-modal__overlay {
   position: absolute;
-
   inset: 0;
 
-  background:
-    rgba(2, 7, 12, 0.78);
+  background: rgba(2, 7, 12, 0.82);
 
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(7px);
 }
 
 
-/* Panel */
+/* =========================================================
+   MODAL PANEL
+========================================================= */
 
 .donor-modal__panel {
   position: relative;
-
   z-index: 2;
+
+  display: flex;
+  flex-direction: column;
 
   width: min(1080px, 100%);
 
-  max-height: 92vh;
+  height: min(92vh, 900px);
 
-  overflow-y: auto;
+  overflow: hidden;
 
   border:
     1px solid
     rgba(255, 255, 255, 0.09);
 
-  border-radius: 22px;
+  border-radius: 18px;
 
-  background:
-    linear-gradient(
-      145deg,
-      #101923,
-      #080e14
-    );
+  background: #0b121a;
 
   box-shadow:
-    0 35px 100px
+    0 30px 90px
     rgba(0, 0, 0, 0.5);
+
+  animation:
+    donorModalIn 0.3s ease-out;
+}
+
+@keyframes donorModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 
 /* =========================================================
-   MODAL HEADER
+   STICKY HEADER
 ========================================================= */
 
 .donor-modal__header {
-  display: flex;
+  position: relative;
+  z-index: 10;
 
+  display: flex;
   align-items: flex-start;
   justify-content: space-between;
 
   gap: 25px;
 
-  padding: 30px 32px;
+  flex-shrink: 0;
+
+  padding: 24px 28px 20px;
 
   border-bottom:
     1px solid
-    rgba(255, 255, 255, 0.06);
+    rgba(255, 255, 255, 0.07);
+
+  background: #0b121a;
 }
 
 .donor-modal__eyebrow {
   display: block;
 
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 9px;
+  font-weight: 700;
 
-  font-weight: 800;
-
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
 
   color: #5ca8ff;
 }
@@ -296,64 +331,121 @@
 .donor-modal__header h3 {
   margin: 0;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-size: 30px;
+  font-size: 28px;
+  font-weight: 700;
 
-  line-height: 1.1;
-
-  letter-spacing: -0.04em;
-
-  font-weight: 750;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
 
   color: #f4f7fb;
 }
 
 .donor-modal__header p {
-  margin: 9px 0 0;
+  margin: 7px 0 0;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-size: 11px;
-
-  line-height: 1.6;
+  font-size: 12px;
+  line-height: 1.55;
 
   color: #84919e;
 }
 
 
-/* Close */
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
 
 .donor-modal__close {
+  position: sticky;
+  top: 0;
+
   width: 40px;
   height: 40px;
 
   flex-shrink: 0;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
   border:
     1px solid
-    rgba(255, 255, 255, 0.08);
+    rgba(255, 255, 255, 0.1);
 
   border-radius: 50%;
 
   background:
-    rgba(255, 255, 255, 0.035);
+    rgba(255, 255, 255, 0.04);
 
   color: #aeb9c4;
 
   cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .donor-modal__close:hover {
   background:
-    rgba(22, 119, 255, 0.1);
+    rgba(22, 119, 255, 0.12);
 
   color: #ffffff;
+
+  transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   SCROLL AREA
+========================================================= */
+
+.donor-modal__scroll {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  overscroll-behavior: contain;
+
+  scrollbar-width: thin;
+  scrollbar-color:
+    rgba(92, 168, 255, 0.3)
+    transparent;
+}
+
+.donor-modal__scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.donor-modal__scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.donor-modal__scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+
+  background:
+    rgba(92, 168, 255, 0.28);
+}
+
+.donor-modal__scroll::-webkit-scrollbar-thumb:hover {
+  background:
+    rgba(92, 168, 255, 0.45);
 }
 
 
@@ -362,74 +454,90 @@
 ========================================================= */
 
 .donor-form {
-  padding: 30px 32px 35px;
+  padding: 25px 28px 30px;
 }
 
 .donor-form__section {
-  margin-bottom: 32px;
+  margin-bottom: 27px;
 }
+
+.donor-form__section:last-of-type {
+  margin-bottom: 23px;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
 
 .donor-form__section-title {
   display: flex;
-
   align-items: center;
 
-  gap: 12px;
+  gap: 11px;
 
-  margin-bottom: 17px;
+  margin-bottom: 15px;
 }
 
 .donor-form__number {
-  width: 31px;
-  height: 31px;
+  width: 30px;
+  height: 30px;
 
   flex-shrink: 0;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
   border:
     1px solid
-    rgba(22, 119, 255, 0.22);
+    rgba(22, 119, 255, 0.25);
 
-  border-radius: 8px;
+  border-radius: 7px;
 
   background:
     rgba(22, 119, 255, 0.06);
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 9px;
-
-  font-weight: 800;
+  font-weight: 700;
 
   color: #5ca8ff;
 }
 
 .donor-form__section-title div {
   display: flex;
-
   flex-direction: column;
 
-  gap: 3px;
+  gap: 2px;
 }
 
 .donor-form__section-title strong {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-size: 13px;
-
-  font-weight: 750;
+  font-size: 14px;
+  font-weight: 700;
 
   color: #e7edf4;
 }
 
 .donor-form__section-title small {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-size: 9px;
+  font-size: 10px;
 
   color: #71808e;
 }
@@ -445,7 +553,7 @@
   grid-template-columns:
     repeat(3, minmax(0, 1fr));
 
-  gap: 11px;
+  gap: 10px;
 }
 
 .student-card {
@@ -453,7 +561,7 @@
 
   min-width: 0;
 
-  padding: 16px;
+  padding: 15px;
 
   text-align: left;
 
@@ -461,7 +569,7 @@
     1px solid
     rgba(255, 255, 255, 0.07);
 
-  border-radius: 13px;
+  border-radius: 11px;
 
   background:
     rgba(255, 255, 255, 0.025);
@@ -471,37 +579,40 @@
   cursor: pointer;
 
   transition:
-    border-color 0.2s ease,
-    background 0.2s ease;
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
 }
 
 .student-card:hover {
+  transform: translateY(-2px);
+
   border-color:
-    rgba(22, 119, 255, 0.3);
+    rgba(22, 119, 255, 0.32);
 
   background:
-    rgba(22, 119, 255, 0.035);
+    rgba(22, 119, 255, 0.04);
 }
 
 .student-card--selected {
   border-color:
-    rgba(22, 119, 255, 0.65);
+    rgba(22, 119, 255, 0.62);
 
   background:
-    rgba(22, 119, 255, 0.085);
+    rgba(22, 119, 255, 0.08);
 }
 
 
-/* Top */
+/* =========================================================
+   STUDENT TOP
+========================================================= */
 
 .student-card__top {
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
 
-  margin-bottom: 13px;
+  margin-bottom: 12px;
 }
 
 .student-card__avatar {
@@ -509,7 +620,6 @@
   height: 32px;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
@@ -522,11 +632,10 @@
 }
 
 .student-card__check {
-  width: 24px;
-  height: 24px;
+  width: 23px;
+  height: 23px;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
@@ -539,38 +648,48 @@
 }
 
 
-/* Student info */
+/* =========================================================
+   STUDENT INFO
+========================================================= */
 
 .student-card__info {
   display: flex;
-
   flex-direction: column;
 
   gap: 3px;
 }
 
 .student-card__info strong {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 13px;
-
-  font-weight: 750;
+  font-weight: 700;
 
   color: #edf3f8;
 }
 
 .student-card__info span {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-size: 9px;
+  font-size: 10px;
 
-  line-height: 1.5;
+  line-height: 1.45;
 
   color: #748391;
 }
 
 
-/* Details */
+/* =========================================================
+   STUDENT DETAILS
+========================================================= */
 
 .student-card__details {
   display: grid;
@@ -580,9 +699,8 @@
 
   gap: 9px;
 
-  margin-top: 14px;
-
-  padding-top: 13px;
+  margin-top: 13px;
+  padding-top: 12px;
 
   border-top:
     1px solid
@@ -593,20 +711,22 @@
   min-width: 0;
 
   display: flex;
-
   flex-direction: column;
 
-  gap: 4px;
+  gap: 3px;
 }
 
 .student-card__details small {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 7px;
+  font-weight: 700;
 
-  font-weight: 800;
-
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 
   color: #596876;
 }
@@ -614,11 +734,15 @@
 .student-card__details span {
   overflow: hidden;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-size: 8px;
+  font-size: 9px;
 
-  line-height: 1.45;
+  line-height: 1.4;
 
   color: #9ba8b5;
 
@@ -626,25 +750,28 @@
 }
 
 
-/* Footer */
+/* =========================================================
+   STUDENT FOOTER
+========================================================= */
 
 .student-card__footer {
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
 
   gap: 10px;
 
-  margin-top: 14px;
+  margin-top: 13px;
 }
 
 .student-card__footer span {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 8px;
-
   font-weight: 700;
 
   color: #579ee9;
@@ -665,28 +792,29 @@
   grid-template-columns:
     repeat(2, minmax(0, 1fr));
 
-  gap: 13px;
+  gap: 12px;
 }
 
 .donor-fields label {
   display: flex;
-
   flex-direction: column;
 
-  gap: 7px;
+  gap: 6px;
 }
 
 .donor-fields label > span {
   display: flex;
-
   align-items: center;
 
   gap: 6px;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-size: 9px;
-
+  font-size: 10px;
   font-weight: 700;
 
   color: #8997a5;
@@ -697,13 +825,13 @@
 
   box-sizing: border-box;
 
-  padding: 12px 13px;
+  padding: 11px 12px;
 
   border:
     1px solid
     rgba(255, 255, 255, 0.08);
 
-  border-radius: 9px;
+  border-radius: 8px;
 
   outline: none;
 
@@ -712,9 +840,17 @@
 
   color: #edf3f8;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-size: 10px;
+  font-size: 11px;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
 }
 
 .donor-fields input::placeholder {
@@ -736,39 +872,33 @@
 
 .sponsor-summary {
   display: flex;
-
   align-items: center;
 
-  gap: 16px;
+  gap: 15px;
 
-  padding: 17px;
+  padding: 15px;
 
   border:
     1px solid
     rgba(22, 119, 255, 0.12);
 
-  border-radius: 12px;
+  border-radius: 11px;
 
   background:
-    linear-gradient(
-      135deg,
-      rgba(22, 119, 255, 0.07),
-      rgba(255, 255, 255, 0.018)
-    );
+    rgba(22, 119, 255, 0.045);
 }
 
 .sponsor-summary__icon {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
 
   flex-shrink: 0;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
-  border-radius: 10px;
+  border-radius: 9px;
 
   background:
     rgba(55, 140, 233, 0.1);
@@ -784,28 +914,35 @@
   grid-template-columns:
     repeat(2, 1fr);
 
-  gap: 13px 25px;
+  gap: 12px 24px;
 }
 
 .sponsor-summary__rows div {
   display: flex;
-
   flex-direction: column;
 
-  gap: 5px;
+  gap: 4px;
 }
 
 .sponsor-summary__rows span {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-size: 8px;
+  font-size: 9px;
 
   color:
     rgba(164, 186, 202, 0.48);
 }
 
 .sponsor-summary__rows strong {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 14px;
 
@@ -817,7 +954,7 @@
 }
 
 .sponsor-summary__empty {
-  padding: 20px;
+  padding: 18px;
 
   text-align: center;
 
@@ -825,9 +962,13 @@
     1px dashed
     rgba(132, 169, 196, 0.14);
 
-  border-radius: 10px;
+  border-radius: 9px;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 10px;
 
@@ -842,26 +983,24 @@
 
 .bank-details {
   display: flex;
-
   flex-direction: column;
 
-  gap: 14px;
+  gap: 12px;
 }
 
 .bank-details__notice {
   display: flex;
-
   align-items: flex-start;
 
-  gap: 11px;
+  gap: 10px;
 
-  padding: 14px;
+  padding: 13px;
 
   border:
     1px solid
     rgba(22, 119, 255, 0.1);
 
-  border-radius: 10px;
+  border-radius: 9px;
 
   background:
     rgba(22, 119, 255, 0.035);
@@ -877,22 +1016,29 @@
 
 .bank-details__notice div {
   display: flex;
-
   flex-direction: column;
 
-  gap: 4px;
+  gap: 3px;
 }
 
 .bank-details__notice strong {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-size: 10px;
+  font-size: 11px;
 
   color: #d9e7f5;
 }
 
 .bank-details__notice span {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 9px;
 
@@ -912,41 +1058,57 @@
 
 .bank-card {
   display: flex;
-
   flex-direction: column;
 
   gap: 5px;
 
-  padding: 14px;
+  padding: 13px;
 
   border:
     1px solid
     rgba(255, 255, 255, 0.07);
 
-  border-radius: 11px;
+  border-radius: 10px;
 
   background:
     rgba(255, 255, 255, 0.025);
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.bank-card:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(22, 119, 255, 0.25);
 }
 
 .bank-card__country {
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 7px;
+  font-weight: 700;
 
-  font-weight: 800;
-
-  letter-spacing: 0.1em;
-
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 
   color: #5ca8ff;
 }
 
 .bank-card strong {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 10px;
 
@@ -956,7 +1118,11 @@
 }
 
 .bank-card span {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 8px;
 
@@ -980,10 +1146,9 @@
   position: relative;
 
   display: flex;
-
   align-items: flex-start;
 
-  gap: 11px;
+  gap: 10px;
 
   cursor: pointer;
 }
@@ -1003,7 +1168,6 @@
   flex-shrink: 0;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
@@ -1022,16 +1186,20 @@
 }
 
 .donor-consent input:checked
-+ .donor-consent__box {
+  + .donor-consent__box {
   background: #317fd0;
 
   border-color: #4f9cf0;
 }
 
 .donor-consent__text {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-size: 9px;
+  font-size: 10px;
 
   line-height: 1.6;
 
@@ -1047,37 +1215,45 @@
 .donor-form__submit {
   width: 100%;
 
-  min-height: 52px;
+  min-height: 50px;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
   gap: 9px;
 
-  margin-top: 5px;
+  margin-top: 4px;
 
   border:
     1px solid
     rgba(81, 157, 235, 0.35);
 
-  border-radius: 10px;
+  border-radius: 9px;
 
   background: #1677ff;
 
   color: #ffffff;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-size: 11px;
-
-  font-weight: 750;
+  font-size: 12px;
+  font-weight: 700;
 
   cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
 }
 
 .donor-form__submit:hover:not(:disabled) {
+  transform: translateY(-1px);
+
   background: #0d6ee8;
 }
 
@@ -1088,11 +1264,15 @@
 }
 
 .donor-form__footer {
-  margin: 12px 0 0;
+  margin: 11px 0 0;
 
   text-align: center;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Lato",
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 8px;
 
@@ -1113,16 +1293,12 @@ html.light-theme .sponsor-cta {
   color: #101820;
 }
 
-html.light-theme .sponsor-cta__grid {
-  background-image:
-    linear-gradient(
-      rgba(16, 24, 32, 0.045) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(16, 24, 32, 0.045) 1px,
-      transparent 1px
+html.light-theme .sponsor-cta__background {
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(22, 119, 255, 0.025),
+      transparent 38%
     );
 }
 
@@ -1142,33 +1318,26 @@ html.light-theme .sponsor-cta__note {
   color: rgba(67, 77, 87, 0.65);
 }
 
-
-/* Light modal */
-
 html.light-theme .donor-modal__overlay {
-  background:
-    rgba(16, 24, 32, 0.45);
+  background: rgba(16, 24, 32, 0.45);
 }
 
 html.light-theme .donor-modal__panel {
   border-color:
     rgba(16, 24, 32, 0.09);
 
-  background:
-    linear-gradient(
-      145deg,
-      #fffdf8,
-      #f7f3eb
-    );
+  background: #fffdf8;
 
   box-shadow:
-    0 35px 90px
+    0 30px 90px
     rgba(16, 24, 32, 0.18);
 }
 
 html.light-theme .donor-modal__header {
   border-color:
     rgba(16, 24, 32, 0.07);
+
+  background: #fffdf8;
 }
 
 html.light-theme .donor-modal__header h3 {
@@ -1244,11 +1413,13 @@ html.light-theme .student-card__details span {
   color: #5f6c77;
 }
 
-html.light-theme .student-card__footer span:last-child {
+html.light-theme
+  .student-card__footer span:last-child {
   color: #75808a;
 }
 
-html.light-theme .donor-fields label > span {
+html.light-theme
+  .donor-fields label > span {
   color: #697681;
 }
 
@@ -1262,7 +1433,8 @@ html.light-theme .donor-fields input {
   color: #101820;
 }
 
-html.light-theme .donor-fields input::placeholder {
+html.light-theme
+  .donor-fields input::placeholder {
   color: #929ba2;
 }
 
@@ -1274,11 +1446,13 @@ html.light-theme .sponsor-summary {
     rgba(22, 119, 255, 0.045);
 }
 
-html.light-theme .sponsor-summary__rows span {
+html.light-theme
+  .sponsor-summary__rows span {
   color: #7b8790;
 }
 
-html.light-theme .sponsor-summary__rows strong {
+html.light-theme
+  .sponsor-summary__rows strong {
   color: #263542;
 }
 
@@ -1364,21 +1538,20 @@ html.light-theme .donor-form__footer {
 ========================================================= */
 
 @media (max-width: 650px) {
-
   .sponsor-cta {
-    padding: 85px 18px 90px;
+    padding: 34px 18px 38px;
   }
 
   .sponsor-cta__content h2 {
     font-size: clamp(38px, 10vw, 52px);
 
-    letter-spacing: -0.045em;
+    letter-spacing: -0.03em;
   }
 
   .sponsor-cta__content p {
-    font-size: 13px;
+    font-size: 14px;
 
-    line-height: 1.75;
+    line-height: 1.7;
   }
 
   .sponsor-cta__button {
@@ -1387,36 +1560,48 @@ html.light-theme .donor-form__footer {
     max-width: 300px;
   }
 
-
-  /* Modal */
+  /* MODAL */
 
   .donor-modal {
-    padding: 8px;
+    padding: 0;
   }
 
   .donor-modal__panel {
-    max-height:
-      calc(100vh - 16px);
+    width: 100%;
+    height: 100vh;
 
-    border-radius: 15px;
+    max-height: none;
+
+    border-radius: 0;
+
+    border: 0;
   }
 
   .donor-modal__header {
     padding:
-      21px
+      19px
       18px
-      18px;
+      17px;
   }
 
   .donor-modal__header h3 {
     font-size: 21px;
   }
 
+  .donor-modal__header p {
+    font-size: 11px;
+  }
+
+  .donor-modal__close {
+    width: 38px;
+    height: 38px;
+  }
+
   .donor-form {
     padding:
-      22px
+      21px
       18px
-      25px;
+      28px;
   }
 
   .student-grid {
@@ -1428,9 +1613,7 @@ html.light-theme .donor-form__footer {
   }
 
   .sponsor-summary {
-    flex-direction: column;
-
-    align-items: stretch;
+    align-items: flex-start;
   }
 
   .sponsor-summary__rows {
@@ -1448,7 +1631,6 @@ html.light-theme .donor-form__footer {
 ========================================================= */
 
 @media (max-width: 400px) {
-
   .sponsor-cta__content h2 {
     font-size: 34px;
   }
@@ -1457,537 +1639,20 @@ html.light-theme .donor-form__footer {
     font-size: 19px;
   }
 }
-/* =========================================================
-   DONOR PAGE
-========================================================= */
-
-.donor-page {
-  min-height: 100vh;
-  background: #080d12;
-  color: #f4f7fb;
-}
 
 
 /* =========================================================
-   DONOR HERO
+   REDUCED MOTION
 ========================================================= */
 
-.donor-hero {
-  min-height: 620px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding:
-    150px
-    24px
-    105px;
-
-  box-sizing: border-box;
-}
-
-.donor-page__inner {
-  position: relative;
-
-  width: min(940px, 100%);
-
-  margin: 0 auto;
-
-  text-align: center;
-}
-
-.donor-page__eyebrow {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  margin-bottom: 22px;
-
-  font-family: "Plus Jakarta Sans", sans-serif;
-
-  font-size: 10px;
-
-  font-weight: 800;
-
-  letter-spacing: 0.22em;
-
-  color: #5ca8ff;
-}
-
-.donor-page__title {
-  margin: 0;
-
-  font-family: "Plus Jakarta Sans", sans-serif;
-
-  font-size: clamp(48px, 7vw, 78px);
-
-  line-height: 1.02;
-
-  letter-spacing: -0.06em;
-
-  font-weight: 750;
-
-  color: #f4f7fb;
-}
-
-.donor-page__title span {
-  color: #4d9bff;
-}
-
-.donor-page__description {
-  width: min(650px, 100%);
-
-  margin:
-    28px
-    auto
-    0;
-
-  font-family: "Plus Jakarta Sans", sans-serif;
-
-  font-size: 15px;
-
-  line-height: 1.8;
-
-  font-weight: 450;
-
-  color: #aab5c2;
-}
-
-.donor-page__actions {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  margin-top: 34px;
-}
-
-.donor-page__trust {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 12px;
-
-  margin-top: 17px;
-
-  font-family: "Plus Jakarta Sans", sans-serif;
-
-  font-size: 9px;
-
-  font-weight: 650;
-
-  letter-spacing: 0.1em;
-
-  color: rgba(170, 181, 194, 0.55);
-}
-
-.donor-page__trust span {
-  width: 24px;
-  height: 1px;
-
-  background:
-    rgba(92, 168, 255, 0.4);
-}
-
-
-/* =========================================================
-   DONOR PROCESS
-========================================================= */
-
-.donor-process {
-  position: relative;
-
-  isolation: isolate;
-
-  overflow: hidden;
-
-  padding:
-    90px
-    24px
-    100px;
-
-  background: #080d12;
-}
-
-.donor-process__grid {
-  position: absolute;
-
-  inset: 0;
-
-  z-index: -1;
-
-  pointer-events: none;
-
-  background-image:
-    linear-gradient(
-      rgba(255, 255, 255, 0.022) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.022) 1px,
-      transparent 1px
-    );
-
-  background-size: 70px 70px;
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      transparent,
-      black 12%,
-      black 88%,
-      transparent
-    );
-}
-
-.donor-process__inner {
-  width: min(1120px, 100%);
-
-  margin: 0 auto;
-}
-
-.donor-process__heading {
-  width: min(680px, 100%);
-
-  margin-bottom: 48px;
-}
-
-.donor-process__heading > span {
-  display: block;
-
-  margin-bottom: 16px;
-
-  font-family: "Plus Jakarta Sans", sans-serif;
-
-  font-size: 10px;
-
-  font-weight: 800;
-
-  letter-spacing: 0.2em;
-
-  color: #5ca8ff;
-}
-
-.donor-process__heading h2 {
-  margin: 0;
-
-  font-family: "Plus Jakarta Sans", sans-serif;
-
-  font-size: clamp(34px, 4.5vw, 54px);
-
-  line-height: 1.08;
-
-  letter-spacing: -0.05em;
-
-  font-weight: 730;
-
-  color: #f4f7fb;
-}
-
-.donor-process__heading h2 strong {
-  color: #4d9bff;
-
-  font-weight: inherit;
-}
-
-.donor-process__heading p {
-  width: min(600px, 100%);
-
-  margin: 20px 0 0;
-
-  font-family: "Plus Jakarta Sans", sans-serif;
-
-  font-size: 13px;
-
-  line-height: 1.8;
-
-  color: #84919e;
-}
-
-
-/* =========================================================
-   PROCESS STEPS
-========================================================= */
-
-.donor-process__steps {
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, minmax(0, 1fr));
-
-  gap: 16px;
-}
-
-.donor-process__step {
-  position: relative;
-
-  min-height: 190px;
-
-  padding: 22px;
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.07);
-
-  border-radius: 14px;
-
-  background:
-    rgba(255, 255, 255, 0.025);
-
-  transition:
-    border-color 0.25s ease,
-    transform 0.25s ease,
-    background 0.25s ease;
-}
-
-.donor-process__step:hover {
-  transform: translateY(-4px);
-
-  border-color:
-    rgba(22, 119, 255, 0.28);
-
-  background:
-    rgba(22, 119, 255, 0.035);
-}
-
-.donor-process__step > span {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 32px;
-  height: 32px;
-
-  margin-bottom: 28px;
-
-  border:
-    1px solid
-    rgba(22, 119, 255, 0.2);
-
-  border-radius: 8px;
-
-  background:
-    rgba(22, 119, 255, 0.06);
-
-  font-family: "Plus Jakarta Sans", sans-serif;
-
-  font-size: 9px;
-
-  font-weight: 800;
-
-  color: #5ca8ff;
-}
-
-.donor-process__step strong {
-  display: block;
-
-  font-family: "Plus Jakarta Sans", sans-serif;
-
-  font-size: 14px;
-
-  font-weight: 750;
-
-  color: #e7edf4;
-}
-
-.donor-process__step p {
-  margin: 9px 0 0;
-
-  font-family: "Plus Jakarta Sans", sans-serif;
-
-  font-size: 10px;
-
-  line-height: 1.7;
-
-  color: #748391;
-}
-
-
-/* =========================================================
-   LIGHT THEME
-========================================================= */
-
-html.light-theme .donor-page {
-  background: #f7f3eb;
-
-  color: #101820;
-}
-
-html.light-theme .donor-hero,
-html.light-theme .donor-process {
-  background: #f7f3eb;
-}
-
-html.light-theme .donor-process__grid {
-  background-image:
-    linear-gradient(
-      rgba(16, 24, 32, 0.045) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(16, 24, 32, 0.045) 1px,
-      transparent 1px
-    );
-}
-
-html.light-theme .donor-page__title {
-  color: #101820;
-}
-
-html.light-theme .donor-page__title span {
-  color: #1677ff;
-}
-
-html.light-theme .donor-page__description {
-  color: #5f6872;
-}
-
-html.light-theme .donor-page__trust {
-  color: rgba(67, 77, 87, 0.65);
-}
-
-html.light-theme .donor-process__heading h2 {
-  color: #101820;
-}
-
-html.light-theme .donor-process__heading h2 strong {
-  color: #1677ff;
-}
-
-html.light-theme .donor-process__heading p {
-  color: #69747e;
-}
-
-html.light-theme .donor-process__step {
-  border-color:
-    rgba(16, 24, 32, 0.08);
-
-  background:
-    rgba(255, 255, 255, 0.52);
-}
-
-html.light-theme .donor-process__step:hover {
-  border-color:
-    rgba(22, 119, 255, 0.28);
-
-  background:
-    rgba(22, 119, 255, 0.035);
-}
-
-html.light-theme .donor-process__step strong {
-  color: #17222c;
-}
-
-html.light-theme .donor-process__step p {
-  color: #6e7983;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 950px) {
-
-  .donor-hero {
-    min-height: 560px;
-
-    padding:
-      135px
-      24px
-      90px;
-  }
-
-  .donor-process__steps {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-  }
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 650px) {
-
-  .donor-hero {
-    min-height: auto;
-
-    padding:
-      120px
-      18px
-      75px;
-  }
-
-  .donor-page__eyebrow {
-    font-size: 9px;
-
-    letter-spacing: 0.17em;
-  }
-
-  .donor-page__title {
-    font-size:
-      clamp(40px, 11vw, 55px);
-
-    letter-spacing: -0.05em;
-  }
-
-  .donor-page__description {
-    margin-top: 22px;
-
-    font-size: 13px;
-
-    line-height: 1.75;
-  }
-
-  .donor-page__actions {
-    margin-top: 28px;
-  }
-
-  .donor-page__trust {
-    font-size: 8px;
-  }
-
-  .donor-process {
-    padding:
-      70px
-      18px
-      75px;
-  }
-
-  .donor-process__heading {
-    margin-bottom: 32px;
-  }
-
-  .donor-process__heading h2 {
-    font-size: 34px;
-  }
-
-  .donor-process__heading p {
-    font-size: 12px;
-  }
-
-  .donor-process__steps {
-    grid-template-columns: 1fr;
-
-    gap: 11px;
-  }
-
-  .donor-process__step {
-    min-height: auto;
-
-    padding: 19px;
-  }
-
-  .donor-process__step > span {
-    margin-bottom: 22px;
+@media (prefers-reduced-motion: reduce) {
+  .donor-modal__panel,
+  .sponsor-cta__button,
+  .student-card,
+  .bank-card,
+  .donor-form__submit,
+  .donor-modal__close {
+    animation: none;
+    transition: none;
   }
 }

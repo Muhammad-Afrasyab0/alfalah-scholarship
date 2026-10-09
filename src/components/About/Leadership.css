@@ -1,140 +1,81 @@
-/* =========================================
+/* =========================================================
+   ALFALAH SCHOLARSHIP SCHEME
    LEADERSHIP SECTION
-========================================= */
+========================================================= */
 
 .leadership {
   position: relative;
-  overflow: hidden;
-  isolation: isolate;
 
-  padding: 135px 0 125px;
+  width: 100%;
+
+  overflow: hidden;
+
+  padding: 38px 0 38px;
 
   background: #080d12;
+
   color: #f5f7fa;
+
+  font-family: "Lato", sans-serif;
 }
 
-/* =========================================
-   GRID BACKGROUND
-========================================= */
 
-.leadership__grid {
-  position: absolute;
-  inset: 0;
-
-  z-index: -3;
-  pointer-events: none;
-
-  background-image:
-    linear-gradient(
-      rgba(255, 255, 255, 0.021) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.021) 1px,
-      transparent 1px
-    );
-
-  background-size: 70px 70px;
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      transparent 0%,
-      black 12%,
-      black 88%,
-      transparent 100%
-    );
-}
-
-/* =========================================
-   AMBIENT LIGHT
-========================================= */
-
-.leadership__glow {
-  position: absolute;
-
-  border-radius: 50%;
-
-  filter: blur(140px);
-
-  pointer-events: none;
-
-  z-index: -2;
-}
-
-.leadership__glow--left {
-  width: 460px;
-  height: 460px;
-
-  left: -280px;
-  top: 25%;
-
-  background: #1677ff;
-
-  opacity: 0.045;
-}
-
-.leadership__glow--right {
-  width: 400px;
-  height: 400px;
-
-  right: -250px;
-  bottom: 10%;
-
-  background: #1677ff;
-
-  opacity: 0.035;
-}
-
-/* =========================================
+/* =========================================================
    CONTAINER
-========================================= */
+========================================================= */
 
 .leadership__container {
-  width: min(1240px, calc(100% - 48px));
+  width: min(1240px, calc(100% - 80px));
 
   margin: 0 auto;
 }
 
-/* =========================================
+
+/* =========================================================
    HEADER
-========================================= */
+========================================================= */
 
 .leadership__header {
-  margin-bottom: 70px;
+  margin-bottom: 34px;
 }
 
 .leadership__eyebrow {
   display: flex;
   align-items: center;
 
-  gap: 12px;
+  gap: 9px;
 
-  margin-bottom: 22px;
+  margin-bottom: 13px;
+
+  font-family: "Lato", sans-serif;
 
   font-size: 10px;
   font-weight: 700;
 
-  letter-spacing: 0.19em;
+  letter-spacing: 0.13em;
 
   color: #8795a3;
 }
 
 .leadership__eyebrow-line {
-  width: 34px;
+  width: 28px;
   height: 1px;
 
   background: #1677ff;
 }
 
+
+/* =========================================================
+   HEADING
+========================================================= */
+
 .leadership__heading-row {
   display: flex;
 
-  justify-content: space-between;
   align-items: flex-end;
+  justify-content: space-between;
 
-  gap: 70px;
+  gap: 50px;
 }
 
 .leadership__heading-row h2 {
@@ -142,13 +83,17 @@
 
   max-width: 620px;
 
-  font-size: clamp(44px, 5vw, 68px);
+  font-family: "Lato", sans-serif;
 
-  line-height: 0.98;
-
-  letter-spacing: -0.045em;
+  font-size: clamp(38px, 4.4vw, 60px);
 
   font-weight: 700;
+
+  line-height: 1.03;
+
+  letter-spacing: -0.025em;
+
+  color: #ffffff;
 }
 
 .leadership__heading-row h2 span {
@@ -158,60 +103,63 @@
 }
 
 .leadership__heading-row p {
-  max-width: 430px;
+  max-width: 420px;
 
-  margin: 0 0 4px;
+  margin: 0 0 2px;
+
+  font-family: "Lato", sans-serif;
 
   font-size: 15px;
 
-  line-height: 1.75;
+  font-weight: 400;
+
+  line-height: 1.65;
 
   color: #9ba8b5;
 }
 
-/* =========================================
-   CARD GRID
 
-   Desktop:
-   01 02 03 04
-      05 06 07
-========================================= */
+/* =========================================================
+   CARD GRID
+========================================================= */
 
 .leadership__cards {
   display: grid;
 
   grid-template-columns: repeat(4, minmax(0, 1fr));
 
-  gap: 22px;
+  gap: 20px;
 
   justify-content: center;
 }
 
-/* =========================================
-   SECOND ROW
 
-   IMPORTANT:
-   All cards maintain EXACT same width.
-========================================= */
+/* =========================================================
+   SECOND ROW
+========================================================= */
 
 .leadership-card:nth-child(5) {
   grid-column: 1;
+
   transform: translateX(50%);
 }
 
 .leadership-card:nth-child(6) {
   grid-column: 2;
+
   transform: translateX(50%);
 }
 
 .leadership-card:nth-child(7) {
   grid-column: 3;
+
   transform: translateX(50%);
 }
 
-/* =========================================
+
+/* =========================================================
    CARD
-========================================= */
+========================================================= */
 
 .leadership-card {
   position: relative;
@@ -220,140 +168,126 @@
 
   overflow: hidden;
 
-  border: 1px solid rgba(255, 255, 255, 0.085);
+  border-radius: 18px;
 
-  border-radius: 19px;
-
-  background: rgba(14, 21, 28, 0.72);
+  background: #10171e;
 
   box-shadow:
-    0 18px 45px rgba(0, 0, 0, 0.16);
+    0 18px 42px rgba(0, 0, 0, 0.20);
 
   transition:
-    transform 450ms cubic-bezier(0.2, 0.75, 0.2, 1),
-    border-color 350ms ease,
-    box-shadow 450ms ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-/* First four cards */
+
+/* First Row Hover */
 
 .leadership-card:nth-child(-n + 4):hover {
-  transform: translateY(-7px);
+  transform: translateY(-5px);
 }
 
-/* Second row hover */
+
+/* Second Row Hover */
 
 .leadership-card:nth-child(n + 5):hover {
   transform:
     translateX(50%)
-    translateY(-7px);
+    translateY(-5px);
 }
 
 .leadership-card:hover {
-  border-color: rgba(22, 119, 255, 0.38);
-
   box-shadow:
-    0 28px 65px rgba(0, 0, 0, 0.28),
-    0 0 30px rgba(22, 119, 255, 0.045);
+    0 25px 55px rgba(0, 0, 0, 0.30),
+    0 0 0 1px rgba(22, 119, 255, 0.16);
 }
-/* =========================================
-   IMAGE AREA
-========================================= */
+
+
+/* =========================================================
+   FULL IMAGE
+========================================================= */
 
 .leadership-card__visual {
   position: relative;
+
   width: 100%;
-  aspect-ratio: 0.92 / 1;
-  overflow: hidden;
 
-  background:
-    linear-gradient(
-      145deg,
-      #131c25,
-      #0c1218
-    );
-}
-
-
-/* =========================================
-   IMAGE CONTAINER
-========================================= */
-
-.leadership-card__placeholder {
-  position: absolute;
-  inset: 13px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  aspect-ratio: 0.86 / 1;
 
   overflow: hidden;
-
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  border-radius: 13px;
 
   background: #111820;
-
-  transition:
-    border-color 350ms ease,
-    background 350ms ease;
 }
 
 
-/* =========================================
-   LEADERSHIP IMAGE
-========================================= */
+/*
+   Image fills the entire visual area.
+   No inner padding.
+   No empty border around image.
+*/
 
-.leadership-card__placeholder img {
+.leadership-card__visual img {
   display: block;
 
   width: 100%;
   height: 100%;
 
-  /*
-    contain = image completely visible
-    No face/body cropping
-  */
-  object-fit: contain;
+  object-fit: cover;
   object-position: center center;
 
-  border-radius: 12px;
+  filter: saturate(0.90) contrast(1.03);
 
   transition:
     transform 650ms cubic-bezier(0.2, 0.75, 0.2, 1),
-    filter 450ms ease;
+    filter 400ms ease;
 }
 
 
-/* =========================================
+/* =========================================================
    IMAGE HOVER
-========================================= */
+========================================================= */
 
-.leadership-card:hover .leadership-card__placeholder img {
-  transform: scale(1.035);
+.leadership-card:hover .leadership-card__visual img {
+  transform: scale(1.025);
 
-  filter: brightness(1.04) contrast(1.02);
+  filter: saturate(1) contrast(1.04);
 }
 
 
-/* =========================================
-   PLACEHOLDER HOVER
-========================================= */
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
 
-.leadership-card:hover .leadership-card__placeholder {
-  border-color: rgba(22, 119, 255, 0.25);
+.leadership-card__image-overlay {
+  position: absolute;
 
-  background: rgba(22, 119, 255, 0.025);
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(5, 9, 13, 0.90) 0%,
+      rgba(5, 9, 13, 0.30) 32%,
+      transparent 65%
+    );
 }
-/* =========================================
+
+
+/* =========================================================
    CARD NUMBER
-========================================= */
+========================================================= */
 
 .leadership-card__number {
   position: absolute;
 
-  top: 18px;
-  right: 19px;
+  top: 15px;
+  right: 16px;
+
+  z-index: 3;
+
+  font-family: "Lato", sans-serif;
 
   font-size: 10px;
 
@@ -361,11 +295,11 @@
 
   letter-spacing: 0.12em;
 
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(255, 255, 255, 0.58);
 
   transition:
-    color 300ms ease,
-    transform 300ms ease;
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .leadership-card:hover .leadership-card__number {
@@ -374,44 +308,40 @@
   transform: translateY(-2px);
 }
 
-/* =========================================
-   HOVER DETAIL
-========================================= */
+
+/* =========================================================
+   HOVER ROLE
+========================================================= */
 
 .leadership-card__overlay {
   position: absolute;
 
-  left: 13px;
-  right: 13px;
-  bottom: 13px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+
+  z-index: 3;
 
   display: flex;
 
   align-items: flex-end;
-
   justify-content: space-between;
 
-  gap: 15px;
+  gap: 12px;
 
-  padding: 15px;
+  padding: 13px 14px;
 
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 
-  border-radius: 12px;
-
-  background: rgba(7, 12, 17, 0.78);
-
-  backdrop-filter: blur(16px);
-
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(7, 12, 17, 0.82);
 
   opacity: 0;
 
-  transform: translateY(12px);
+  transform: translateY(10px);
 
   transition:
-    opacity 350ms ease,
-    transform 400ms cubic-bezier(0.2, 0.75, 0.2, 1);
+    opacity 0.28s ease,
+    transform 0.32s ease;
 }
 
 .leadership-card:hover .leadership-card__overlay {
@@ -425,23 +355,27 @@
 
   flex-direction: column;
 
-  gap: 5px;
+  gap: 4px;
 }
 
 .leadership-card__overlay-content span {
+  font-family: "Lato", sans-serif;
+
   font-size: 8px;
 
   font-weight: 700;
 
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
 
   color: #7f8d9b;
 }
 
 .leadership-card__overlay-content strong {
+  font-family: "Lato", sans-serif;
+
   font-size: 12px;
 
-  font-weight: 600;
+  font-weight: 700;
 
   color: #edf2f6;
 }
@@ -451,25 +385,20 @@
 
   color: #1677ff;
 
-  font-size: 20px;
+  font-size: 19px;
 
   line-height: 1;
 }
 
-/* =========================================
-   MEMBER INFO
-========================================= */
+
+/* =========================================================
+   MEMBER INFORMATION
+========================================================= */
 
 .leadership-card__info {
-  display: flex;
+  padding: 15px 16px 17px;
 
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 15px;
-
-  padding: 19px 18px 20px;
+  background: #10171e;
 }
 
 .leadership-card__identity {
@@ -479,11 +408,13 @@
 .leadership-card__identity h3 {
   margin: 0;
 
+  font-family: "Lato", sans-serif;
+
   font-size: 15px;
 
-  line-height: 1.25;
+  line-height: 1.3;
 
-  font-weight: 650;
+  font-weight: 700;
 
   color: #f0f3f6;
 
@@ -495,89 +426,44 @@
 }
 
 .leadership-card__identity p {
-  margin: 6px 0 0;
+  margin: 5px 0 0;
 
-  font-size: 10px;
+  font-family: "Lato", sans-serif;
+
+  font-size: 11px;
 
   line-height: 1.3;
 
-  color: #788694;
+  font-weight: 600;
+
+  color: #7f8c99;
 }
 
-/* =========================================
-   SOCIAL LINKS
-========================================= */
 
-.leadership-card__socials {
-  display: flex;
-
-  gap: 7px;
-
-  flex-shrink: 0;
-}
-
-.leadership-card__socials a {
-  width: 31px;
-  height: 31px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid rgba(255, 255, 255, 0.09);
-
-  border-radius: 9px;
-
-  color: #73818e;
-
-  background: rgba(255, 255, 255, 0.018);
-
-  font-size: 12px;
-
-  font-weight: 700;
-
-  text-decoration: none;
-
-  transition:
-    color 250ms ease,
-    border-color 250ms ease,
-    background 250ms ease,
-    transform 250ms ease;
-}
-
-.leadership-card__socials a:hover {
-  color: #1677ff;
-
-  border-color: rgba(22, 119, 255, 0.35);
-
-  background: rgba(22, 119, 255, 0.07);
-
-  transform: translateY(-2px);
-}
-
-/* =========================================
+/* =========================================================
    BOTTOM LINE
-========================================= */
+========================================================= */
 
 .leadership__bottom {
   display: flex;
 
   align-items: center;
 
-  gap: 20px;
+  gap: 18px;
 
-  margin-top: 55px;
+  margin-top: 30px;
 }
 
 .leadership__bottom > span {
   flex-shrink: 0;
 
-  font-size: 8px;
+  font-family: "Lato", sans-serif;
+
+  font-size: 9px;
 
   font-weight: 700;
 
-  letter-spacing: 0.17em;
+  letter-spacing: 0.13em;
 
   color: #5f6d79;
 }
@@ -590,27 +476,15 @@
   background: rgba(255, 255, 255, 0.07);
 }
 
-/* =========================================
+
+/* =========================================================
    LIGHT THEME
-========================================= */
+========================================================= */
 
 .light-theme .leadership {
   background: #f7f3eb;
 
   color: #15202a;
-}
-
-.light-theme .leadership__grid {
-  background-image:
-    linear-gradient(
-      rgba(20, 32, 45, 0.045) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(20, 32, 45, 0.045) 1px,
-      transparent 1px
-    );
 }
 
 .light-theme .leadership__eyebrow {
@@ -626,59 +500,24 @@
 }
 
 .light-theme .leadership-card {
-  border-color: rgba(20, 32, 45, 0.1);
-
-  background: rgba(255, 255, 255, 0.56);
+  background: #e9e5dc;
 
   box-shadow:
-    0 18px 45px rgba(30, 38, 45, 0.07);
+    0 18px 42px rgba(30, 38, 45, 0.10);
 }
 
 .light-theme .leadership-card:hover {
-  border-color: rgba(22, 119, 255, 0.3);
-
   box-shadow:
-    0 25px 60px rgba(30, 38, 45, 0.11),
-    0 0 25px rgba(22, 119, 255, 0.035);
+    0 25px 55px rgba(30, 38, 45, 0.15),
+    0 0 0 1px rgba(22, 119, 255, 0.16);
 }
 
 .light-theme .leadership-card__visual {
-  background:
-    linear-gradient(
-      145deg,
-      #ebe6dc,
-      #e4ded3
-    );
+  background: #e4ded3;
 }
 
-.light-theme .leadership-card__placeholder {
-  border-color: rgba(20, 32, 45, 0.14);
-
-  color: #8b948f;
-}
-
-.light-theme .leadership-card:hover .leadership-card__placeholder {
-  border-color: rgba(22, 119, 255, 0.25);
-
-  background: rgba(22, 119, 255, 0.025);
-}
-
-.light-theme .leadership-card__number {
-  color: rgba(20, 32, 45, 0.4);
-}
-
-.light-theme .leadership-card__overlay {
-  border-color: rgba(20, 32, 45, 0.1);
-
-  background: rgba(247, 244, 238, 0.84);
-}
-
-.light-theme .leadership-card__overlay-content span {
-  color: #74808b;
-}
-
-.light-theme .leadership-card__overlay-content strong {
-  color: #17232d;
+.light-theme .leadership-card__info {
+  background: #f0ece4;
 }
 
 .light-theme .leadership-card__identity h3 {
@@ -689,42 +528,48 @@
   color: #697680;
 }
 
-.light-theme .leadership-card__socials a {
-  border-color: rgba(20, 32, 45, 0.1);
-
-  color: #697680;
+.light-theme .leadership-card__number {
+  color: rgba(20, 32, 45, 0.55);
 }
 
-.light-theme .leadership-card__socials a:hover {
-  border-color: rgba(22, 119, 255, 0.3);
+.light-theme .leadership-card__overlay {
+  background: rgba(247, 244, 238, 0.90);
+}
+
+.light-theme .leadership-card__overlay-content span {
+  color: #74808b;
+}
+
+.light-theme .leadership-card__overlay-content strong {
+  color: #17232d;
 }
 
 .light-theme .leadership__bottom-line {
-  background: rgba(20, 32, 45, 0.1);
+  background: rgba(20, 32, 45, 0.10);
 }
 
 .light-theme .leadership__bottom > span {
   color: #7b858e;
 }
 
-/* =========================================
+
+/* =========================================================
    TABLET
-========================================= */
+========================================================= */
 
 @media (max-width: 1000px) {
 
   .leadership {
-    padding: 115px 0 105px;
+    padding: 32px 0 34px;
+  }
+
+  .leadership__container {
+    width: min(100% - 60px, 1000px);
   }
 
   .leadership__cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  /*
-    Tablet:
-    normal 2-column flow
-  */
 
   .leadership-card:nth-child(5),
   .leadership-card:nth-child(6),
@@ -735,26 +580,31 @@
   }
 
   .leadership-card:nth-child(n + 5):hover {
-    transform: translateY(-7px);
+    transform: translateY(-5px);
   }
 
   .leadership__heading-row {
-    gap: 40px;
+    gap: 35px;
   }
 }
 
-/* =========================================
+
+/* =========================================================
    MOBILE
-========================================= */
+========================================================= */
 
 @media (max-width: 700px) {
 
   .leadership {
-    padding: 90px 0 80px;
+    padding: 27px 0 28px;
   }
 
   .leadership__container {
     width: calc(100% - 32px);
+  }
+
+  .leadership__header {
+    margin-bottom: 25px;
   }
 
   .leadership__heading-row {
@@ -762,23 +612,21 @@
   }
 
   .leadership__heading-row h2 {
-    font-size: clamp(40px, 11vw, 54px);
+    font-size: clamp(36px, 10vw, 50px);
   }
 
   .leadership__heading-row p {
-    margin-top: 24px;
+    margin-top: 13px;
 
     font-size: 14px;
-  }
 
-  .leadership__header {
-    margin-bottom: 48px;
+    line-height: 1.6;
   }
 
   .leadership__cards {
     grid-template-columns: 1fr;
 
-    gap: 17px;
+    gap: 15px;
   }
 
   .leadership-card:nth-child(5),
@@ -790,16 +638,16 @@
   }
 
   .leadership-card:nth-child(n + 5):hover {
-    transform: translateY(-6px);
+    transform: translateY(-5px);
   }
 
   .leadership-card__visual {
-    aspect-ratio: 1.05 / 1;
+    aspect-ratio: 0.90 / 1;
   }
 
   /*
-    Touch devices par hover detail
-    hide kar rahe hain.
+     Hide hover role on touch/mobile.
+     Name + designation remain clearly visible.
   */
 
   .leadership-card__overlay {
@@ -807,6 +655,60 @@
   }
 
   .leadership-card__info {
-    padding: 17px;
+    padding: 14px 15px 16px;
+  }
+
+  .leadership-card__identity h3 {
+    font-size: 15px;
+  }
+
+  .leadership-card__identity p {
+    font-size: 11px;
+  }
+
+  .leadership__bottom {
+    margin-top: 24px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .leadership {
+    padding: 24px 0 25px;
+  }
+
+  .leadership__container {
+    width: calc(100% - 28px);
+  }
+
+  .leadership__heading-row h2 {
+    font-size: 34px;
+  }
+
+  .leadership__heading-row p {
+    font-size: 13.5px;
+  }
+
+  .leadership-card__visual {
+    aspect-ratio: 0.92 / 1;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .leadership *,
+  .leadership *::before,
+  .leadership *::after {
+    transition: none !important;
   }
 }

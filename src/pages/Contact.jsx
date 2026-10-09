@@ -140,7 +140,7 @@ function Contact() {
 
             <div className="contact-hero__meta">
               <span>Scholarship Support</span>
-              <span>sponsor Enquiries</span>
+              <span>Donor Enquiries</span>
               <span>General Information</span>
             </div>
 
@@ -185,7 +185,7 @@ function Contact() {
 
               <p className="contact-info__intro">
                 Reach out to us for scholarship-related
-                questions, application assistance, sponsor
+                questions, application assistance, donor
                 enquiries or general information about
                 Alfalah Scholarship Scheme.
               </p>
@@ -500,8 +500,8 @@ function Contact() {
                         Application
                       </option>
 
-                      <option value="Become a sponsor">
-                        Become a sponsor
+                      <option value="Become a Donor">
+                        Become a Donor
                       </option>
 
                       <option value="General Enquiry">
@@ -719,10 +719,10 @@ function Contact() {
               </a>
 
               <a
-                href="/sponsor"
+                href="/donor"
                 className="contact-cta-button contact-cta-button--secondary"
               >
-                Become a sponsor
+                Become a Donor
                 <ArrowUpRight size={17} />
               </a>
 

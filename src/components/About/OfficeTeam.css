@@ -1,13 +1,15 @@
 /* =========================================
-   BOARD MEMBERS
+   OFFICE TEAM
 ========================================= */
 
-.board-members {
+.office-team {
   position: relative;
   overflow: hidden;
   padding: 38px 0 40px;
+
   background: #080d12;
   color: #f5f7fa;
+
   font-family: "Lato", sans-serif;
 }
 
@@ -16,7 +18,7 @@
    CONTAINER
 ========================================= */
 
-.board-members__container {
+.office-team__container {
   width: min(1240px, calc(100% - 80px));
   margin: 0 auto;
 }
@@ -26,37 +28,39 @@
    HEADER
 ========================================= */
 
-.board-members__header {
+.office-team__header {
   margin-bottom: 34px;
 }
 
-.board-members__eyebrow {
+.office-team__eyebrow {
   display: flex;
   align-items: center;
   gap: 11px;
+
   margin-bottom: 18px;
 
   font-family: "Lato", sans-serif;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.16em;
+
   color: #8795a3;
 }
 
-.board-members__eyebrow-line {
+.office-team__eyebrow-line {
   width: 30px;
   height: 1px;
   background: #1677ff;
 }
 
-.board-members__heading-row {
+.office-team__heading-row {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 60px;
 }
 
-.board-members__heading-row h2 {
+.office-team__heading-row h2 {
   margin: 0;
   max-width: 600px;
 
@@ -65,15 +69,16 @@
   line-height: 0.98;
   letter-spacing: -0.035em;
   font-weight: 700;
+
   color: #f5f7fa;
 }
 
-.board-members__heading-row h2 span {
+.office-team__heading-row h2 span {
   display: block;
   color: #1677ff;
 }
 
-.board-members__heading-row p {
+.office-team__heading-row p {
   max-width: 430px;
   margin: 0 0 3px;
 
@@ -81,18 +86,23 @@
   font-size: 15px;
   line-height: 1.65;
   font-weight: 400;
+
   color: #9ba8b5;
 }
 
 
 /* =========================================
-   BOARD GRID
+   TEAM GRID
 ========================================= */
 
-.board-members__cards {
+.office-team__cards {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
   gap: 18px;
+
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
 
@@ -100,12 +110,14 @@
    CARD
 ========================================= */
 
-.board-card {
+.office-card {
   position: relative;
   min-width: 0;
+
   overflow: hidden;
 
   border-radius: 16px;
+
   background: #0d141b;
 
   transition:
@@ -113,7 +125,7 @@
     box-shadow 350ms ease;
 }
 
-.board-card:hover {
+.office-card:hover {
   transform: translateY(-5px);
 
   box-shadow:
@@ -125,16 +137,18 @@
    IMAGE
 ========================================= */
 
-.board-card__visual {
+.office-card__visual {
   position: relative;
+
   width: 100%;
   aspect-ratio: 0.86 / 1;
 
   overflow: hidden;
+
   background: #111a22;
 }
 
-.board-card__visual img {
+.office-card__visual img {
   display: block;
 
   width: 100%;
@@ -144,14 +158,33 @@
   padding: 0;
 
   object-fit: cover;
-  object-position: center center;
+  object-position: center top;
 
   transition:
     transform 500ms cubic-bezier(0.2, 0.75, 0.2, 1),
     filter 350ms ease;
 }
 
-.board-card:hover .board-card__visual img {
+
+/* =========================================
+   FIRST IMAGE
+========================================= */
+
+.office-card:first-child .office-card__visual img {
+  transform: scale(1.055);
+}
+
+.office-card:first-child:hover .office-card__visual img {
+  transform: scale(1.075);
+  filter: brightness(1.04);
+}
+
+
+/* =========================================
+   OTHER IMAGES
+========================================= */
+
+.office-card:not(:first-child):hover .office-card__visual img {
   transform: scale(1.025);
   filter: brightness(1.04);
 }
@@ -161,7 +194,7 @@
    IMAGE OVERLAY
 ========================================= */
 
-.board-card__image-overlay {
+.office-card__image-overlay {
   position: absolute;
   inset: 0;
 
@@ -180,10 +213,12 @@
    NUMBER
 ========================================= */
 
-.board-card__number {
+.office-card__number {
   position: absolute;
+
   top: 14px;
   right: 15px;
+
   z-index: 2;
 
   font-family: "Lato", sans-serif;
@@ -198,7 +233,7 @@
     transform 250ms ease;
 }
 
-.board-card:hover .board-card__number {
+.office-card:hover .office-card__number {
   color: #1677ff;
   transform: translateY(-2px);
 }
@@ -208,11 +243,11 @@
    MEMBER INFORMATION
 ========================================= */
 
-.board-card__info {
+.office-card__info {
   padding: 15px 15px 17px;
 }
 
-.board-card__info h3 {
+.office-card__info h3 {
   margin: 0;
 
   font-family: "Lato", sans-serif;
@@ -223,7 +258,7 @@
   color: #f0f3f6;
 }
 
-.board-card__info p {
+.office-card__info p {
   margin: 5px 0 0;
 
   font-family: "Lato", sans-serif;
@@ -239,15 +274,16 @@
    BOTTOM LINE
 ========================================= */
 
-.board-members__bottom {
+.office-team__bottom {
   display: flex;
   align-items: center;
   gap: 18px;
 
-  margin-top: 30px;
+  max-width: 1080px;
+  margin: 30px auto 0;
 }
 
-.board-members__bottom > span {
+.office-team__bottom > span {
   flex-shrink: 0;
 
   font-family: "Lato", sans-serif;
@@ -258,9 +294,10 @@
   color: #5f6d79;
 }
 
-.board-members__bottom-line {
+.office-team__bottom-line {
   width: 100%;
   height: 1px;
+
   background: rgba(255, 255, 255, 0.07);
 }
 
@@ -269,48 +306,48 @@
    LIGHT THEME
 ========================================= */
 
-.light-theme .board-members {
+.light-theme .office-team {
   background: #f7f3eb;
   color: #15202a;
 }
 
-.light-theme .board-members__eyebrow {
+.light-theme .office-team__eyebrow {
   color: #697682;
 }
 
-.light-theme .board-members__heading-row h2 {
+.light-theme .office-team__heading-row h2 {
   color: #15202a;
 }
 
-.light-theme .board-members__heading-row p {
+.light-theme .office-team__heading-row p {
   color: #5e6b76;
 }
 
-.light-theme .board-card {
+.light-theme .office-card {
   background: #ebe6dc;
 }
 
-.light-theme .board-card__visual {
+.light-theme .office-card__visual {
   background: #e4ded3;
 }
 
-.light-theme .board-card__number {
+.light-theme .office-card__number {
   color: rgba(20, 32, 45, 0.42);
 }
 
-.light-theme .board-card__info h3 {
+.light-theme .office-card__info h3 {
   color: #17232d;
 }
 
-.light-theme .board-card__info p {
+.light-theme .office-card__info p {
   color: #697680;
 }
 
-.light-theme .board-members__bottom-line {
+.light-theme .office-team__bottom-line {
   background: rgba(20, 32, 45, 0.1);
 }
 
-.light-theme .board-members__bottom > span {
+.light-theme .office-team__bottom > span {
   color: #7b858e;
 }
 
@@ -320,21 +357,26 @@
 ========================================= */
 
 @media (max-width: 1050px) {
-  .board-members {
+  .office-team {
     padding: 34px 0 36px;
   }
 
-  .board-members__container {
+  .office-team__container {
     width: min(100% - 48px, 900px);
   }
 
-  .board-members__heading-row {
+  .office-team__heading-row {
     gap: 35px;
   }
 
-  .board-members__cards {
+  .office-team__cards {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 17px;
+    max-width: 900px;
+  }
+
+  .office-card__visual {
+    aspect-ratio: 0.84 / 1;
   }
 }
 
@@ -344,54 +386,55 @@
 ========================================= */
 
 @media (max-width: 700px) {
-  .board-members {
+  .office-team {
     padding: 28px 0 30px;
   }
 
-  .board-members__container {
+  .office-team__container {
     width: calc(100% - 32px);
   }
 
-  .board-members__header {
+  .office-team__header {
     margin-bottom: 26px;
   }
 
-  .board-members__heading-row {
+  .office-team__heading-row {
     display: block;
   }
 
-  .board-members__heading-row h2 {
+  .office-team__heading-row h2 {
     font-size: clamp(38px, 11vw, 52px);
   }
 
-  .board-members__heading-row p {
+  .office-team__heading-row p {
     margin-top: 18px;
     font-size: 14px;
     line-height: 1.6;
   }
 
-  .board-members__cards {
+  .office-team__cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
+    max-width: none;
   }
 
-  .board-card__visual {
-    aspect-ratio: 0.82 / 1;
+  .office-card__visual {
+    aspect-ratio: 0.80 / 1;
   }
 
-  .board-card__info {
+  .office-card__info {
     padding: 13px 12px 15px;
   }
 
-  .board-card__info h3 {
+  .office-card__info h3 {
     font-size: 13px;
   }
 
-  .board-card__info p {
+  .office-card__info p {
     font-size: 9px;
   }
 
-  .board-members__bottom {
+  .office-team__bottom {
     margin-top: 24px;
     gap: 12px;
   }
@@ -403,16 +446,20 @@
 ========================================= */
 
 @media (max-width: 450px) {
-  .board-members {
+  .office-team {
     padding: 24px 0 26px;
   }
 
-  .board-members__cards {
+  .office-team__cards {
     grid-template-columns: 1fr;
   }
 
-  .board-card__visual {
+  .office-card__visual {
     aspect-ratio: 0.9 / 1;
+  }
+
+  .office-card:first-child .office-card__visual img {
+    transform: scale(1.045);
   }
 }
 
@@ -422,9 +469,9 @@
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .board-members *,
-  .board-members *::before,
-  .board-members *::after {
+  .office-team *,
+  .office-team *::before,
+  .office-team *::after {
     transition: none !important;
   }
 }

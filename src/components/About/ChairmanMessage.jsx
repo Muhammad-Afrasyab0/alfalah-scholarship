@@ -1,18 +1,14 @@
 import "./ChairmanMessage.css";
-import { ArrowUpRight, Quote, Sparkles } from "lucide-react";
-import "./ChairmanMessage.css";
+import { ArrowUpRight, Quote } from "lucide-react";
 
 function ChairmanMessage() {
   return (
     <section className="chairman-message">
-      <div className="chairman-message__grid" />
-      <div className="chairman-message__glow chairman-message__glow--one" />
-      <div className="chairman-message__glow chairman-message__glow--two" />
-
       <div className="chairman-message__container">
 
         {/* Section Header */}
         <div className="chairman-message__header">
+
           <div className="chairman-message__eyebrow">
             <span className="chairman-message__eyebrow-line" />
             <span>FROM THE CHAIRMAN</span>
@@ -28,47 +24,23 @@ function ChairmanMessage() {
             belief — that talent should never be limited by financial
             circumstances.
           </p>
+
         </div>
+
 
         {/* Main Content */}
         <div className="chairman-message__content">
 
-          {/* Image */}
-          <div className="chairman-message__visual">
-            <div className="chairman-message__image-frame">
-              <div className="chairman-message__image-number">01</div>
-
-              <img
-                src="/images/about/chairman.jpg"
-                alt="Chairman of Alfalah Scholarship Scheme"
-              />
-
-              <div className="chairman-message__image-overlay" />
-
-              <div className="chairman-message__image-caption">
-                <span>ALFALAH SCHOLARSHIP SCHEME</span>
-                <strong>Education Without Prejudice</strong>
-              </div>
-            </div>
-
-            <div className="chairman-message__floating">
-              <Sparkles size={16} strokeWidth={1.6} />
-              <div>
-                <span>ESTABLISHED</span>
-                <strong>1998</strong>
-              </div>
-            </div>
-          </div>
-
-          {/* Message */}
+          {/* MESSAGE - LEFT */}
           <div className="chairman-message__copy">
 
-            <div className="chairman-message__quote-mark">
-              <Quote size={25} strokeWidth={1.5} />
+            <div className="chairman-message__quote">
+              <Quote size={22} strokeWidth={1.5} />
             </div>
 
             <div className="chairman-message__message">
-              <p>
+
+              <p className="chairman-message__lead">
                 There are many talented and deserving students who have the
                 ability, determination and potential to build a better future,
                 but financial circumstances can prevent them from pursuing
@@ -91,13 +63,16 @@ function ChairmanMessage() {
               <p>
                 Over the years, this vision has continued to guide our work.
                 What began as a commitment to support deserving students has
-                grown into a long-standing educational initiative dedicated to
-                empowering generations through education.
+                grown into a long-standing educational initiative dedicated
+                to empowering generations through education.
               </p>
+
             </div>
 
-            {/* Signature */}
+
+            {/* Chairman Designation */}
             <div className="chairman-message__signature">
+
               <div className="chairman-message__signature-line" />
 
               <div className="chairman-message__signature-info">
@@ -106,25 +81,32 @@ function ChairmanMessage() {
               </div>
 
               <ArrowUpRight
-                size={19}
-                strokeWidth={1.6}
+                size={18}
+                strokeWidth={1.5}
                 className="chairman-message__signature-arrow"
               />
+
             </div>
 
           </div>
-        </div>
 
-        {/* Bottom statement */}
-        <div className="chairman-message__bottom">
-          <span>OUR GUIDING BELIEF</span>
 
-          <div className="chairman-message__bottom-line" />
+          {/* IMAGE - RIGHT */}
+          <div className="chairman-message__visual">
 
-          <strong>
-            Education should open doors,
-            <span> not create barriers.</span>
-          </strong>
+            <div className="chairman-message__image-frame">
+
+              <img
+                src="/images/about/chairman.jpg"
+                alt="Chairman of Alfalah Scholarship Scheme"
+              />
+
+              <div className="chairman-message__image-overlay" />
+
+            </div>
+
+          </div>
+
         </div>
 
       </div>
