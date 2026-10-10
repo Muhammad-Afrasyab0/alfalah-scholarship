@@ -1,741 +1,1071 @@
 import { useState } from "react";
+
 import {
-  Mail,
-  Phone,
-  MapPin,
-  Clock3,
-  Send,
-  ArrowUpRight,
-  MessageCircle,
-  ExternalLink,
+
+Mail,
+
+Phone,
+
+MapPin,
+
+Clock3,
+
+Send,
+
+ArrowUpRight,
+
+MessageCircle,
+
+ExternalLink,
+
 } from "lucide-react";
 
 import "../styles/Contact.css";
 
 const MAP_URL =
-  "https://www.google.com/maps/search/?api=1&query=Alfalah+Haji+Muhammad+Hussain+Memorial+Centre+Gulshan-e-Razzak+Dhoria+Dinga+Road+Kharian+Gujrat+Pakistan";
+
+"https://www.google.com/maps/search/?api=1&query=Alfalah+Haji+Muhammad+Hussain+Memorial+Centre+Gulshan-e-Razzak+Dhoria+Dinga+Road+Kharian+Gujrat+Pakistan";
 
 function Contact() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
-
-  const [status, setStatus] = useState({
-    type: "",
-    message: "",
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setForm((previous) => ({
-      ...previous,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    setIsSubmitting(true);
-
-    setStatus({
-      type: "",
-      message: "",
-    });
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
-      });
-
-      const result = await response.json();
-
-      if (!response.ok || !result.success) {
-        throw new Error(
-          result.message || "Unable to send your message."
-        );
-      }
-
-      setStatus({
-        type: "success",
-        message:
-          "Your message has been sent successfully. Our team will contact you shortly.",
-      });
-
-      setForm({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      });
-    } catch (error) {
-      console.error("Contact form error:", error);
-
-      setStatus({
-        type: "error",
-        message:
-          "We could not send your message right now. Please try again or contact us directly by email or phone.",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const openMap = () => {
-    window.open(MAP_URL, "_blank", "noopener,noreferrer");
-  };
-
-  const handleMapKeyDown = (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      openMap();
-    }
-  };
-
-  return (
-    <div className="contact-page">
-
-      {/* =====================================================
-          HERO
-      ====================================================== */}
-
-      <section className="contact-hero">
-
-        <div className="contact-hero__grid" />
-
-        <div className="contact-hero__glow contact-hero__glow--one" />
-        <div className="contact-hero__glow contact-hero__glow--two" />
 
-        <div className="contact-container">
+const [form, setForm] = useState({
 
-          <div className="contact-hero__content">
+name: "",
 
-            <div className="contact-eyebrow">
-              <span className="contact-eyebrow__line" />
-              CONTACT ALFALAH
-            </div>
+email: "",
 
-            <h1>
-              Let&apos;s Stay
-              <span> Connected.</span>
-            </h1>
+phone: "",
 
-            <p>
-              Whether you have a question about scholarships,
-              sponsorship, applications or the work of Alfalah
-              Scholarship Scheme, our team is here to help.
-            </p>
+subject: "",
 
-            <div className="contact-hero__meta">
-              <span>Scholarship Support</span>
-              <span>Donor Enquiries</span>
-              <span>General Information</span>
-            </div>
+message: "",
 
-          </div>
+});
 
-        </div>
+const [status, setStatus] = useState({
 
-        <div className="contact-hero__bottom">
-          <span>ALFALAH SCHOLARSHIP SCHEME PAKISTAN</span>
-          <span>EDUCATION WITHOUT PREJUDICE</span>
-        </div>
+type: "",
 
-      </section>
+message: "",
 
+});
 
-      {/* =====================================================
-          CONTACT CONTENT
-      ====================================================== */}
+const [isSubmitting, setIsSubmitting] = useState(false);
 
-      <section className="contact-main">
+const handleChange = (e) => {
 
-        <div className="contact-main__grid" />
+const { name, value } = e.target;
 
-        <div className="contact-container">
+setForm((previous) => ({
 
-          <div className="contact-layout">
+...previous,
 
-            {/* =================================================
-                LEFT — CONTACT INFORMATION
-            ================================================== */}
+[name]: value,
 
-            <div className="contact-info">
+}));
 
-              <div className="contact-section-label">
-                GET IN TOUCH
-              </div>
+};
 
-              <h2>
-                We&apos;re here to
-                <span> help.</span>
-              </h2>
+const handleSubmit = async (e) => {
 
-              <p className="contact-info__intro">
-                Reach out to us for scholarship-related
-                questions, application assistance, donor
-                enquiries or general information about
-                Alfalah Scholarship Scheme.
-              </p>
+e.preventDefault();
 
+setIsSubmitting(true);
 
-              {/* =================================================
-                  ADDRESS
-              ================================================== */}
+setStatus({
 
-              <a
-                href={MAP_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="contact-info-card"
-                aria-label="Open Alfalah Scholarship Scheme location in Google Maps"
-              >
+type: "",
 
-                <div className="contact-info-card__icon">
-                  <MapPin size={20} />
-                </div>
+message: "",
 
-                <div>
+});
 
-                  <span className="contact-info-card__label">
-                    VISIT OUR OFFICE
-                  </span>
+try {
 
-                  <strong>
-                    Alfalah Haji Muhammad Hussain
-                    Memorial Centre
-                  </strong>
+const response = await fetch("/api/contact", {
 
-                  <p>
-                    Gulshan-e-Razzak, Dhoria,
-                    Dinga Road, Kharian, Gujrat
-                  </p>
+method: "POST",
 
-                  <span className="contact-info-card__action">
-                    View location
-                    <ArrowUpRight size={14} />
-                  </span>
+headers: {
 
-                </div>
+"Content-Type": "application/json",
 
-              </a>
+},
 
+body: JSON.stringify(form),
 
-              {/* =================================================
-                  PHONE
-              ================================================== */}
+});
 
-              <a
-                href="tel:+923451414457"
-                className="contact-info-card"
-              >
+const result = await response.json();
 
-                <div className="contact-info-card__icon">
-                  <Phone size={20} />
-                </div>
+if (!response.ok || !result.success) {
 
-                <div>
+throw new Error(
 
-                  <span className="contact-info-card__label">
-                    CALL US
-                  </span>
+result.message || "Unable to send your message."
 
-                  <strong>
-                    0345-1414457
-                  </strong>
+);
 
-                  <p>
-                    For scholarship and general enquiries.
-                  </p>
+}
 
-                  <span className="contact-info-card__action">
-                    Call now
-                    <ArrowUpRight size={14} />
-                  </span>
+setStatus({
 
-                </div>
+type: "success",
 
-              </a>
+message:
 
+"Your message has been sent successfully. Our team will contact you shortly.",
 
-              {/* =================================================
-                  EMAIL
-              ================================================== */}
+});
 
-              <a
-                href="mailto:info@alfalahss.org"
-                className="contact-info-card"
-              >
+setForm({
 
-                <div className="contact-info-card__icon">
-                  <Mail size={20} />
-                </div>
+name: "",
 
-                <div>
+email: "",
 
-                  <span className="contact-info-card__label">
-                    EMAIL US
-                  </span>
+phone: "",
 
-                  <strong>
-                    info@alfalahss.org
-                  </strong>
+subject: "",
 
-                  <p>
-                    Send us your questions or enquiries.
-                  </p>
+message: "",
 
-                  <span className="contact-info-card__action">
-                    Send email
-                    <ArrowUpRight size={14} />
-                  </span>
+});
 
-                </div>
+} catch (error) {
 
-              </a>
+console.error("Contact form error:", error);
 
+setStatus({
 
-              {/* =================================================
-                  WHATSAPP
-              ================================================== */}
+type: "error",
 
-              <a
-                href="https://wa.me/923451414457"
-                target="_blank"
-                rel="noreferrer"
-                className="contact-info-card"
-              >
+message:
 
-                <div className="contact-info-card__icon">
-                  <MessageCircle size={20} />
-                </div>
+"We could not send your message right now. Please try again or contact us directly by email or phone.",
 
-                <div>
+});
 
-                  <span className="contact-info-card__label">
-                    WHATSAPP
-                  </span>
+} finally {
 
-                  <strong>
-                    +92 345 1414457
-                  </strong>
+setIsSubmitting(false);
 
-                  <p>
-                    Contact our team through WhatsApp.
-                  </p>
+}
 
-                  <span className="contact-info-card__action">
-                    Open WhatsApp
-                    <ArrowUpRight size={14} />
-                  </span>
+};
 
-                </div>
+const openMap = () => {
 
-              </a>
+window.open(MAP_URL, "_blank", "noopener,noreferrer");
 
+};
 
-              {/* =================================================
-                  OFFICE HOURS
-              ================================================== */}
+const handleMapKeyDown = (e) => {
 
-              <div className="contact-hours">
+if (e.key === "Enter" || e.key === " ") {
 
-                <Clock3 size={19} />
+e.preventDefault();
 
-                <div>
+openMap();
 
-                  <span>
-                    OFFICE HOURS
-                  </span>
+}
 
-                  <strong>
-                    Monday — Saturday
-                  </strong>
+};
 
-                  <p>
-                    Please contact us before visiting
-                    for scholarship-related assistance.
-                  </p>
+return (
 
-                </div>
+<div className="contact-page">
 
-              </div>
+{/* =====================================================
 
-            </div>
+HERO
 
+====================================================== */}
 
-            {/* =================================================
-                RIGHT — FORM
-            ================================================== */}
+<section className="contact-hero">
 
-            <div className="contact-form-wrap">
+<div className="contact-hero__grid" />
 
-              <div className="contact-form-head">
+<div className="contact-hero__glow contact-hero__glow--one" />
 
-                <div>
+<div className="contact-hero__glow contact-hero__glow--two" />
 
-                  <span className="contact-section-label">
-                    SEND A MESSAGE
-                  </span>
+<div className="contact-container">
 
-                  <h2>
-                    How can we
-                    <span> help?</span>
-                  </h2>
+<div className="contact-hero__content">
 
-                </div>
+<div className="contact-eyebrow">
 
-                <div className="contact-form-number">
-                  01
-                </div>
+<span className="contact-eyebrow__line" />
 
-              </div>
+CONTACT ALFALAH
 
+</div>
 
-              <form
-                className="contact-form"
-                onSubmit={handleSubmit}
-              >
+<h1>
 
-                <div className="contact-form-row">
+Let&apos;s Stay
 
-                  <div className="contact-field">
+<span> Connected.</span>
 
-                    <label htmlFor="name">
-                      Full Name
-                    </label>
+</h1>
 
-                    <input
-                      id="name"
-                      name="name"
-                      type="text"
-                      value={form.name}
-                      onChange={handleChange}
-                      placeholder="Enter your full name"
-                      autoComplete="name"
-                      required
-                    />
+<p>
 
-                  </div>
+Whether you have a question about scholarships,
 
+sponsorship, applications or the work of Alfalah
 
-                  <div className="contact-field">
+Scholarship Scheme, our team is here to help.
 
-                    <label htmlFor="email">
-                      Email Address
-                    </label>
+</p>
 
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="you@example.com"
-                      autoComplete="email"
-                      required
-                    />
+<div className="contact-hero__meta">
 
-                  </div>
+<span>Scholarship Support</span>
 
-                </div>
+<span>Donor Enquiries</span>
 
+<span>General Information</span>
 
-                <div className="contact-form-row">
+</div>
 
-                  <div className="contact-field">
+</div>
 
-                    <label htmlFor="phone">
-                      Phone Number
-                    </label>
+</div>
 
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={form.phone}
-                      onChange={handleChange}
-                      placeholder="03XX-XXXXXXX"
-                      autoComplete="tel"
-                    />
+<div className="contact-hero__bottom">
 
-                  </div>
+<span>ALFALAH SCHOLARSHIP SCHEME PAKISTAN</span>
 
+<span>EDUCATION WITHOUT PREJUDICE</span>
 
-                  <div className="contact-field">
+</div>
 
-                    <label htmlFor="subject">
-                      Subject
-                    </label>
+</section>
 
-                    <select
-                      id="subject"
-                      name="subject"
-                      value={form.subject}
-                      onChange={handleChange}
-                      required
-                    >
+{/* =====================================================
 
-                      <option value="">
-                        Select a subject
-                      </option>
+CONTACT CONTENT
 
-                      <option value="Scholarship">
-                        Scholarship
-                      </option>
+====================================================== */}
 
-                      <option value="Application">
-                        Application
-                      </option>
+<section className="contact-main">
 
-                      <option value="Become a Donor">
-                        Become a Donor
-                      </option>
+<div className="contact-main__grid" />
 
-                      <option value="General Enquiry">
-                        General Enquiry
-                      </option>
+<div className="contact-container">
 
-                      <option value="Other">
-                        Other
-                      </option>
+<div className="contact-layout">
 
-                    </select>
+{/* =================================================
 
-                  </div>
+LEFT — CONTACT INFORMATION
 
-                </div>
+================================================== */}
 
+<div className="contact-info">
 
-                <div className="contact-field">
+<div className="contact-section-label">
 
-                  <label htmlFor="message">
-                    Your Message
-                  </label>
+GET IN TOUCH
 
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    placeholder="Write your message here..."
-                    rows="7"
-                    required
-                  />
+</div>
 
-                </div>
+<h2>
 
+We&apos;re here to
 
-                {status.message && (
-                  <div
-                    className={`contact-status contact-status--${status.type}`}
-                    role="status"
-                    aria-live="polite"
-                  >
-                    {status.message}
-                  </div>
-                )}
+<span> help.</span>
 
+</h2>
 
-                <div className="contact-form-footer">
+<p className="contact-info__intro">
 
-                  <p>
-                    Your information will only be used
-                    to respond to your enquiry.
-                  </p>
+Reach out to us for scholarship-related
 
-                  <button
-                    type="submit"
-                    className="contact-submit"
-                    disabled={isSubmitting}
-                  >
+questions, application assistance, donor
 
-                    {isSubmitting ? (
-                      <>
-                        <span className="contact-spinner" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        Send Message
-                        <Send size={17} />
-                      </>
-                    )}
+enquiries or general information about
 
-                  </button>
+Alfalah Scholarship Scheme.
 
-                </div>
+</p>
 
-              </form>
+{/* =================================================
 
-            </div>
+ADDRESS
 
-          </div>
+================================================== */}
 
-        </div>
+<a
 
-      </section>
+href={MAP_URL}
 
+target="_blank"
 
-      {/* =====================================================
-          LOCATION
-      ====================================================== */}
+rel="noreferrer"
 
-      <section className="contact-location">
+className="contact-info-card"
 
-        <div className="contact-location__grid" />
+aria-label="Open Alfalah Scholarship Scheme location in Google Maps"
 
-        <div className="contact-container">
+>
 
-          <div className="contact-location-card">
+<div className="contact-info-card__icon">
 
-            {/* =================================================
-                LOCATION INFORMATION
-            ================================================== */}
+<MapPin size={20} />
 
-            <div className="contact-location-card__content">
+</div>
 
-              <span className="contact-section-label">
-                OUR LOCATION
-              </span>
+<div>
 
-              <h2>
-                Find us in
-                <span> Kharian.</span>
-              </h2>
+<span className="contact-info-card__label">
 
-              <p>
-                Alfalah Haji Muhammad Hussain Memorial
-                Centre, Gulshan-e-Razzak, Dhoria,
-                Dinga Road, Kharian, Gujrat.
-              </p>
+VISIT OUR OFFICE
 
-              <a
-                href={MAP_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="contact-location-button"
-              >
-                Open in Google Maps
-                <ArrowUpRight size={16} />
-              </a>
+</span>
 
-            </div>
+<strong>
 
+Alfalah Haji Muhammad Hussain
 
-            {/* =================================================
-                CLICKABLE MAP VISUAL
-            ================================================== */}
+Memorial Centre
 
-            <div
-              className="contact-location-visual"
-              role="button"
-              tabIndex="0"
-              aria-label="Open Alfalah Scholarship Scheme location in Google Maps"
-              onClick={openMap}
-              onKeyDown={handleMapKeyDown}
-            >
+</strong>
 
-              <div className="contact-map-grid" />
+<p>
 
-              {/* Decorative map lines */}
-              <div className="contact-map-road contact-map-road--one" />
-              <div className="contact-map-road contact-map-road--two" />
-              <div className="contact-map-road contact-map-road--three" />
+Gulshan-e-Razzak, Dhoria,
 
-              {/* Location rings */}
-              <div className="contact-map-ring contact-map-ring--one" />
-              <div className="contact-map-ring contact-map-ring--two" />
+Dinga Road, Kharian, Gujrat
 
-              {/* Main clickable pin */}
-              <div className="contact-map-pin">
-                <MapPin size={28} strokeWidth={1.8} />
-              </div>
+</p>
 
-              {/* Open indicator */}
-              <div className="contact-map-open">
-                <ExternalLink size={13} />
-                <span>OPEN MAP</span>
-              </div>
+<span className="contact-info-card__action">
 
-              <span className="contact-map-label">
-                KHARIAN · GUJRAT
-              </span>
+View location
 
-            </div>
+<ArrowUpRight size={14} />
 
-          </div>
+</span>
 
-        </div>
+</div>
 
-      </section>
+</a>
 
+{/* =================================================
 
-      {/* =====================================================
-          FINAL CTA
-      ====================================================== */}
+PHONE
 
-      <section className="contact-cta">
+================================================== */}
 
-        <div className="contact-cta__grid" />
+<a
 
-        <div className="contact-container">
+href="tel:+923451414457"
 
-          <div className="contact-cta__inner">
+className="contact-info-card"
 
-            <div>
+>
 
-              <span className="contact-section-label">
-                ALFALAH SCHOLARSHIP SCHEME
-              </span>
+<div className="contact-info-card__icon">
 
-              <h2>
-                Education without
-                <span> prejudice.</span>
-              </h2>
+<Phone size={20} />
 
-            </div>
+</div>
 
-            <div className="contact-cta__actions">
+<div>
 
-              <a
-                href="/scholar"
-                className="contact-cta-button"
-              >
-                Become a Scholar
-                <ArrowUpRight size={17} />
-              </a>
+<span className="contact-info-card__label">
 
-              <a
-                href="/donor"
-                className="contact-cta-button contact-cta-button--secondary"
-              >
-                Become a Donor
-                <ArrowUpRight size={17} />
-              </a>
+CALL US
 
-            </div>
+</span>
 
-          </div>
+<strong>
 
-        </div>
+0345-1414457
 
-      </section>
+</strong>
 
-    </div>
-  );
+<p>
+
+For scholarship and general enquiries.
+
+</p>
+
+<span className="contact-info-card__action">
+
+Call now
+
+<ArrowUpRight size={14} />
+
+</span>
+
+</div>
+
+</a>
+
+{/* =================================================
+
+EMAIL
+
+================================================== */}
+
+<a
+
+href="mailto:info@alfalahss.org"
+
+className="contact-info-card"
+
+>
+
+<div className="contact-info-card__icon">
+
+<Mail size={20} />
+
+</div>
+
+<div>
+
+<span className="contact-info-card__label">
+
+EMAIL US
+
+</span>
+
+<strong>
+
+info@alfalahss.org
+
+</strong>
+
+<p>
+
+Send us your questions or enquiries.
+
+</p>
+
+<span className="contact-info-card__action">
+
+Send email
+
+<ArrowUpRight size={14} />
+
+</span>
+
+</div>
+
+</a>
+
+{/* =================================================
+
+WHATSAPP
+
+================================================== */}
+
+<a
+
+href="https://wa.me/923451414457"
+
+target="_blank"
+
+rel="noreferrer"
+
+className="contact-info-card"
+
+>
+
+<div className="contact-info-card__icon">
+
+<MessageCircle size={20} />
+
+</div>
+
+<div>
+
+<span className="contact-info-card__label">
+
+WHATSAPP
+
+</span>
+
+<strong>
+
++92 345 1414457
+
+</strong>
+
+<p>
+
+Contact our team through WhatsApp.
+
+</p>
+
+<span className="contact-info-card__action">
+
+Open WhatsApp
+
+<ArrowUpRight size={14} />
+
+</span>
+
+</div>
+
+</a>
+
+{/* =================================================
+
+OFFICE HOURS
+
+================================================== */}
+
+<div className="contact-hours">
+
+<Clock3 size={19} />
+
+<div>
+
+<span>
+
+OFFICE HOURS
+
+</span>
+
+<strong>
+
+Monday — Saturday
+
+</strong>
+
+<p>
+
+Please contact us before visiting
+
+for scholarship-related assistance.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+{/* =================================================
+
+RIGHT — FORM
+
+================================================== */}
+
+<div className="contact-form-wrap">
+
+<div className="contact-form-head">
+
+<div>
+
+<span className="contact-section-label">
+
+SEND A MESSAGE
+
+</span>
+
+<h2>
+
+How can we
+
+<span> help?</span>
+
+</h2>
+
+</div>
+
+<div className="contact-form-number">
+
+01
+
+</div>
+
+</div>
+
+<form
+
+className="contact-form"
+
+onSubmit={handleSubmit}
+
+>
+
+<div className="contact-form-row">
+
+<div className="contact-field">
+
+<label htmlFor="name">
+
+Full Name
+
+</label>
+
+<input
+
+id="name"
+
+name="name"
+
+type="text"
+
+value={form.name}
+
+onChange={handleChange}
+
+placeholder="Enter your full name"
+
+autoComplete="name"
+
+required
+
+/>
+
+</div>
+
+<div className="contact-field">
+
+<label htmlFor="email">
+
+Email Address
+
+</label>
+
+<input
+
+id="email"
+
+name="email"
+
+type="email"
+
+value={form.email}
+
+onChange={handleChange}
+
+placeholder="you@example.com"
+
+autoComplete="email"
+
+required
+
+/>
+
+</div>
+
+</div>
+
+<div className="contact-form-row">
+
+<div className="contact-field">
+
+<label htmlFor="phone">
+
+Phone Number
+
+</label>
+
+<input
+
+id="phone"
+
+name="phone"
+
+type="tel"
+
+value={form.phone}
+
+onChange={handleChange}
+
+placeholder="03XX-XXXXXXX"
+
+autoComplete="tel"
+
+/>
+
+</div>
+
+<div className="contact-field">
+
+<label htmlFor="subject">
+
+Subject
+
+</label>
+
+<select
+
+id="subject"
+
+name="subject"
+
+value={form.subject}
+
+onChange={handleChange}
+
+required
+
+>
+
+<option value="">
+
+Select a subject
+
+</option>
+
+<option value="Scholarship">
+
+Scholarship
+
+</option>
+
+<option value="Application">
+
+Application
+
+</option>
+
+<option value="Become a Donor">
+
+Become a Donor
+
+</option>
+
+<option value="General Enquiry">
+
+General Enquiry
+
+</option>
+
+<option value="Other">
+
+Other
+
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div className="contact-field">
+
+<label htmlFor="message">
+
+Your Message
+
+</label>
+
+<textarea
+
+id="message"
+
+name="message"
+
+value={form.message}
+
+onChange={handleChange}
+
+placeholder="Write your message here..."
+
+rows="7"
+
+required
+
+/>
+
+</div>
+
+{status.message && (
+
+<div
+
+className={`contact-status contact-status--${status.type}`}
+
+role="status"
+
+aria-live="polite"
+
+>
+
+{status.message}
+
+</div>
+
+)}
+
+<div className="contact-form-footer">
+
+<p>
+
+Your information will only be used
+
+to respond to your enquiry.
+
+</p>
+
+<button
+
+type="submit"
+
+className="contact-submit"
+
+disabled={isSubmitting}
+
+>
+
+{isSubmitting ? (
+
+<>
+
+<span className="contact-spinner" />
+
+Sending...
+
+</>
+
+) : (
+
+<>
+
+Send Message
+
+<Send size={17} />
+
+</>
+
+)}
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{/* =====================================================
+
+LOCATION
+
+====================================================== */}
+
+<section className="contact-location">
+
+<div className="contact-location__grid" />
+
+<div className="contact-container">
+
+<div className="contact-location-card">
+
+{/* =================================================
+
+LOCATION INFORMATION
+
+================================================== */}
+
+<div className="contact-location-card__content">
+
+<span className="contact-section-label">
+
+OUR LOCATION
+
+</span>
+
+<h2>
+
+Find us in
+
+<span> Kharian.</span>
+
+</h2>
+
+<p>
+
+Alfalah Haji Muhammad Hussain Memorial
+
+Centre, Gulshan-e-Razzak, Dhoria,
+
+Dinga Road, Kharian, Gujrat.
+
+</p>
+
+<a
+
+href={MAP_URL}
+
+target="_blank"
+
+rel="noreferrer"
+
+className="contact-location-button"
+
+>
+
+Open in Google Maps
+
+<ArrowUpRight size={16} />
+
+</a>
+
+</div>
+
+{/* =================================================
+
+CLICKABLE MAP VISUAL
+
+================================================== */}
+
+<div
+
+className="contact-location-visual"
+
+role="button"
+
+tabIndex="0"
+
+aria-label="Open Alfalah Scholarship Scheme location in Google Maps"
+
+onClick={openMap}
+
+onKeyDown={handleMapKeyDown}
+
+>
+
+<div className="contact-map-grid" />
+
+{/* Decorative map lines */}
+
+<div className="contact-map-road contact-map-road--one" />
+
+<div className="contact-map-road contact-map-road--two" />
+
+<div className="contact-map-road contact-map-road--three" />
+
+{/* Location rings */}
+
+<div className="contact-map-ring contact-map-ring--one" />
+
+<div className="contact-map-ring contact-map-ring--two" />
+
+{/* Main clickable pin */}
+
+<div className="contact-map-pin">
+
+<MapPin size={28} strokeWidth={1.8} />
+
+</div>
+
+{/* Open indicator */}
+
+<div className="contact-map-open">
+
+<ExternalLink size={13} />
+
+<span>OPEN MAP</span>
+
+</div>
+
+<span className="contact-map-label">
+
+KHARIAN · GUJRAT
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{/* =====================================================
+
+FINAL CTA
+
+====================================================== */}
+
+<section className="contact-cta">
+
+<div className="contact-cta__grid" />
+
+<div className="contact-container">
+
+<div className="contact-cta__inner">
+
+<div>
+
+<span className="contact-section-label">
+
+ALFALAH SCHOLARSHIP SCHEME
+
+</span>
+
+<h2>
+
+Education without
+
+<span> prejudice.</span>
+
+</h2>
+
+</div>
+
+<div className="contact-cta__actions">
+
+<a
+
+href="/scholar"
+
+className="contact-cta-button"
+
+>
+
+Become a Scholar
+
+<ArrowUpRight size={17} />
+
+</a>
+
+<a
+
+href="/donor"
+
+className="contact-cta-button contact-cta-button--secondary"
+
+>
+
+Become a Donor
+
+<ArrowUpRight size={17} />
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+);
+
 }
 
 export default Contact;
