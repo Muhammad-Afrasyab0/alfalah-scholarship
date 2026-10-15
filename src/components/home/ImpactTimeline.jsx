@@ -323,10 +323,10 @@ const timelineData = [
     title: "The Journey Continues",
     description:
       "Today, Alfalah Scholarship Scheme continues its commitment to deserving and talented students. The next chapter is about expanding opportunity, strengthening the culture of giving and helping more young people build a successful future through education.",
-    students: "7,340",
+    students: "6,207",
     newStudents: "592",
     donors: "440",
-    funds: "₨25.0M",
+    funds: "₨675M+",
     highlight: "The Future",
   },
 ];

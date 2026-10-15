@@ -1,140 +1,119 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700;800&display=swap");
+
 /* =========================================================
-   ALFALAH SCHOLARSHIP SCHEME
-   CHAIRMAN MESSAGE
+   ALFALAH SCHOLARSHIP SCHEME — CHAIRMAN MESSAGE
+   Responsive, theme-aware, navbar-safe
 ========================================================= */
+
+.chairman-message,
+.chairman-message * {
+  box-sizing: border-box;
+}
 
 .chairman-message {
   position: relative;
+  isolation: isolate;
   width: 100%;
-
-  padding: 32px 0 34px;
-
+  padding: 72px 0 clamp(44px, 5vw, 68px);
   overflow: hidden;
-
   background: #080d12;
   color: #f5f7fa;
-
   font-family: "Lato", sans-serif;
+  scroll-margin-top: 96px;
 }
-
-
-/* =========================================================
-   CONTAINER
-========================================================= */
 
 .chairman-message__container {
   width: min(1240px, calc(100% - 80px));
-
-  margin: 0 auto;
+  margin-inline: auto;
 }
 
-
-/* =========================================================
-   HEADER
-========================================================= */
-
+/* Header — left aligned without changing content layout */
 .chairman-message__header {
-  max-width: 760px;
-
-  margin-bottom: 34px;
+  width: 100%;
+  max-width: 780px;
+  margin: 0 0 36px;
+  text-align: left;
 }
 
 .chairman-message__eyebrow {
   display: flex;
   align-items: center;
-
+  justify-content: flex-start;
   gap: 9px;
-
-  margin-bottom: 12px;
-
-  font-family: "Lato", sans-serif;
-  font-size: 10px;
+  margin-bottom: 14px;
+  font-size: 11px;
   font-weight: 700;
-
-  letter-spacing: 0.13em;
-
+  letter-spacing: 0.14em;
+  line-height: 1.4;
   color: #8d9aa7;
 }
 
 .chairman-message__eyebrow-line {
+  display: inline-block;
   width: 27px;
   height: 1px;
-
+  flex: 0 0 auto;
   background: #1677ff;
 }
 
 .chairman-message__header h2 {
   margin: 0;
-
   font-family: "Lato", sans-serif;
   font-size: clamp(36px, 4.2vw, 58px);
-  font-weight: 700;
-  line-height: 1.04;
-
-  letter-spacing: -0.025em;
-
-  color: #ffffff;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: #fff;
+  text-align: left;
+  text-wrap: balance;
 }
 
 .chairman-message__header h2 span {
   display: block;
-
+  margin-top: 4px;
   color: #1677ff;
 }
 
 .chairman-message__header p {
-  max-width: 640px;
-
-  margin: 15px 0 0;
-
-  font-family: "Lato", sans-serif;
-  font-size: 15px;
+  max-width: 650px;
+  margin: 17px 0 0;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 1.65;
-
+  line-height: 1.75;
   color: #aeb9c6;
+  text-align: left;
 }
 
-
-/* =========================================================
-   MAIN CONTENT
-   TEXT LEFT / IMAGE RIGHT
-========================================================= */
-
+/* Main layout — original two-column design */
 .chairman-message__content {
   display: grid;
-
-  grid-template-columns:
-    minmax(0, 1.08fr)
-    minmax(380px, 0.82fr);
-
-  gap: clamp(50px, 6vw, 90px);
-
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.82fr);
+  gap: clamp(36px, 5.5vw, 78px);
   align-items: center;
 }
 
-
-/* =========================================================
-   MESSAGE
-========================================================= */
-
-.chairman-message__copy {
+.chairman-message__copy,
+.chairman-message__visual {
   min-width: 0;
+}
+
+/* Message */
+.chairman-message__copy {
+  text-align: left;
 }
 
 .chairman-message__quote {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  width: 40px;
-  height: 40px;
-
-  margin-bottom: 17px;
-
+  width: 42px;
+  height: 42px;
+  margin-bottom: 18px;
   color: #1677ff;
-
   border-left: 2px solid #1677ff;
+  background: rgba(22, 119, 255, 0.06);
+  border-radius: 0 8px 8px 0;
 }
 
 .chairman-message__message {
@@ -142,13 +121,11 @@
 }
 
 .chairman-message__message p {
-  margin: 0 0 15px;
-
-  font-family: "Lato", sans-serif;
+  margin: 0 0 16px;
   font-size: 15.5px;
   font-weight: 400;
-  line-height: 1.7;
-
+  line-height: 1.8;
+  overflow-wrap: anywhere;
   color: #b8c2ce;
 }
 
@@ -157,171 +134,121 @@
 }
 
 .chairman-message__message .chairman-message__lead {
-  margin-bottom: 17px;
-
+  margin-bottom: 18px;
   font-size: 17px;
-  font-weight: 500;
-  line-height: 1.65;
-
+  font-weight: 600;
+  line-height: 1.72;
   color: #eef2f6;
 }
 
-
-/* =========================================================
-   CHAIRMAN DESIGNATION
-========================================================= */
-
+/* Chairman designation */
 .chairman-message__signature {
   display: flex;
   align-items: center;
-
   gap: 12px;
-
-  margin-top: 23px;
-  padding-top: 16px;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .chairman-message__signature-line {
   width: 27px;
-  height: 1px;
-
+  height: 2px;
   flex: 0 0 auto;
-
   background: #1677ff;
 }
 
 .chairman-message__signature-info {
   display: flex;
   flex-direction: column;
-
-  gap: 2px;
+  gap: 4px;
 }
 
 .chairman-message__signature-info strong {
-  font-family: "Lato", sans-serif;
-
   font-size: 15px;
   font-weight: 800;
-
-  line-height: 1.25;
-
-  color: #ffffff;
+  line-height: 1.3;
+  color: #fff;
 }
 
 .chairman-message__signature-info span {
-  font-family: "Lato", sans-serif;
-
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
-
+  line-height: 1.5;
   color: #7d8996;
 }
 
 .chairman-message__signature-arrow {
   margin-left: auto;
-
+  flex: 0 0 auto;
   color: #5d6b78;
-
-  transition:
-    transform 0.25s ease,
-    color 0.25s ease;
+  transition: transform 0.25s ease, color 0.25s ease;
 }
 
 .chairman-message__signature:hover
-  .chairman-message__signature-arrow {
+.chairman-message__signature-arrow {
   color: #1677ff;
-
   transform: translate(2px, -2px);
 }
 
-
-/* =========================================================
-   PREMIUM IMAGE
-========================================================= */
-
+/* Image */
 .chairman-message__visual {
   width: 100%;
-  min-width: 0;
 }
 
 .chairman-message__image-frame {
   position: relative;
-
   width: 100%;
-
+  max-width: 500px;
+  margin-inline: auto;
   overflow: hidden;
-
   aspect-ratio: 0.88 / 1;
-
-  border-radius: 24px;
-
+  border-radius: 22px;
   background: #111820;
-
   box-shadow:
     0 22px 50px rgba(0, 0, 0, 0.28),
     0 0 0 1px rgba(255, 255, 255, 0.08);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.chairman-message__image-frame:hover {
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 28px 60px rgba(0, 0, 0, 0.34),
-    0 0 0 1px rgba(22, 119, 255, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .chairman-message__image-frame img {
   display: block;
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-
+  object-position: center top;
   filter: saturate(0.92) contrast(1.03);
-
   transition:
     transform 650ms cubic-bezier(0.2, 0.75, 0.2, 1),
     filter 400ms ease;
 }
 
-.chairman-message__image-frame:hover img {
-  transform: scale(1.025);
-
-  filter: saturate(1) contrast(1.04);
-}
-
-
-/* =========================================================
-   IMAGE OVERLAY
-========================================================= */
-
 .chairman-message__image-overlay {
   position: absolute;
-
   inset: 0;
-
   pointer-events: none;
-
-  background:
-    linear-gradient(
-      to top,
-      rgba(5, 9, 13, 0.55),
-      transparent 55%
-    );
+  background: linear-gradient(
+    to top,
+    rgba(5, 9, 13, 0.35),
+    transparent 55%
+  );
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .chairman-message__image-frame:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 28px 60px rgba(0, 0, 0, 0.34),
+      0 0 0 1px rgba(22, 119, 255, 0.18);
+  }
 
-/* =========================================================
-   LIGHT THEME
-========================================================= */
+  .chairman-message__image-frame:hover img {
+    transform: scale(1.025);
+    filter: saturate(1) contrast(1.04);
+  }
+}
 
+/* Light theme */
 .light-theme .chairman-message {
   background: #f7f3eb;
   color: #101820;
@@ -335,22 +262,21 @@
   color: #101820;
 }
 
-.light-theme .chairman-message__header p {
-  color: #596673;
+.light-theme .chairman-message__header h2 span {
+  color: #1677ff;
 }
 
+.light-theme .chairman-message__header p,
 .light-theme .chairman-message__message p {
   color: #596673;
 }
 
-.light-theme
-  .chairman-message__message
-  .chairman-message__lead {
+.light-theme .chairman-message__message .chairman-message__lead {
   color: #1b2731;
 }
 
 .light-theme .chairman-message__signature {
-  border-top-color: rgba(16, 24, 32, 0.10);
+  border-top-color: rgba(16, 24, 32, 0.12);
 }
 
 .light-theme .chairman-message__signature-info strong {
@@ -363,51 +289,44 @@
 
 .light-theme .chairman-message__image-frame {
   background: #e9e5dc;
-
   box-shadow:
     0 22px 50px rgba(30, 38, 45, 0.13),
     0 0 0 1px rgba(16, 24, 32, 0.08);
 }
 
-.light-theme .chairman-message__image-frame:hover {
-  box-shadow:
-    0 28px 60px rgba(30, 38, 45, 0.17),
-    0 0 0 1px rgba(22, 119, 255, 0.18);
+.light-theme .chairman-message__image-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(5, 9, 13, 0.18),
+    transparent 55%
+  );
 }
 
-
-/* =========================================================
-   TABLET
-========================================================= */
-
+/* Tablet */
 @media (max-width: 1050px) {
-
   .chairman-message {
-    padding: 30px 0 32px;
+    padding-top: 64px;
   }
 
   .chairman-message__container {
-    width: min(100% - 60px, 1000px);
+    width: min(100% - 56px, 960px);
   }
 
   .chairman-message__content {
-    gap: 45px;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.82fr);
+    gap: 36px;
+  }
 
-    grid-template-columns:
-      minmax(0, 1fr)
-      minmax(320px, 0.8fr);
+  .chairman-message__header {
+    margin-bottom: 32px;
   }
 }
 
-
-/* =========================================================
-   MOBILE / TABLET
-========================================================= */
-
-@media (max-width: 850px) {
-
+/* Mobile / stacked layout */
+@media (max-width: 800px) {
   .chairman-message {
-    padding: 28px 0 30px;
+    padding: 40px 0 44px;
+    scroll-margin-top: 80px;
   }
 
   .chairman-message__container {
@@ -418,10 +337,17 @@
     margin-bottom: 28px;
   }
 
-  .chairman-message__content {
-    grid-template-columns: 1fr;
+  .chairman-message__header h2 {
+    font-size: clamp(34px, 6vw, 48px);
+  }
 
-    gap: 30px;
+  .chairman-message__header p {
+    font-size: 15px;
+  }
+
+  .chairman-message__content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
   }
 
   .chairman-message__copy {
@@ -430,22 +356,23 @@
 
   .chairman-message__visual {
     order: 2;
+    width: min(100%, 520px);
+    margin-inline: auto;
+  }
 
-    max-width: 560px;
+  .chairman-message__image-frame {
+    aspect-ratio: 1 / 1.05;
+  }
 
-    margin: 0 auto;
+  .chairman-message__message {
+    max-width: none;
   }
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
+/* Small mobile */
+@media (max-width: 480px) {
   .chairman-message {
-    padding: 24px 0 26px;
+    padding: 32px 0 36px;
   }
 
   .chairman-message__container {
@@ -456,81 +383,91 @@
     margin-bottom: 24px;
   }
 
+  .chairman-message__eyebrow {
+    font-size: 10px;
+    margin-bottom: 11px;
+  }
+
   .chairman-message__header h2 {
-    font-size: clamp(33px, 9.5vw, 46px);
+    font-size: clamp(30px, 8.8vw, 40px);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
   }
 
   .chairman-message__header p {
     margin-top: 13px;
-
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   .chairman-message__content {
-    gap: 26px;
+    gap: 24px;
+  }
+
+  .chairman-message__quote {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 14px;
   }
 
   .chairman-message__message p {
-    font-size: 14.5px;
-    line-height: 1.68;
+    margin-bottom: 14px;
+    font-size: 14px;
+    line-height: 1.75;
   }
 
   .chairman-message__message .chairman-message__lead {
-    font-size: 16px;
-    line-height: 1.62;
-  }
-
-  .chairman-message__image-frame {
-    aspect-ratio: 0.9 / 1;
-
-    border-radius: 20px;
+    margin-bottom: 16px;
+    font-size: 15.5px;
+    line-height: 1.7;
   }
 
   .chairman-message__signature {
-    margin-top: 20px;
-    padding-top: 14px;
-  }
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media (max-width: 400px) {
-
-  .chairman-message {
-    padding: 22px 0 24px;
+    margin-top: 21px;
+    padding-top: 15px;
   }
 
-  .chairman-message__header h2 {
-    font-size: 31px;
-  }
-
-  .chairman-message__header p {
-    font-size: 13.5px;
-  }
-
-  .chairman-message__message p {
+  .chairman-message__signature-info strong {
     font-size: 14px;
   }
 
-  .chairman-message__message .chairman-message__lead {
-    font-size: 15.5px;
+  .chairman-message__signature-info span {
+    font-size: 11px;
+  }
+
+  .chairman-message__image-frame {
+    border-radius: 17px;
+    aspect-ratio: 0.95 / 1;
   }
 }
 
+/* Very narrow devices */
+@media (max-width: 360px) {
+  .chairman-message__container {
+    width: calc(100% - 28px);
+  }
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+  .chairman-message__header h2 {
+    font-size: 29px;
+  }
 
+  .chairman-message__header p,
+  .chairman-message__message p {
+    font-size: 13.5px;
+  }
+
+  .chairman-message__message .chairman-message__lead {
+    font-size: 15px;
+  }
+}
+
+/* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
-
   .chairman-message *,
   .chairman-message *::before,
   .chairman-message *::after {
+    scroll-behavior: auto !important;
     transition: none !important;
+    animation: none !important;
   }
 }

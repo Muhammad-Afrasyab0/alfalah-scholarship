@@ -65,13 +65,12 @@ function Hero() {
             }}
           >
             Every Talented Student
-
-            <span>
-              Deserves a Chance
+             <span>
+              Deserves to
             </span>
 
             <span>
-              to Soar.
+              Soar Higher.
             </span>
           </motion.h1>
 
@@ -91,10 +90,9 @@ function Hero() {
               delay: 0.25,
             }}
           >
-            Alfalah Scholarship Scheme has empowered
-            6,207 scholars to complete their education
-            and transition into successful professional
-            careers.
+            Alfalah Scholarship Scheme has empowered 6,207 scholars
+            to complete their education to transition into 
+            successful professional careers.
           </motion.p>
 
 
@@ -116,7 +114,7 @@ function Hero() {
           >
 
             <a
-              href="/sponsorship"
+              href="/donor"
               className="button button--primary hero__button hero__button--primary"
             >
               <span>
@@ -131,7 +129,7 @@ function Hero() {
 
 
             <a
-              href="#apply"
+              href="#scholar"
               className="button button--secondary hero__button hero__button--secondary"
             >
               <span>

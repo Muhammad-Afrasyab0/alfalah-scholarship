@@ -27,7 +27,7 @@ function MessageSection() {
 
           <h2 className="message-section__heading">
             Education is the
-            <span>foundation of a</span>
+            <span>foundation for a</span>
             stronger society.
           </h2>
 
@@ -36,11 +36,11 @@ function MessageSection() {
 
             <p>
               Over the past twenty-eight years, Alfalah has
-              supported nearly six thousand young people through
-              scholarships while also helping them grow through
-              academic competitions, career counselling,
-              seminars, training workshops, patriotism and a
-              strong commitment to Islamic values.
+              supported more than six thousand youth through
+              scholarships while fostering their growth through
+              academic competitions, career counselling, seminars,
+              training workshops, patriotism, and a strong commitment
+              to Islamic values.
             </p>
           </div>
 

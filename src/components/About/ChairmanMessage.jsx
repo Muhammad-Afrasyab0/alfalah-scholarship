@@ -3,20 +3,17 @@ import { ArrowUpRight, Quote } from "lucide-react";
 
 function ChairmanMessage() {
   return (
-    <section className="chairman-message">
+    <section className="chairman-message" aria-labelledby="chairman-message-title">
       <div className="chairman-message__container">
-
-        {/* Section Header */}
-        <div className="chairman-message__header">
-
+        <header className="chairman-message__header">
           <div className="chairman-message__eyebrow">
-            <span className="chairman-message__eyebrow-line" />
+            <span className="chairman-message__eyebrow-line" aria-hidden="true" />
             <span>FROM THE CHAIRMAN</span>
           </div>
 
-          <h2>
+          <h2 id="chairman-message-title">
             A Commitment to
-            <span> Education &amp; Opportunity.</span>
+            <span>Education &amp; Opportunity.</span>
           </h2>
 
           <p>
@@ -24,22 +21,15 @@ function ChairmanMessage() {
             belief — that talent should never be limited by financial
             circumstances.
           </p>
+        </header>
 
-        </div>
-
-
-        {/* Main Content */}
         <div className="chairman-message__content">
-
-          {/* MESSAGE - LEFT */}
           <div className="chairman-message__copy">
-
-            <div className="chairman-message__quote">
+            <div className="chairman-message__quote" aria-hidden="true">
               <Quote size={22} strokeWidth={1.5} />
             </div>
 
             <div className="chairman-message__message">
-
               <p className="chairman-message__lead">
                 There are many talented and deserving students who have the
                 ability, determination and potential to build a better future,
@@ -66,14 +56,10 @@ function ChairmanMessage() {
                 grown into a long-standing educational initiative dedicated
                 to empowering generations through education.
               </p>
-
             </div>
 
-
-            {/* Chairman Designation */}
             <div className="chairman-message__signature">
-
-              <div className="chairman-message__signature-line" />
+              <span className="chairman-message__signature-line" aria-hidden="true" />
 
               <div className="chairman-message__signature-info">
                 <strong>Chairman</strong>
@@ -84,31 +70,23 @@ function ChairmanMessage() {
                 size={18}
                 strokeWidth={1.5}
                 className="chairman-message__signature-arrow"
+                aria-hidden="true"
               />
-
             </div>
-
           </div>
 
-
-          {/* IMAGE - RIGHT */}
           <div className="chairman-message__visual">
-
             <div className="chairman-message__image-frame">
-
               <img
                 src="/images/about/chairman.jpg"
                 alt="Chairman of Alfalah Scholarship Scheme"
+                loading="lazy"
+                decoding="async"
               />
-
-              <div className="chairman-message__image-overlay" />
-
+              <div className="chairman-message__image-overlay" aria-hidden="true" />
             </div>
-
           </div>
-
         </div>
-
       </div>
     </section>
   );

@@ -54,10 +54,6 @@ const impactItems = [
     text: "281 Associate Engineers",
     icon: Wrench,
   },
-  {
-    text: "2,253 Intermediate / Matric",
-    icon: BookOpen,
-  },
 ];
 
 function ImpactGroup({ duplicate = false }) {
