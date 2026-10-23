@@ -1,9 +1,15 @@
+
 import express from "express";
 import multer from "multer";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = Number(process.env.PORT || 5000);
@@ -14,6 +20,9 @@ const PORT = Number(process.env.PORT || 5000);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Serve the built React/Vite frontend.
+app.use(express.static(path.join(__dirname, "dist")));
 
 // =====================================================
 // FILE UPLOAD
@@ -130,8 +139,7 @@ app.post(
       if (missingFields.length > 0) {
         return res.status(400).json({
           success: false,
-          message:
-            "Please complete all required fields.",
+          message: "Please complete all required fields.",
           missingFields,
         });
       }
@@ -196,7 +204,6 @@ app.post(
 
       const section = (title, content) => `
         <div style="margin-top:28px;">
-
           <div style="
             background:#07131c;
             color:#ffffff;
@@ -224,12 +231,11 @@ app.post(
               ${content}
             </tbody>
           </table>
-
         </div>
       `;
 
       // -----------------------------------------------
-      // PERSONAL
+      // PERSONAL INFORMATION
       // -----------------------------------------------
 
       const personalInfo = [
@@ -246,10 +252,7 @@ app.post(
         field("Present Address", data.presentAddress),
         field("Present District", data.presentDistrict),
         field("Permanent Address", data.permanentAddress),
-        field(
-          "Permanent District",
-          data.permanentDistrict
-        ),
+        field("Permanent District", data.permanentDistrict),
       ].join("");
 
       // -----------------------------------------------
@@ -258,133 +261,52 @@ app.post(
 
       const educationInfo = [
         field("Class / Course", data.classCourse),
-        field(
-          "Year / Semester",
-          data.yearSemester
-        ),
-        field(
-          "Institution",
-          data.institutionName
-        ),
-        field(
-          "Institution Contact",
-          data.institutionContact
-        ),
+        field("Year / Semester", data.yearSemester),
+        field("Institution", data.institutionName),
+        field("Institution Contact", data.institutionContact),
         field("Start Date", data.startDate),
         field("End Date", data.endDate),
-        field(
-          "Distinction",
-          data.distinction
-        ),
-        field(
-          "Monthly Fee",
-          data.monthlyFee
-        ),
-        field(
-          "Hostel Expenses",
-          data.hostelExpenses
-        ),
-        field(
-          "Teacher Name",
-          data.teacherName
-        ),
-        field(
-          "Teacher Contact",
-          data.teacherContact
-        ),
+        field("Distinction", data.distinction),
+        field("Monthly Fee", data.monthlyFee),
+        field("Hostel Expenses", data.hostelExpenses),
+        field("Teacher Name", data.teacherName),
+        field("Teacher Contact", data.teacherContact),
       ].join("");
 
       // -----------------------------------------------
-      // ACADEMIC
+      // ACADEMIC RECORD
       // -----------------------------------------------
 
       const academicInfo = [
-        field(
-          "Matric Total Marks",
-          data.matricTotal
-        ),
-        field(
-          "Matric Obtained Marks",
-          data.matricObtained
-        ),
-        field(
-          "Matric Percentage",
-          data.matricPercentage
-        ),
+        field("Matric Total Marks", data.matricTotal),
+        field("Matric Obtained Marks", data.matricObtained),
+        field("Matric Percentage", data.matricPercentage),
 
-        field(
-          "Intermediate Total Marks",
-          data.interTotal
-        ),
-        field(
-          "Intermediate Obtained Marks",
-          data.interObtained
-        ),
-        field(
-          "Intermediate Percentage",
-          data.interPercentage
-        ),
+        field("Intermediate Total Marks", data.interTotal),
+        field("Intermediate Obtained Marks", data.interObtained),
+        field("Intermediate Percentage", data.interPercentage),
 
-        field(
-          "Graduation Total Marks",
-          data.graduationTotal
-        ),
-        field(
-          "Graduation Obtained Marks",
-          data.graduationObtained
-        ),
-        field(
-          "Graduation Percentage",
-          data.graduationPercentage
-        ),
+        field("Graduation Total Marks", data.graduationTotal),
+        field("Graduation Obtained Marks", data.graduationObtained),
+        field("Graduation Percentage", data.graduationPercentage),
 
-        field(
-          "Current Degree Year",
-          data.currentDegreeYear
-        ),
+        field("Current Degree Year", data.currentDegreeYear),
       ].join("");
 
       // -----------------------------------------------
-      // FAMILY
+      // FAMILY INFORMATION
       // -----------------------------------------------
 
       const familyInfo = [
-        field(
-          "Father / Guardian Name",
-          data.fatherGuardianName
-        ),
-        field(
-          "Father / Guardian CNIC",
-          data.fatherGuardianCnic
-        ),
-        field(
-          "Father / Guardian Cell",
-          data.fatherGuardianCell
-        ),
-        field(
-          "Monthly Family Income",
-          data.monthlyFamilyIncome
-        ),
-        field(
-          "Professional Status",
-          data.professionalStatus
-        ),
-        field(
-          "Serving Member Details",
-          data.servingMemberDetails
-        ),
-        field(
-          "Shop Details",
-          data.shopDetails
-        ),
-        field(
-          "Shop Income",
-          data.shopIncome
-        ),
-        field(
-          "Total Family Members",
-          data.totalFamilyMembers
-        ),
+        field("Father / Guardian Name", data.fatherGuardianName),
+        field("Father / Guardian CNIC", data.fatherGuardianCnic),
+        field("Father / Guardian Cell", data.fatherGuardianCell),
+        field("Monthly Family Income", data.monthlyFamilyIncome),
+        field("Professional Status", data.professionalStatus),
+        field("Serving Member Details", data.servingMemberDetails),
+        field("Shop Details", data.shopDetails),
+        field("Shop Income", data.shopIncome),
+        field("Total Family Members", data.totalFamilyMembers),
       ].join("");
 
       // -----------------------------------------------
@@ -399,30 +321,12 @@ app.post(
         }
 
         siblingsInfo += [
-          field(
-            `Sibling ${i} Name`,
-            data[`sibling${i}Name`]
-          ),
-          field(
-            `Sibling ${i} Gender`,
-            data[`sibling${i}Gender`]
-          ),
-          field(
-            `Sibling ${i} Class`,
-            data[`sibling${i}Class`]
-          ),
-          field(
-            `Sibling ${i} Course`,
-            data[`sibling${i}Course`]
-          ),
-          field(
-            `Sibling ${i} Semester`,
-            data[`sibling${i}Semester`]
-          ),
-          field(
-            `Sibling ${i} Institute`,
-            data[`sibling${i}Institute`]
-          ),
+          field(`Sibling ${i} Name`, data[`sibling${i}Name`]),
+          field(`Sibling ${i} Gender`, data[`sibling${i}Gender`]),
+          field(`Sibling ${i} Class`, data[`sibling${i}Class`]),
+          field(`Sibling ${i} Course`, data[`sibling${i}Course`]),
+          field(`Sibling ${i} Semester`, data[`sibling${i}Semester`]),
+          field(`Sibling ${i} Institute`, data[`sibling${i}Institute`]),
           field(
             `Sibling ${i} Institution Type`,
             data[`sibling${i}InstitutionType`]
@@ -440,22 +344,13 @@ app.post(
       );
 
       // -----------------------------------------------
-      // SUPPORT
+      // OTHER FINANCIAL SUPPORT
       // -----------------------------------------------
 
       const supportInfo = [
-        field(
-          "Supporting Person",
-          data.supportingPerson
-        ),
-        field(
-          "Beneficiary Organization",
-          data.beneficiaryOrganization
-        ),
-        field(
-          "Existing Scholarship",
-          data.existingScholarship
-        ),
+        field("Supporting Person", data.supportingPerson),
+        field("Beneficiary Organization", data.beneficiaryOrganization),
+        field("Existing Scholarship", data.existingScholarship),
       ].join("");
 
       // -----------------------------------------------
@@ -463,39 +358,15 @@ app.post(
       // -----------------------------------------------
 
       const referencesInfo = [
-        field(
-          "Reference 1 Name",
-          data.reference1Name
-        ),
-        field(
-          "Reference 1 Profession",
-          data.reference1Profession
-        ),
-        field(
-          "Reference 1 CNIC",
-          data.reference1Cnic
-        ),
-        field(
-          "Reference 1 Cell",
-          data.reference1Cell
-        ),
+        field("Reference 1 Name", data.reference1Name),
+        field("Reference 1 Profession", data.reference1Profession),
+        field("Reference 1 CNIC", data.reference1Cnic),
+        field("Reference 1 Cell", data.reference1Cell),
 
-        field(
-          "Reference 2 Name",
-          data.reference2Name
-        ),
-        field(
-          "Reference 2 Profession",
-          data.reference2Profession
-        ),
-        field(
-          "Reference 2 CNIC",
-          data.reference2Cnic
-        ),
-        field(
-          "Reference 2 Cell",
-          data.reference2Cell
-        ),
+        field("Reference 2 Name", data.reference2Name),
+        field("Reference 2 Profession", data.reference2Profession),
+        field("Reference 2 CNIC", data.reference2Cnic),
+        field("Reference 2 Cell", data.reference2Cell),
       ].join("");
 
       // -----------------------------------------------
@@ -503,38 +374,14 @@ app.post(
       // -----------------------------------------------
 
       const certificationInfo = [
-        field(
-          "Student Signature",
-          data.studentSignature
-        ),
-        field(
-          "Guardian Signature",
-          data.guardianSignature
-        ),
-        field(
-          "Certification Date",
-          data.certificationDate
-        ),
-        field(
-          "Head Institution",
-          data.headInstitutionName
-        ),
-        field(
-          "Designation",
-          data.headInstitutionDesignation
-        ),
-        field(
-          "Institution Signature",
-          data.headInstitutionSignature
-        ),
-        field(
-          "Institution Date",
-          data.headInstitutionDate
-        ),
-        field(
-          "Institution Stamp",
-          data.headInstitutionStamp
-        ),
+        field("Student Signature", data.studentSignature),
+        field("Guardian Signature", data.guardianSignature),
+        field("Certification Date", data.certificationDate),
+        field("Head Institution", data.headInstitutionName),
+        field("Designation", data.headInstitutionDesignation),
+        field("Institution Signature", data.headInstitutionSignature),
+        field("Institution Date", data.headInstitutionDate),
+        field("Institution Stamp", data.headInstitutionStamp),
       ].join("");
 
       // -----------------------------------------------
@@ -543,29 +390,22 @@ app.post(
 
       const documentRows = [];
 
-      Object.entries(files).forEach(
-        ([fieldName, fileList]) => {
-          if (!Array.isArray(fileList)) return;
+      Object.entries(files).forEach(([fieldName, fileList]) => {
+        if (!Array.isArray(fileList)) return;
 
-          fileList.forEach((file) => {
-            documentRows.push(
-              field(
-                fieldName,
-                `${file.originalname} (${Math.round(
-                  file.size / 1024
-                )} KB)`
-              )
-            );
-          });
-        }
-      );
+        fileList.forEach((file) => {
+          documentRows.push(
+            field(
+              fieldName,
+              `${file.originalname} (${Math.round(file.size / 1024)} KB)`
+            )
+          );
+        });
+      });
 
       if (documentRows.length === 0) {
         documentRows.push(
-          field(
-            "Documents",
-            "No documents uploaded"
-          )
+          field("Documents", "No documents uploaded")
         );
       }
 
@@ -577,22 +417,19 @@ app.post(
         `AFSS-${new Date().getFullYear()}-` +
         `${Date.now().toString().slice(-8)}`;
 
-      const submittedAt =
-        new Date().toLocaleString("en-PK", {
-          timeZone: "Asia/Karachi",
-          dateStyle: "full",
-          timeStyle: "medium",
-        });
+      const submittedAt = new Date().toLocaleString("en-PK", {
+        timeZone: "Asia/Karachi",
+        dateStyle: "full",
+        timeStyle: "medium",
+      });
 
       // =================================================
-      // EMAIL
+      // APPLICATION EMAIL
       // =================================================
 
       const emailHtml = `
 <!DOCTYPE html>
-
 <html>
-
 <head>
 <meta charset="UTF-8">
 <title>Alfalah Scholarship Application</title>
@@ -606,7 +443,6 @@ font-family:Arial,Helvetica,sans-serif;
 ">
 
 <table width="100%" cellpadding="0" cellspacing="0">
-
 <tr>
 <td align="center">
 
@@ -625,7 +461,6 @@ box-shadow:0 12px 40px rgba(16,24,40,.12);
 >
 
 <tr>
-
 <td style="
 background:#07131c;
 padding:30px 32px;
@@ -637,9 +472,7 @@ font-size:12px;
 font-weight:700;
 letter-spacing:2px;
 ">
-
 ALFALAH SCHOLARSHIP SCHEME PAKISTAN
-
 </div>
 
 <div style="
@@ -648,9 +481,7 @@ font-size:25px;
 font-weight:700;
 margin-top:10px;
 ">
-
 Academic Scholarship Application
-
 </div>
 
 <div style="
@@ -658,17 +489,13 @@ color:#b8c4d1;
 font-size:14px;
 margin-top:8px;
 ">
-
 Session 2026–27
-
 </div>
 
 </td>
-
 </tr>
 
 <tr>
-
 <td style="padding:30px 32px;">
 
 <div style="
@@ -683,9 +510,7 @@ font-size:11px;
 color:#667085;
 letter-spacing:1px;
 ">
-
 APPLICATION NUMBER
-
 </div>
 
 <div style="
@@ -694,9 +519,7 @@ font-weight:700;
 color:#1677ff;
 margin-top:6px;
 ">
-
 ${escapeHtml(applicationNumber)}
-
 </div>
 
 <div style="
@@ -704,57 +527,20 @@ font-size:12px;
 color:#667085;
 margin-top:10px;
 ">
-
 Submitted: ${escapeHtml(submittedAt)}
-
 </div>
 
 </div>
 
-${section(
-  "01 — Applicant Personal Information",
-  personalInfo
-)}
-
-${section(
-  "02 — Education Information",
-  educationInfo
-)}
-
-${section(
-  "03 — Previous Education Record",
-  academicInfo
-)}
-
-${section(
-  "04 — Family & Financial Information",
-  familyInfo
-)}
-
-${section(
-  "05 — Siblings Information",
-  siblingsInfo
-)}
-
-${section(
-  "06 — Other Financial Support",
-  supportInfo
-)}
-
-${section(
-  "07 — References",
-  referencesInfo
-)}
-
-${section(
-  "08 — Student & Institution Certification",
-  certificationInfo
-)}
-
-${section(
-  "09 — Required Documents",
-  documentRows.join("")
-)}
+${section("01 — Applicant Personal Information", personalInfo)}
+${section("02 — Education Information", educationInfo)}
+${section("03 — Previous Education Record", academicInfo)}
+${section("04 — Family & Financial Information", familyInfo)}
+${section("05 — Siblings Information", siblingsInfo)}
+${section("06 — Other Financial Support", supportInfo)}
+${section("07 — References", referencesInfo)}
+${section("08 — Student & Institution Certification", certificationInfo)}
+${section("09 — Required Documents", documentRows.join(""))}
 
 <div style="
 margin-top:30px;
@@ -784,37 +570,25 @@ line-height:1.7;
 color:#667085;
 ">
 
-<strong>
-Alfalah Scholarship Scheme Pakistan
-</strong>
-
+<strong>Alfalah Scholarship Scheme Pakistan</strong>
 <br>
-
 Education Without Prejudice
-
 <br>
-
 info@alfalahss.org
-
 <br>
-
 0345-1414457
 
 </div>
 
 </td>
-
 </tr>
-
 </table>
 
 </td>
 </tr>
-
 </table>
 
 </body>
-
 </html>
 `;
 
@@ -824,40 +598,30 @@ info@alfalahss.org
 
       const attachments = [];
 
-      Object.values(files).forEach(
-        (fileList) => {
-          if (!Array.isArray(fileList)) return;
+      Object.values(files).forEach((fileList) => {
+        if (!Array.isArray(fileList)) return;
 
-          fileList.forEach((file) => {
-            attachments.push({
-              filename: file.originalname,
-              content: file.buffer,
-              contentType: file.mimetype,
-            });
+        fileList.forEach((file) => {
+          attachments.push({
+            filename: file.originalname,
+            content: file.buffer,
+            contentType: file.mimetype,
           });
-        }
-      );
+        });
+      });
 
       // =================================================
-      // SEND TO ALFALAH
+      // SEND APPLICATION TO ALFALAH
       // =================================================
 
       await transporter.sendMail({
-        from:
-          process.env.SMTP_FROM ||
-          process.env.SMTP_USER,
-
+        from: process.env.SMTP_FROM || process.env.SMTP_USER,
         to: "info@alfalahss.org",
-
         replyTo: data.email,
-
         subject:
           `New Scholarship Application — ` +
-          `${applicationNumber} — ` +
-          `${data.applicantName}`,
-
+          `${applicationNumber} — ${data.applicantName}`,
         html: emailHtml,
-
         attachments,
       });
 
@@ -866,17 +630,13 @@ info@alfalahss.org
       );
 
       // =================================================
-      // CONFIRMATION TO APPLICANT
+      // CONFIRMATION EMAIL TO APPLICANT
       // =================================================
 
       try {
         await transporter.sendMail({
-          from:
-            process.env.SMTP_FROM ||
-            process.env.SMTP_USER,
-
+          from: process.env.SMTP_FROM || process.env.SMTP_USER,
           to: data.email,
-
           subject:
             `Alfalah Scholarship Application Received — ` +
             `${applicationNumber}`,
@@ -978,29 +738,22 @@ info@alfalahss.org
           `,
         });
 
-        console.log(
-          "✅ Applicant confirmation email sent"
-        );
+        console.log("✅ Applicant confirmation email sent");
       } catch (confirmationError) {
         console.log(
           "⚠️ Applicant confirmation email failed:"
         );
 
-        console.log(
-          confirmationError.message
-        );
+        console.log(confirmationError.message);
       }
 
       // =================================================
-      // SUCCESS
+      // SUCCESS RESPONSE
       // =================================================
 
       return res.status(200).json({
         success: true,
-
-        message:
-          "Application submitted successfully.",
-
+        message: "Application submitted successfully.",
         applicationNumber,
       });
     } catch (error) {
@@ -1011,13 +764,30 @@ info@alfalahss.org
 
       return res.status(500).json({
         success: false,
-
-        message:
-          "Unable to submit the application right now.",
+        message: "Unable to submit the application right now.",
       });
     }
   }
 );
+
+// =====================================================
+// FRONTEND FALLBACK (React Router / Vite SPA)
+// =====================================================
+
+// Serve index.html for the homepage and client-side routes.
+// Keep unknown API routes separate from frontend routes.
+app.get("/{*splat}", (req, res, next) => {
+  if (req.path.startsWith("/api/")) {
+    return next();
+  }
+
+  res.sendFile(
+    path.join(__dirname, "dist", "index.html"),
+    (error) => {
+      if (error) next(error);
+    }
+  );
+});
 
 // =====================================================
 // ERROR HANDLER
