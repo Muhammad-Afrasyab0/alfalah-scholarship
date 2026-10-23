@@ -471,3 +471,10 @@
     animation: none !important;
   }
 }
+/* Header ke neeche sirf gap add karein */
+.message-section {
+  padding-top: 56px;
+}
+.message-section {
+  padding: 56px 0 32px;
+}
